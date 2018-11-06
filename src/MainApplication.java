@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent items = FXMLLoader.load(getClass().getResource("res/layouts/items-tile.fxml"));
+        Parent items = FXMLLoader.load(getClass().getResource("res/layouts/items-list.fxml"));
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(380);
         Scene scene = new Scene(items, 800, 600);

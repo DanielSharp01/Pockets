@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" prefWidth="800">
+    <styleClass>
+        <String fx:value="history"/>
+        <String fx:value="income"/>
+    </styleClass>
+    <BorderPane>
+        <left>
+            <HBox alignment="CENTER_LEFT" styleClass="spaced-box" BorderPane.alignment="CENTER_LEFT">
+                <children>
+                    <Pane maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" prefHeight="48.0" prefWidth="48.0" styleClass="item-image" />
+                    <Label styleClass="item-name" text="Can of coke" />
+                </children>
+            </HBox>
+        </left>
+        <right>
+            <Label style="-fx-padding: 0 12px 0 0" styleClass="item-money" text="1.50$" textAlignment="RIGHT"
+                   BorderPane.alignment="CENTER_RIGHT"/>
+        </right>
+    </BorderPane>
+    <Label styleClass="misc-label" style="-fx-padding: 0 0 12px 12px" text="2018. 11. 05. 11:24" />
+    <FlowPane alignment="BOTTOM_LEFT" styleClass="spaced-flow">
+        <children>
+            <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
+            <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
+            <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
+            <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
+            <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
+            <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
+            <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
+            <Label text=". . .">
+                <styleClass>
+                    <String fx:value="tag-label"/>
+                    <String fx:value="ellipse"/>
+                </styleClass>
+            </Label>
+        </children>
+    </FlowPane>
+</VBox>

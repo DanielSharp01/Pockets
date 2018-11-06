@@ -34,9 +34,8 @@
 
 .tag-label.ellipse
 {
-    -fx-border-color: #c9c9c9;
-    -fx-text-fill: #a9a9a9;
-    -fx-background-color: rgba(128, 128, 128, 0.1);
+    -fx-border-color: rgba(0,0,0,0.1);
+    -fx-text-fill: #2a2a2a;
 }
 
 .text-field
@@ -121,4 +120,21 @@
 {
     -fx-shape: " ";
     -fx-padding:0;
+}
+
+.list-view {
+    -fx-padding: 3px ;
+    -fx-background-color: transparent;
+}
+
+.list-cell {
+    -fx-padding: 2px ;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0px, 2px ;
+}
+
+.list-cell:empty {
+    -fx-padding: 2px ;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 ;
 }

@@ -14,6 +14,19 @@
     -fx-font-family: 'Roboto Bold';
 }
 
+.history
+{
+    -fx-background-color: derive(money-color, 75%);
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0.1, 1, 1);
+}
+
+.history:hover
+{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 4, 0.1, 1, 1);
+}
+
 .item-image
 {
     -fx-background-color: #ccc;
@@ -32,7 +45,7 @@
     -fx-text-fill: money-color;
 }
 
-.recurrence-label
+.misc-label
 {
     -fx-text-fill: #797979;
     -fx-font-family: 'Roboto Light Italic';
