@@ -1,0 +1,25 @@
+.card
+{
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.1, 1, 1);
+}
+
+.card:hover
+{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.1, 1, 1);
+}
+
+.card.selected
+{
+    -fx-border-color: #0093ff;
+    -fx-border-insets: -1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 147, 255, 0.8), 10, 0.1, 1, 1);
+}
+
+.tag
+{
+    -fx-padding: 5px 10px;
+    -fx-font-size: 20;
+    -fx-font-family: 'Roboto';
+}

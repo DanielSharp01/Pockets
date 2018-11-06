@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="150.0" prefWidth="320.0" style="-fx-background-color: #fefefe;" styleClass="item-card" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane prefHeight="80.0" prefWidth="323.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<BorderPane prefHeight="180.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #fefefe;">
+    <styleClass>
+        <String fx:value="card"/>
+        <String fx:value="income"/>
+    </styleClass>
+    <top>
+      <VBox styleClass="vertical-spaced-box">
          <children>
-            <HBox alignment="CENTER_LEFT" layoutX="4.0" layoutY="4.0" styleClass="spaced-box" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Pane styleClass="item-image" maxHeight="48.0" maxWidth="48.0" prefHeight="48.0" prefWidth="48.0" />
-                  <Label styleClass="item-name" prefHeight="30.0" text="Can of coke" />
-               </children>
-            </HBox>
-            <VBox alignment="CENTER_RIGHT" styleClass="spaced-box" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label styleClass="item-price" prefHeight="25.0" text="1.50$" textAlignment="RIGHT">
-                  </Label>
-               </children>
-            </VBox>
+            <BorderPane>
+                <left>
+                    <HBox alignment="CENTER_LEFT" styleClass="spaced-box" BorderPane.alignment="CENTER_LEFT">
+                       <children>
+                          <Pane maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" prefHeight="48.0" prefWidth="48.0" styleClass="item-image" />
+                          <Label styleClass="item-name" text="Can of coke" />
+                       </children>
+                    </HBox>
+                </left>
+                <right>
+                    <Label style="-fx-padding: 0 12px 0 0" styleClass="item-money" text="1.50$" textAlignment="RIGHT" BorderPane.alignment="CENTER_RIGHT">
+              </Label>
+                </right>
+            </BorderPane>
+              <Label style="-fx-padding: 0 0 0 8px" styleClass="recurrence-label" text="Recurring every 2 weeks" />
          </children>
-      </AnchorPane>
-      <HBox alignment="BOTTOM_LEFT" layoutY="66.0" styleClass="spaced-box">
-         <children>
-            <Label styleClass="recurrence-label" text="Recurring every 2 weeks" />
-         </children>
-      </HBox>
-      <HBox alignment="BOTTOM_LEFT" prefHeight="35.0" prefWidth="323.0" styleClass="spaced-box" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Label style="-fx-background-color: #FF8F00;" text="Drink">
-               <styleClass>
-                  <String fx:value="tag-label" />
-                  <String fx:value="orange" />
-               </styleClass>
-            </Label>
-            <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
-            <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-   </children>
-</AnchorPane>
+      </VBox>
+    </top>
+    <bottom>
+       <FlowPane alignment="BOTTOM_LEFT" styleClass="spaced-flow">
+           <children>
+               <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
+               <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
+               <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
+               <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
+               <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
+               <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
+               <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
+               <Label text=". . .">
+                   <styleClass>
+                       <String fx:value="tag-label"/>
+                       <String fx:value="ellipse"/>
+                   </styleClass>
+               </Label>
+           </children>
+       </FlowPane>
+   </bottom>
+</BorderPane>

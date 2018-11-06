@@ -1,7 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
@@ -12,15 +11,15 @@ public class ItemsTileController {
     private TilePane itemContents;
 
     @FXML
-    private VBox items;
+    private Pane items;
 
-    private AnchorPane selectedPane = null;
+    private Pane selectedPane = null;
 
     @FXML
     public void initialize()
     {
         for (int i = 0; i < 50; i++) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("res/layouts/item.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("res/layouts/tag.fxml"));
 
             items.setOnMouseClicked(e ->
             {
@@ -31,7 +30,7 @@ public class ItemsTileController {
             });
 
             try {
-                AnchorPane pane = loader.load();
+                Pane pane = loader.load();
                 pane.setOnMouseClicked(e -> {
                     if (selectedPane != null)
                     {

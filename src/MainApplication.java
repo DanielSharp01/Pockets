@@ -13,6 +13,7 @@ public class MainApplication extends Application {
         Scene scene = new Scene(items, 800, 600);
         scene.getStylesheets().add(getClass().getResource("res/Roboto/Roboto.css").toExternalForm());
         scene.getStylesheets().add(getClass().getResource("res/styles/general.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("res/styles/card.css").toExternalForm());
         scene.getStylesheets().add(getClass().getResource("res/styles/items.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();

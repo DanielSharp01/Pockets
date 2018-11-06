@@ -1,13 +1,17 @@
+.expense
+{
+    money-color: #D50000;
+}
+
+.income
+{
+    money-color: #00D500;
+}
+
 .item-name
 {
     -fx-font-size: 20;
     -fx-font-family: 'Roboto Bold';
-}
-
-.item-price
-{
-    -fx-font-size: 24;
-    -fx-text-fill: #D50000;
 }
 
 .item-image
@@ -22,17 +26,10 @@
     -fx-border-width: 1px;
 }
 
-.item-card
+.item-money
 {
-    -fx-border-radius: 4px;
-    -fx-background-radius: 4px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.1, 1, 1);
-}
-
-.item-card.selected
-{
-    -fx-border-color: #039ed3;
-    -fx-effect: dropshadow(gaussian, rgba(3, 158, 211, 0.8), 10, 0.1, 1, 1);
+    -fx-font-size: 24;
+    -fx-text-fill: money-color;
 }
 
 .recurrence-label
