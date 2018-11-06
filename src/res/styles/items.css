@@ -1,0 +1,42 @@
+.item-name
+{
+    -fx-font-size: 20;
+    -fx-font-family: 'Roboto Bold';
+}
+
+.item-price
+{
+    -fx-font-size: 24;
+    -fx-text-fill: #D50000;
+}
+
+.item-image
+{
+    -fx-background-color: #ccc;
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-color: black;
+    -fx-border-radius: 24px;
+    -fx-background-radius: 24px;
+    -fx-border-width: 1px;
+}
+
+.item-card
+{
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.1, 1, 1);
+}
+
+.item-card.selected
+{
+    -fx-border-color: #039ed3;
+    -fx-effect: dropshadow(gaussian, rgba(3, 158, 211, 0.8), 10, 0.1, 1, 1);
+}
+
+.recurrence-label
+{
+    -fx-text-fill: #797979;
+    -fx-font-family: 'Roboto Light Italic';
+}
