@@ -8,14 +8,28 @@
     money-color: #00D500;
 }
 
-.item-name
+.card
+{
+    -fx-padding: 12px 8px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.1, 1, 1);
+    -fx-font-family: 'Roboto';
+}
+
+.tag .label
 {
     -fx-font-size: 20;
-    -fx-font-family: 'Roboto Bold';
+}
+
+.card:hover
+{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.1, 1, 1);
 }
 
 .history
 {
+    -fx-padding: 12px 8px;
     -fx-background-color: derive(money-color, 75%);
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
@@ -25,6 +39,12 @@
 .history:hover
 {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 4, 0.1, 1, 1);
+}
+
+.item-name
+{
+    -fx-font-size: 20;
+    -fx-font-family: 'Roboto Bold';
 }
 
 .item-image
@@ -42,6 +62,7 @@
 .item-money
 {
     -fx-font-size: 24;
+    -fx-font-name: 'Roboto Bold';
     -fx-text-fill: money-color;
 }
 

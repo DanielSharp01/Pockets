@@ -15,7 +15,7 @@ public class ItemsTileController {
     public void initialize()
     {
         for (int i = 0; i < 50; i++) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("res/layouts/history-item.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../res/layouts/item.fxml"));
             try {
                 Pane pane = loader.load();
                 itemContents.getChildren().add(pane);

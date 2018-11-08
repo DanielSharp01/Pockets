@@ -6,8 +6,8 @@ import java.net.URL;
 
 /**
  * Abstract Item class which has the properties of both Expenses and Income sources
- * @see ExpenseItem
- * @see IncomeItem
+ * /@see ExpenseItem
+ * /@see IncomeItem
  */
 public abstract class Item {
 
