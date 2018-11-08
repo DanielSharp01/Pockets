@@ -1,23 +1,23 @@
 package app;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utils.DI;
 
 public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent items = FXMLLoader.load(getClass().getResource("../res/layouts/items-tile.fxml"));
+        Parent items = DI.layouts.getFXMLLoader("items-list.fxml").load();
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(380);
         Scene scene = new Scene(items, 800, 600);
-        scene.getStylesheets().add(getClass().getResource("../res/Roboto/Roboto.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("../res/styles/general.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("../res/styles/list.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("../res/styles/scroll-pane.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("../res/styles/items.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("Roboto.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("general.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("list.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("scroll-pane.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("items.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }

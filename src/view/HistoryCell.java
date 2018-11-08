@@ -1,19 +1,21 @@
 package view;
 
 import javafx.scene.control.ListCell;
-import model.items.HistoryItem;
+import model.HistoryEntry;
+import utils.DI;
+import utils.FXMLInflater;
 
-public class HistoryCell extends ListCell<HistoryItem> {
+public class HistoryCell extends ListCell<HistoryEntry> {
 
     private static FXMLInflater inflater;
 
     static
     {
-        inflater = new FXMLInflater(HistoryCell.class.getResource("../res/layouts/history-item.fxml"));
+        inflater = DI.layouts.getFXMLInflater("history-item.fxml");
     }
 
     @Override
-    protected void updateItem(HistoryItem item, boolean empty) {
+    protected void updateItem(HistoryEntry item, boolean empty) {
         super.updateItem(item, empty);
 
         if (empty || item == null)
@@ -22,7 +24,7 @@ public class HistoryCell extends ListCell<HistoryItem> {
         }
         else
         {
-            setGraphic(inflater.Inflate());
+            setGraphic(inflater.inflate());
             prefWidth(USE_PREF_SIZE);
         }
     }

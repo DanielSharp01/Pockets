@@ -1,16 +1,15 @@
-package model.items;
-
-import model.recurrences.Recurrence;
+package model;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Abstract Item class which has the properties of both Expenses and Income sources
- * /@see ExpenseItem
- * /@see IncomeItem
+ * @see ExpenseItem
+ * @see IncomeItem
  */
-public abstract class Item {
-
+public abstract class Item extends Entity {
     /**
      * Name of the item
      */
@@ -27,16 +26,25 @@ public abstract class Item {
     private int color;
 
     /**
-     * Tell if and when this item will recur (null means no recurrences)
+     * Tell if and when this item will recur
      */
     private Recurrence recurrence;
 
+    /**
+     * The list of the Tags
+     */
+    private List<Tag> tags = new ArrayList<Tag>();
 
-    protected Item(String name, URL imageResource, int color, Recurrence recurrence) {
-        this.name = name;
-        this.imageResource = imageResource;
-        this.color = color;
-        this.recurrence = recurrence;
+    /**
+     * Price or income amount depending on type of this item
+     */
+    private Money money;
+
+    /**
+     * @param id Integer key
+     */
+    public Item(int id) {
+        super(id);
     }
 
     /**
@@ -82,16 +90,30 @@ public abstract class Item {
     }
 
     /**
-     * @return Tell if and when this item will recur (null means no recurrences)
+     * @return Tell if and when this item will recur (get added to the history again)
      */
     public Recurrence getRecurrence() {
         return recurrence;
     }
 
     /**
-     * @param recurrence Tell if and when this item will recur (null means no recurrences)
+     * NOTE: null will get converted to {@link NullRecurrence}
+     * @param recurrence Tell if and when this item will recur  (get added to the history again)
      */
     public void setRecurrence(Recurrence recurrence) {
+        if (recurrence == null) recurrence = new NullRecurrence();
         this.recurrence = recurrence;
+    }
+
+    /**
+     * @return The list of the Tags
+     */
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }
