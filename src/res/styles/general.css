@@ -15,6 +15,11 @@
     -fx-spacing: 8;
 }
 
+.label
+{
+    -fx-text-fill: #101010;
+}
+
 .spaced-flow
 {
     -fx-padding: 12;
@@ -35,7 +40,7 @@
 .tag-label.ellipse
 {
     -fx-border-color: rgba(0,0,0,0.1);
-    -fx-text-fill: #2a2a2a;
+    -fx-text-fill: rgba(0,0,0,0.4);
 }
 
 .text-field
