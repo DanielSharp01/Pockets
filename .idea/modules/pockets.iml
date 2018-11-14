@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="pockets" external.linked.project.path="$MODULE_DIR$/../../pockets" external.root.project.path="$MODULE_DIR$/../../pockets" external.system.id="GRADLE" external.system.module.group="com.sharp.pockets" external.system.module.version="0.1" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../pockets">
+      <excludeFolder url="file://$MODULE_DIR$/../../pockets/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../pockets/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../pockets/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -6,50 +6,78 @@ import java.time.LocalDateTime;
  * History entry of an item with a date
  */
 public class HistoryEntry extends Entity {
-    /**
-     * Item of this HistoryEntry
-     */
-    private Item item;
+
+    public enum Type
+    {
+        Expense,
+        Income
+    }
 
     /**
-     * Date of this HistoryEntry
+     * Id of the item
+     */
+    private int itemId;
+
+    /**
+     * Type of the item
+     */
+    private Type itemType;
+
+    /**
+     * Date when this entry was added
      */
     private LocalDateTime date;
 
     /**
      * @param id Integer key
-     * @param item Item of this HistoryEntry
-     * @param date Date of this HistoryEntry
+     * @param itemId Id of the item
+     * @param itemType Type of the item
+     * @param date Date when this entry was added
      */
-    public HistoryEntry(int id, Item item, LocalDateTime date) {
+    public HistoryEntry(int id, int itemId, Type itemType, LocalDateTime date) {
         super(id);
-        this.item = item;
+        this.itemId = itemId;
+        this.itemType = itemType;
         this.date = date;
     }
 
     /**
-     * @return Item of this HistoryEntry
+     * @return Id of the item
      */
-    public Item getItem() {
-        return item;
+    public int getItemId() {
+        return itemId;
     }
 
     /**
-     * @param item Item of this HistoryEntry
+     * @param itemId Id of the item
      */
-    public void setItem(Item item) {
-        this.item = item;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     /**
-     * @return Date of this HistoryEntry
+     * @return Type of the item
+     */
+    public Type getItemType() {
+        return itemType;
+    }
+
+    /**
+     * @param itemType Type of the item
+     */
+    public void setItemType(Type itemType) {
+        this.itemType = itemType;
+    }
+
+    /**
+     * @return Date when this entry was added
      */
     public LocalDateTime getDate() {
         return date;
     }
 
     /**
-     * @param date Date of this HistoryEntry
+     * @param date Date when this entry was added
      */
     public void setDate(LocalDateTime date) {
         this.date = date;

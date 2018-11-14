@@ -16,7 +16,7 @@ public class ItemsListController {
         itemContents.setCellFactory((Callback<ListView<HistoryEntry>, HistoryCell>) listView -> new HistoryCell());
 
         for (int i = 0; i < 50; i++) {
-            itemContents.getItems().add(new HistoryEntry(null, null));
+            itemContents.getItems().add(new HistoryEntry(0, 1, HistoryEntry.Type.Expense, null));
         }
     }
 }

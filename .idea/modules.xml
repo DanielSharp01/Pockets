@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pockets.iml" filepath="$PROJECT_DIR$/Pockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pockets.iml" filepath="$PROJECT_DIR$/.idea/modules/pockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pockets_main.iml" filepath="$PROJECT_DIR$/.idea/modules/pockets_main.iml" group="pockets" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pockets_test.iml" filepath="$PROJECT_DIR$/.idea/modules/pockets_test.iml" group="pockets" />
     </modules>
   </component>
 </project>

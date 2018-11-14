@@ -21,7 +21,7 @@ public abstract class Item extends Entity {
     private URL imageResource;
 
     /**
-     * Background color of image circle as 4 byte integer
+     * Background color of image circle as 4 byte integer RGBUnused
      */
     private int color;
 
@@ -31,9 +31,9 @@ public abstract class Item extends Entity {
     private Recurrence recurrence;
 
     /**
-     * The list of the Tags
+     * The list of the Tag ids
      */
-    private List<Tag> tags = new ArrayList<Tag>();
+    private List<Integer> tagIds = new ArrayList<>();
 
     /**
      * Price or income amount depending on type of this item
@@ -76,14 +76,14 @@ public abstract class Item extends Entity {
     }
 
     /**
-     * @return Background color of image circle as 4 byte integer
+     * @return Background color of image circle as 4 byte integer RGBUnused
      */
     public int getColor() {
         return color;
     }
 
     /**
-     * @param color Background color of image circle as 4 byte integer
+     * @param color Background color of image circle as 4 byte integer RGBUnused
      */
     public void setColor(int color) {
         this.color = color;
@@ -106,10 +106,24 @@ public abstract class Item extends Entity {
     }
 
     /**
-     * @return The list of the Tags
+     * @return Price or income amount depending on type of this item
      */
-    public List<Tag> getTags() {
-        return tags;
+    public Money getMoney() {
+        return money;
+    }
+
+    /**
+     * @param money Price or income amount depending on type of this item
+     */
+    public void setMoney(Money money) {
+        this.money = money;
+    }
+
+    /**
+     * @return The list of the Tag ids
+     */
+    public List<Integer> getTagIds() {
+        return tagIds;
     }
 
     @Override
