@@ -17,7 +17,7 @@ public class RepositoryTest {
     @Test
     public void testJsonRepositorySerialization()
     {
-        ExpenseRepository repository = new ExpenseRepository();
+        ExpenseRepository repository = new ExpenseRepository(null);
         ExpenseItem item = new ExpenseItem(1);
         item.setName("Coke 0.33ml");
         item.setMoney(new Money("USD", new BigDecimal("0.5")));
@@ -27,7 +27,7 @@ public class RepositoryTest {
         repository.add(item);
         String json = repository.serialize();
         System.out.println(json);
-        ExpenseRepository repository2 = new ExpenseRepository();
+        ExpenseRepository repository2 = new ExpenseRepository(null);
         repository2.deserialize(json);
         ExpenseItem item1;
         assertNotNull(item1 = repository.findById(1));
@@ -46,7 +46,7 @@ public class RepositoryTest {
     @Test
     public void testRecurrenceSerialization()
     {
-        ExpenseRepository repository = new ExpenseRepository();
+        ExpenseRepository repository = new ExpenseRepository(null);
         ExpenseItem item = new ExpenseItem(1);
         item.setName("Coke 0.33ml");
         item.setRecurrence(new MonthlyRecurrence(LocalDateTime.of(2018, 11, 5, 8, 0, 0), 2));
@@ -54,7 +54,7 @@ public class RepositoryTest {
         repository.add(item);
         String json = repository.serialize();
         System.out.println(json);
-        ExpenseRepository repository2 = new ExpenseRepository();
+        ExpenseRepository repository2 = new ExpenseRepository(null);
         repository2.deserialize(json);
         ExpenseItem item2;
         assertNotNull(item2 = repository2.findById(1));
@@ -66,12 +66,12 @@ public class RepositoryTest {
     @Test
     public void testHistoryEntrySerialization()
     {
-        HistoryRepository repository = new HistoryRepository();
+        HistoryRepository repository = new HistoryRepository(null);
         HistoryEntry entry = new HistoryEntry(1, 1, HistoryEntry.Type.Expense, LocalDateTime.of(2018, 11, 5, 8, 0, 0));
         repository.add(entry);
         String json = repository.serialize();
         System.out.println(json);
-        HistoryRepository repository2 = new HistoryRepository();
+        HistoryRepository repository2 = new HistoryRepository(null);
         repository2.deserialize(json);
         HistoryEntry entry2;
         assertNotNull(entry2 = repository2.findById(1));
@@ -83,7 +83,7 @@ public class RepositoryTest {
     @Test
     public void testTagsSerialization()
     {
-        IncomeRepository repository = new IncomeRepository();
+        IncomeRepository repository = new IncomeRepository(null);
         IncomeItem item = new IncomeItem(1);
         item.setName("Coke 0.33ml");
         item.setMoney(new Money("USD", new BigDecimal("0.5")));
@@ -95,7 +95,7 @@ public class RepositoryTest {
         repository.add(item);
         String json = repository.serialize();
         System.out.println(json);
-        IncomeRepository repository2 = new IncomeRepository();
+        IncomeRepository repository2 = new IncomeRepository(null);
         repository2.deserialize(json);
         IncomeItem item1;
         assertNotNull(item1 = repository.findById(1));
@@ -109,7 +109,7 @@ public class RepositoryTest {
     @Test
     public void testByTagRepository()
     {
-        IncomeRepository repository = new IncomeRepository();
+        IncomeRepository repository = new IncomeRepository(null);
         IncomeItem item = new IncomeItem(1);
         item.getTagIds().add(1);
         item.getTagIds().add(2);
@@ -130,7 +130,7 @@ public class RepositoryTest {
     @Test
     public void testUpdate()
     {
-        TagRepository repository = new TagRepository();
+        TagRepository repository = new TagRepository(null);
         repository.add(new Tag(1));
         Tag tag = new Tag(1);
         tag.setName("Tag changed");
@@ -141,7 +141,7 @@ public class RepositoryTest {
     @Test
     public void testDelete()
     {
-        TagRepository repository = new TagRepository();
+        TagRepository repository = new TagRepository(null);
         repository.add(new Tag(1));
         repository.delete(1);
         assertNull(repository.findById(1));

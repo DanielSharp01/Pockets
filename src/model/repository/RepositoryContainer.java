@@ -18,7 +18,7 @@ public class RepositoryContainer {
     /**
      * Expense repository
      */
-    public final ExpenseRepository expenses = new ExpenseRepository();
+    public final ExpenseRepository expenses = new ExpenseRepository(this);
 
     /**
      * Incomes JSON file
@@ -28,7 +28,7 @@ public class RepositoryContainer {
     /**
      * Income repository
      */
-    public final IncomeRepository incomes = new IncomeRepository();
+    public final IncomeRepository incomes = new IncomeRepository(this);
 
     /**
      * Tags JSON file
@@ -38,7 +38,7 @@ public class RepositoryContainer {
     /**
      * Tag repository
      */
-    public final TagRepository tags = new TagRepository();
+    public final TagRepository tags = new TagRepository(this);
 
     /**
      * History JSON file
@@ -48,7 +48,7 @@ public class RepositoryContainer {
     /**
      * History repository
      */
-    public final HistoryRepository history = new HistoryRepository();
+    public final HistoryRepository history = new HistoryRepository(this);
 
     /**
      * Saves repository contents into JSON files

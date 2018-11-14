@@ -9,12 +9,28 @@ import java.util.*;
 
 public abstract class EntityRepository<T extends Entity>
 {
+    /**
+     * Parent repository container, used by repositories accessing other repositories
+     */
+    protected RepositoryContainer container;
+
+    /**
+     * Map of id -> Entity
+     */
     protected Map<Integer, T> entities = new HashMap<>();
 
     /**
+     * @param container Parent repository container, used by repositories accessing other repositories
+     */
+    public EntityRepository(RepositoryContainer container)
+    {
+        this.container = container;
+    }
+
+    /**
      * Add to the repository (something that did not exist in it before)
-     * @param entity Item to add
-     * @return True on success, false if item already exists
+     * @param entity Entity to add
+     * @return True on success, false if Entity already exists
      */
     public boolean add(T entity) {
         if (entities.containsKey(entity.getId()))
@@ -25,10 +41,10 @@ public abstract class EntityRepository<T extends Entity>
     }
 
     /**
-     * Update an existing item in the repository, finds by id and then updates to match the object specified
+     * Update an existing Entity in the repository, finds by id and then updates to match the object specified
      * NOTE: To update IDs you have to first delete and then add back
-     * @param entity Item to update
-     * @return True on success, false if item already exists
+     * @param entity Entity to update
+     * @return True on success, false if Entity already exists
      */
     public boolean update(T entity) {
         if (!entities.containsKey(entity.getId()))
@@ -39,9 +55,9 @@ public abstract class EntityRepository<T extends Entity>
     }
 
     /**
-     * Deletes an existing item from the repository, finds by id and then deletes
-     * @param entity Item to delete
-     * @return True on success, false if item already exists
+     * Deletes an existing Entity from the repository, finds by id and then deletes
+     * @param entity Entity to delete
+     * @return True on success, false if Entity already exists
      */
     public boolean delete(T entity) {
         if (!entities.containsKey(entity.getId()))
@@ -52,9 +68,9 @@ public abstract class EntityRepository<T extends Entity>
     }
 
     /**
-     * Deletes an existing item by id from the repository, finds by id and then deletes
-     * @param id Id of the item
-     * @return True on success, false if item already exists
+     * Deletes an existing Entity by id from the repository, finds by id and then deletes
+     * @param id Id of the Entity
+     * @return True on success, false if Entity already exists
      */
     public boolean delete(int id) {
         if (!entities.containsKey(id))

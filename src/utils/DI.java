@@ -3,6 +3,7 @@ package utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import model.Recurrence;
+import model.repository.RepositoryContainer;
 import model.serializers.LocalDateTimeAdapter;
 import model.serializers.RecurrenceAdapter;
 
@@ -37,4 +38,6 @@ public final class DI {
                 .setPrettyPrinting()
                 .setDateFormat("yyyy-mm-dd hh:mm:ss").create();
     }
+
+    public static final RepositoryContainer repositories = new RepositoryContainer();
 }

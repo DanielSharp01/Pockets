@@ -15,6 +15,13 @@ import java.util.List;
 public class ExpenseRepository extends EntityRepository<ExpenseItem> {
 
     /**
+     * @param container Parent repository container, used by repositories accessing other repositories
+     */
+    public ExpenseRepository(RepositoryContainer container) {
+        super(container);
+    }
+
+    /**
      * Filters items by a search term
      * @param searchTerm Search term consisting of words that need to be found in the item's name
      * @return Matching list of items

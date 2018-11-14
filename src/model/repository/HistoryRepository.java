@@ -1,8 +1,10 @@
 package model.repository;
 
 import model.HistoryEntry;
+import model.Item;
 import model.Tag;
 import utils.DI;
+import utils.StringUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,6 +16,13 @@ import static java.time.temporal.ChronoUnit.DAYS;
  * Repository interface for {@link HistoryEntry}
  */
 public class HistoryRepository extends EntityRepository<HistoryEntry> {
+
+    /**
+     * @param container Parent repository container, used by repositories accessing other repositories
+     */
+    public HistoryRepository(RepositoryContainer container) {
+        super(container);
+    }
 
     /**
      * Selects entries of the specific day
@@ -39,8 +48,21 @@ public class HistoryRepository extends EntityRepository<HistoryEntry> {
      */
     public List<HistoryEntry> filterBySearch(String searchTerm)
     {
-        // TODO: Implement
-        return new ArrayList<>();
+        List<HistoryEntry> filtered = new ArrayList<>();
+        String[] words = searchTerm.split(" ");
+        for (HistoryEntry entity : entities.values())
+        {
+            Item item;
+            if (entity.getItemType() == HistoryEntry.Type.Expense)
+                item = container.expenses.findById(entity.getItemId());
+            else
+                item = container.incomes.findById(entity.getItemId());
+
+            if (item != null && StringUtils.containsAll(item.getName(), words))
+                filtered.add(entity);
+        }
+
+        return filtered;
     }
 
     @Override
