@@ -4,8 +4,9 @@ import model.Entity;
 import utils.DI;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-public abstract class EntityRepository<T extends Entity>
+public abstract class EntityRepository<T extends Entity> implements Iterable<T>
 {
     /**
      * Parent repository container, used by repositories accessing other repositories
@@ -102,4 +103,10 @@ public abstract class EntityRepository<T extends Entity>
      * @param json A JSON array string
      */
     public abstract void deserialize(String json);
+
+    @Override
+    public Iterator<T> iterator()
+    {
+        return entities.values().iterator();
+    }
 }

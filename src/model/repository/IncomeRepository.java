@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.IncomeItem;
+import model.IncomeSource;
 import model.filters.SatisfyFilter;
 import utils.DI;
 
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Repository interface for {@link IncomeItem}
+ * Repository interface for {@link IncomeSource}
  */
-public class IncomeRepository extends EntityRepository<IncomeItem> {
+public class IncomeRepository extends EntityRepository<IncomeSource> {
 
     /**
      * @param container Parent repository container, used by repositories accessing other repositories
@@ -24,10 +24,10 @@ public class IncomeRepository extends EntityRepository<IncomeItem> {
      * @param searchTerm Search term consisting of words that need to be found in the item's name
      * @return Matching list of items
      */
-    public List<IncomeItem> filterBySearch(String searchTerm)
+    public List<IncomeSource> filterBySearch(String searchTerm)
     {
         SatisfyFilter filter = new SatisfyFilter(searchTerm);
-        return (List<IncomeItem>) filter.filter(entities.values());
+        return (List<IncomeSource>) filter.filter(entities.values());
     }
 
     /**
@@ -35,10 +35,10 @@ public class IncomeRepository extends EntityRepository<IncomeItem> {
      * @param tagId Tag's id to get tagged items of
      * @return Matching list of items
      */
-    public List<IncomeItem> withTag(int tagId)
+    public List<IncomeSource> withTag(int tagId)
     {
-        List<IncomeItem> list = new ArrayList<>();
-        for (IncomeItem item : entities.values())
+        List<IncomeSource> list = new ArrayList<>();
+        for (IncomeSource item : entities.values())
         {
             if (item.getTagIds().contains(tagId))
                 list.add(item);
@@ -50,7 +50,7 @@ public class IncomeRepository extends EntityRepository<IncomeItem> {
     @Override
     public void deserialize(String json)
     {
-        for (IncomeItem entity : DI.gson.fromJson(json, IncomeItem[].class))
+        for (IncomeSource entity : DI.gson.fromJson(json, IncomeSource[].class))
         {
             entities.put(entity.getId(), entity);
         }

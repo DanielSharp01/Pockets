@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Abstract Item class which has the properties of both Expenses and Income sources
  * @see ExpenseItem
- * @see IncomeItem
+ * @see IncomeSource
  */
 public abstract class Item extends Entity implements IFilterable {
     /**
