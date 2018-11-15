@@ -1,9 +1,8 @@
 package model.repository;
 
 import model.IncomeItem;
-import model.Tag;
+import model.filters.SatisfyFilter;
 import utils.DI;
-import utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +26,8 @@ public class IncomeRepository extends EntityRepository<IncomeItem> {
      */
     public List<IncomeItem> filterBySearch(String searchTerm)
     {
-        List<IncomeItem> filtered = new ArrayList<>();
-        String[] words = searchTerm.split(" ");
-        for (IncomeItem entity : entities.values())
-        {
-            if (StringUtils.containsAll(entity.getName(), words))
-                filtered.add(entity);
-        }
-
-        return filtered;
+        SatisfyFilter filter = new SatisfyFilter(searchTerm);
+        return (List<IncomeItem>) filter.filter(entities.values());
     }
 
     /**

@@ -1,15 +1,17 @@
 package model;
 
+import model.filters.IFilterable;
+import utils.DI;
+
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Abstract Item class which has the properties of both Expenses and Income sources
  * @see ExpenseItem
  * @see IncomeItem
  */
-public abstract class Item extends Entity {
+public abstract class Item extends Entity implements IFilterable {
     /**
      * Name of the item
      */
@@ -129,5 +131,22 @@ public abstract class Item extends Entity {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    @Override
+    public Collection<String> getWords()
+    {
+        Set<String> words = new HashSet<>();
+        Collections.addAll(words, name.split(" "));
+        for (int tagId : tagIds)
+        {
+            Tag tag = DI.getRepositories().tags.findById(tagId);
+            if (tag != null)
+            {
+                words.addAll(tag.getWords());
+            }
+        }
+
+        return words;
     }
 }

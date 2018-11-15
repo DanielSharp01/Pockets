@@ -1,11 +1,9 @@
 package model.repository;
 
-import com.google.gson.reflect.TypeToken;
 import model.ExpenseItem;
-import model.Tag;
+import model.filters.SatisfyFilter;
 import utils.DI;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +26,8 @@ public class ExpenseRepository extends EntityRepository<ExpenseItem> {
      */
     public List<ExpenseItem> filterBySearch(String searchTerm)
     {
-        // TODO: Implement
-        return new ArrayList<>();
+        SatisfyFilter filter = new SatisfyFilter(searchTerm);
+        return (List<ExpenseItem>) filter.filter(entities.values());
     }
 
     /**

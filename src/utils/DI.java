@@ -39,5 +39,24 @@ public final class DI {
                 .setDateFormat("yyyy-mm-dd hh:mm:ss").create();
     }
 
-    public static final RepositoryContainer repositories = new RepositoryContainer();
+    private static final RepositoryContainer repositories = new RepositoryContainer();
+    private static RepositoryContainer testRepositories = new RepositoryContainer();
+
+    /**
+     * Swaps the repository container, used for unit testing
+     * @param testRepositories Repository container to use, if null it swaps back the default repository
+     */
+    public static void swapRepositories(RepositoryContainer testRepositories)
+    {
+        DI.testRepositories = testRepositories;
+    }
+
+    /**
+     * Gets the repository container
+     * @return Test repository container if swapped, default otherwise
+     */
+    public static RepositoryContainer getRepositories()
+    {
+        return testRepositories == null ? repositories : testRepositories;
+    }
 }

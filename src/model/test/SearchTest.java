@@ -46,6 +46,7 @@ public class SearchTest {
     @Test
     public void testHistorySearch() {
         RepositoryContainer container = new RepositoryContainer();
+        DI.swapRepositories(container);
         IncomeItem inc = new IncomeItem(1);
         inc.setName("Income item");
         container.incomes.add(inc);
@@ -73,5 +74,36 @@ public class SearchTest {
         assertFalse(searchResult.contains(container.history.findById(1)));
         assertFalse(searchResult.contains(container.history.findById(2)));
         assertFalse(searchResult.contains(container.history.findById(3)));
+    }
+
+    @Test
+    public void testBasicTagSearch() {
+        RepositoryContainer container = new RepositoryContainer();
+        DI.swapRepositories(container);
+
+        Tag tag = new Tag(1);
+        tag.setName("Food");
+        container.tags.add(tag);
+        tag = new Tag(2);
+        tag.setName("Drink");
+        container.tags.add(tag);
+
+        ExpenseItem item = new ExpenseItem(1);
+        item.setName("Pizza");
+        item.getTagIds().add(1);
+        container.expenses.add(item);
+        item = new ExpenseItem(2);
+        item.setName("Coke");
+        item.getTagIds().add(2);
+        container.expenses.add(item);
+
+        List<ExpenseItem> searchResult = container.expenses.filterBySearch("Food");
+        assertTrue(searchResult.contains(container.expenses.findById(1)));
+        assertFalse(searchResult.contains(container.expenses.findById(2)));
+
+        searchResult = container.expenses.filterBySearch("Drink");
+        assertFalse(searchResult.contains(container.expenses.findById(1)));
+        assertTrue(searchResult.contains(container.expenses.findById(2)));
+
     }
 }

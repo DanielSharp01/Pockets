@@ -1,11 +1,16 @@
 package model;
 
+import model.filters.IFilterable;
+import utils.DI;
+
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * History entry of an item with a date
  */
-public class HistoryEntry extends Entity {
+public class HistoryEntry extends Entity implements IFilterable {
 
     public enum Type
     {
@@ -24,7 +29,7 @@ public class HistoryEntry extends Entity {
     private Type itemType;
 
     /**
-     * Date when this entry was added
+     * DatePart when this entry was added
      */
     private LocalDateTime date;
 
@@ -32,7 +37,7 @@ public class HistoryEntry extends Entity {
      * @param id Integer key
      * @param itemId Id of the item
      * @param itemType Type of the item
-     * @param date Date when this entry was added
+     * @param date DatePart when this entry was added
      */
     public HistoryEntry(int id, int itemId, Type itemType, LocalDateTime date) {
         super(id);
@@ -70,16 +75,28 @@ public class HistoryEntry extends Entity {
     }
 
     /**
-     * @return Date when this entry was added
+     * @return DatePart when this entry was added
      */
     public LocalDateTime getDate() {
         return date;
     }
 
     /**
-     * @param date Date when this entry was added
+     * @param date DatePart when this entry was added
      */
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    @Override
+    public Collection<String> getWords() {
+        Item item = itemType == Type.Income
+                ? DI.getRepositories().incomes.findById(itemId)
+                : DI.getRepositories().expenses.findById(itemId);
+        if (item != null)
+        {
+            return item.getWords();
+        }
+        return new HashSet<>();
     }
 }

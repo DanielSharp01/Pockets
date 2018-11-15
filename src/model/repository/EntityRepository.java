@@ -1,12 +1,10 @@
 package model.repository;
 
-import com.google.gson.reflect.TypeToken;
 import model.Entity;
 import utils.DI;
 
-import java.lang.reflect.Type;
-import java.util.*;
-
+import java.util.HashMap;
+import java.util.Map;
 public abstract class EntityRepository<T extends Entity>
 {
     /**

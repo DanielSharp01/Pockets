@@ -1,10 +1,8 @@
 package model.repository;
 
 import model.HistoryEntry;
-import model.Item;
-import model.Tag;
+import model.filters.SatisfyFilter;
 import utils.DI;
-import utils.StringUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -48,21 +46,8 @@ public class HistoryRepository extends EntityRepository<HistoryEntry> {
      */
     public List<HistoryEntry> filterBySearch(String searchTerm)
     {
-        List<HistoryEntry> filtered = new ArrayList<>();
-        String[] words = searchTerm.split(" ");
-        for (HistoryEntry entity : entities.values())
-        {
-            Item item;
-            if (entity.getItemType() == HistoryEntry.Type.Expense)
-                item = container.expenses.findById(entity.getItemId());
-            else
-                item = container.incomes.findById(entity.getItemId());
-
-            if (item != null && StringUtils.containsAll(item.getName(), words))
-                filtered.add(entity);
-        }
-
-        return filtered;
+        SatisfyFilter filter = new SatisfyFilter(searchTerm);
+        return (List<HistoryEntry>) filter.filter(entities.values());
     }
 
     @Override

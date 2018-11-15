@@ -1,10 +1,9 @@
 package model.repository;
 
 import model.Tag;
+import model.filters.SatisfyFilter;
 import utils.DI;
-import utils.StringUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,15 +25,8 @@ public class TagRepository extends EntityRepository<Tag> {
      */
     public List<Tag> filterBySearch(String searchTerm)
     {
-        List<Tag> filtered = new ArrayList<>();
-        String[] words = searchTerm.split(" ");
-        for (Tag entity : entities.values())
-        {
-            if (StringUtils.containsAll(entity.getName(), words))
-                filtered.add(entity);
-        }
-
-        return filtered;
+        SatisfyFilter filter = new SatisfyFilter(searchTerm);
+        return (List<Tag>) filter.filter(entities.values());
     }
 
     @Override
