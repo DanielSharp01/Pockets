@@ -1,4 +1,4 @@
-package model;
+package model.entities;
 
 import model.filters.IFilterable;
 import utils.DI;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 /**
  * History entry of an item with a date
  */
-public class HistoryEntry extends Entity implements IFilterable {
+public class HistoryEntry extends Entity implements IFilterable, Cloneable {
 
     public enum Type
     {
@@ -98,5 +98,11 @@ public class HistoryEntry extends Entity implements IFilterable {
             return item.getWords();
         }
         return new HashSet<>();
+    }
+
+    @Override
+    public HistoryEntry clone()
+    {
+        return new HistoryEntry(getId(), getItemId(), getItemType(), getDate());
     }
 }

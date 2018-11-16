@@ -1,6 +1,9 @@
 package model.test;
 
 import model.*;
+import model.entities.ExpenseItem;
+import model.entities.IncomeSource;
+import model.entities.Tag;
 import model.repository.ExpenseRepository;
 import model.repository.IncomeRepository;
 import model.repository.TagRepository;

@@ -1,8 +1,6 @@
-package model;
+package model.entities;
 
-import model.filters.IFilter;
 import model.filters.IFilterable;
-import utils.DI;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -12,7 +10,7 @@ import java.util.Set;
 /**
  * Represents a Tag with which you can tag Items
  */
-public class Tag extends Entity implements IFilterable {
+public class Tag extends Entity implements IFilterable, Cloneable {
     /**
      * Name of the tag
      */
@@ -64,5 +62,14 @@ public class Tag extends Entity implements IFilterable {
         Set<String> words = new HashSet<>();
         Collections.addAll(words, name.split(" "));
         return words;
+    }
+
+    @Override
+    public Tag clone()
+    {
+        Tag c = new Tag(getId());
+        c.setName(getName());
+        c.setColor(getColor());
+        return c;
     }
 }

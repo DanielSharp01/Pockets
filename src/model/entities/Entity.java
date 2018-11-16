@@ -1,4 +1,4 @@
-package model;
+package model.entities;
 
 /**
  * Entity with an integer key

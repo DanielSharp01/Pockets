@@ -2,6 +2,7 @@ package model.test;
 
 import model.DailyRecurrence;
 import model.MonthlyRecurrence;
+import model.NullRecurrence;
 import model.WeeklyRecurrence;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RecurrenceTest {
+    @Test
+    public void testNullRecurrence()
+    {
+        assertFalse(new NullRecurrence().isOccurrence(LocalDateTime.of(2018, 5, 6, 0, 0, 0)));
+    }
+
     @Test
     public void testEveryDay()
     {

@@ -1,9 +1,9 @@
 package model.test;
 
-import model.ExpenseItem;
-import model.HistoryEntry;
-import model.IncomeSource;
-import model.Tag;
+import model.entities.ExpenseItem;
+import model.entities.HistoryEntry;
+import model.entities.IncomeSource;
+import model.entities.Tag;
 import model.repository.RepositoryContainer;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -3,7 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
-import model.HistoryEntry;
+import model.entities.HistoryEntry;
 import view.HistoryCell;
 
 public class ItemsListController {

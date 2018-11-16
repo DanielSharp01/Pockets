@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.HistoryEntry;
+import model.entities.HistoryEntry;
 import model.filters.SatisfyFilter;
 import utils.DI;
 

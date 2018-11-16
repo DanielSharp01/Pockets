@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.ExpenseItem;
+import model.entities.ExpenseItem;
 import model.filters.SatisfyFilter;
 import utils.DI;
 

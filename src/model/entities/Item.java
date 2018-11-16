@@ -1,5 +1,8 @@
-package model;
+package model.entities;
 
+import model.Money;
+import model.NullRecurrence;
+import model.Recurrence;
 import model.filters.IFilterable;
 import utils.DI;
 
@@ -11,7 +14,7 @@ import java.util.*;
  * @see ExpenseItem
  * @see IncomeSource
  */
-public abstract class Item extends Entity implements IFilterable {
+public abstract class Item extends Entity implements IFilterable, Cloneable {
     /**
      * Name of the item
      */
@@ -30,7 +33,7 @@ public abstract class Item extends Entity implements IFilterable {
     /**
      * Tell if and when this item will recur
      */
-    private Recurrence recurrence;
+    private Recurrence recurrence = new NullRecurrence();
 
     /**
      * The list of the Tag ids
@@ -132,6 +135,9 @@ public abstract class Item extends Entity implements IFilterable {
     public int hashCode() {
         return name.hashCode();
     }
+
+    @Override
+    public abstract Item clone();
 
     @Override
     public Collection<String> getWords()

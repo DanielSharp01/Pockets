@@ -1,7 +1,7 @@
 package view;
 
 import javafx.scene.control.ListCell;
-import model.HistoryEntry;
+import model.entities.HistoryEntry;
 import utils.DI;
 import utils.FXMLInflater;
 

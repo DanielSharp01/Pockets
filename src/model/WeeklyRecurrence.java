@@ -18,4 +18,10 @@ public class WeeklyRecurrence extends Recurrence {
         return !date.isEqual(lastOccurrence) && DAYS.between(lastOccurrence, date) % (everyX * 7) == 0
                 && lastOccurrence.getDayOfWeek() == date.getDayOfWeek();
     }
+
+    @Override
+    public WeeklyRecurrence clone()
+    {
+        return new WeeklyRecurrence(getLastOccurrence(), getEveryX());
+    }
 }

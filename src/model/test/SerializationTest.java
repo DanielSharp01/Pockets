@@ -1,6 +1,10 @@
 package model.test;
 
 import model.*;
+import model.entities.ExpenseItem;
+import model.entities.HistoryEntry;
+import model.entities.IncomeSource;
+import model.entities.Tag;
 import org.junit.jupiter.api.Test;
 import utils.DI;
 

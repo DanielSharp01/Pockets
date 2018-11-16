@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.IncomeSource;
+import model.entities.IncomeSource;
 import model.filters.SatisfyFilter;
 import utils.DI;
 

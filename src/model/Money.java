@@ -39,4 +39,10 @@ public class Money {
     public BigDecimal getAmount() {
         return amount;
     }
+
+    @Override
+    public Money clone()
+    {
+        return new Money(getCurrency(), new BigDecimal(getAmount().toString()));
+    }
 }

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 /**
  * Represents a recurrence which can tell when an event will occur
  */
-public abstract class Recurrence {
+public abstract class Recurrence implements Cloneable {
 
     /**
      * Last occurrence to count from
@@ -67,4 +67,7 @@ public abstract class Recurrence {
      * @return Whether the date is an occurrence
      */
     public abstract boolean isOccurrence(LocalDateTime date);
+
+    @Override
+    public abstract Recurrence clone();
 }

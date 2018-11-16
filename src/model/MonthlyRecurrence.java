@@ -18,4 +18,10 @@ public class MonthlyRecurrence extends Recurrence {
     public boolean isOccurrence(LocalDateTime date) {
         return !date.isEqual(lastOccurrence) && MONTHS.between(lastOccurrence, date) % everyX == 0;
     }
+
+    @Override
+    public MonthlyRecurrence clone()
+    {
+        return new MonthlyRecurrence(getLastOccurrence(), getEveryX());
+    }
 }

@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.Tag;
+import model.entities.Tag;
 import model.filters.SatisfyFilter;
 import utils.DI;
 

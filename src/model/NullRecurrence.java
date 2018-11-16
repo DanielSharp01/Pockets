@@ -15,4 +15,10 @@ public class NullRecurrence extends Recurrence {
     public boolean isOccurrence(LocalDateTime date) {
         return false;
     }
+
+    @Override
+    public NullRecurrence clone()
+    {
+        return new NullRecurrence();
+    }
 }

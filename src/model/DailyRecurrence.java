@@ -20,4 +20,10 @@ public class DailyRecurrence extends Recurrence {
     public boolean isOccurrence(LocalDateTime date) {
         return !date.isEqual(lastOccurrence) && DAYS.between(lastOccurrence, date) % everyX == 0;
     }
+
+    @Override
+    public DailyRecurrence clone()
+    {
+        return new DailyRecurrence(getLastOccurrence(), getEveryX());
+    }
 }

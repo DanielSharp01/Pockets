@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.Entity;
+import model.entities.Entity;
 import utils.DI;
 
 import java.util.HashMap;
