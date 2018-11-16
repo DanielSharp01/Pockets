@@ -1,13 +1,16 @@
 package model.repository;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.entities.Entity;
 import utils.DI;
 
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
-public abstract class EntityRepository<T extends Entity> implements Iterable<T>
-{
+import java.util.TreeMap;
+
+public abstract class EntityRepository<T extends Entity> implements Iterable<T> {
     /**
      * Parent repository container, used by repositories accessing other repositories
      */
@@ -16,7 +19,12 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T>
     /**
      * Map of id -> Entity
      */
-    protected Map<Integer, T> entities = new HashMap<>();
+    protected Map<Integer, T> entities = new LinkedHashMap<>();
+
+    /**
+     * Observable list used by JavaFX
+     */
+    private ObservableList<T> observableList = FXCollections.observableArrayList();
 
     /**
      * @param container Parent repository container, used by repositories accessing other repositories
@@ -36,6 +44,7 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T>
             return false;
 
         entities.put(entity.getId(), entity);
+        observableList.add(entity);
         return true;
     }
 
@@ -50,6 +59,15 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T>
             return false;
 
         entities.put(entity.getId(), entity);
+
+        for (int i = 0; i < observableList.size(); i++)
+        {
+            if (observableList.get(i).getId() == entity.getId()) {
+                observableList.set(i, entity);
+                break;
+            }
+        }
+
         return true;
     }
 
@@ -63,6 +81,7 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T>
             return false;
 
         entities.remove(entity.getId());
+        observableList.remove(entity);
         return true;
     }
 
@@ -75,7 +94,8 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T>
         if (!entities.containsKey(id))
             return false;
 
-        entities.remove(id);
+        T entity = entities.remove(id);
+        observableList.remove(entity);
         return true;
     }
 
@@ -108,5 +128,10 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T>
     public Iterator<T> iterator()
     {
         return entities.values().iterator();
+    }
+
+    public ObservableList<T> asObservable()
+    {
+        return observableList;
     }
 }

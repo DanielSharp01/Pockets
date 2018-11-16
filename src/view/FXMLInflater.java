@@ -1,7 +1,7 @@
-package utils;
+package view;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import utils.ResourceLocator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,7 +12,7 @@ import java.net.URL;
 public class FXMLInflater {
 
     /**
-     * URL of the FXML resource
+     * URL of the FXMLTuple resource
      * @see ResourceLocator
      */
     private URL resource;
@@ -26,14 +26,14 @@ public class FXMLInflater {
     }
 
     /**
-     * Loads the FXML and creates Node out of the root node in FXML
-     * @return FXML root node
+     * Loads the FXML and creates a tuple holding the Node and the Controller
+     * @return A tuple holding the Node and the Controller
      */
-    public Node inflate()
+    public FXMLTuple inflate()
     {
         FXMLLoader loader = new FXMLLoader(resource);
         try {
-            return loader.load();
+            return new FXMLTuple(loader.load(), loader.getController());
         } catch (IOException e) {
             e.printStackTrace();
         }

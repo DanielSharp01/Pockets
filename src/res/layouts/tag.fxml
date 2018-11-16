@@ -4,10 +4,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import java.lang.String?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #FF8F00;" prefWidth="180.0">
+<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #FF8F00;" prefWidth="180.0"
+      fx:controller="controller.TagController" fx:id="mainPanel">
     <styleClass>
         <String fx:value="card"/>
         <String fx:value="tag"/>
     </styleClass>
-    <Label>16 char limit</Label>
+    <Label fx:id="nameLabel">16 char limit</Label>
 </VBox>

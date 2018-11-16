@@ -1,12 +1,13 @@
 package view;
 
+import controller.HistoryItemController;
 import javafx.scene.control.ListCell;
 import model.entities.HistoryEntry;
 import utils.DI;
-import utils.FXMLInflater;
 
 public class HistoryCell extends ListCell<HistoryEntry> {
 
+    private FXMLTuple fxmlTuple;
     private static FXMLInflater inflater;
 
     static
@@ -24,8 +25,10 @@ public class HistoryCell extends ListCell<HistoryEntry> {
         }
         else
         {
-            setGraphic(inflater.inflate());
+            fxmlTuple = inflater.inflate();
+            setGraphic(fxmlTuple.getRoot());
             prefWidth(USE_PREF_SIZE);
+            ((HistoryItemController)fxmlTuple.getController()).setContent(item);
         }
     }
 }

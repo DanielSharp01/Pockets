@@ -4,38 +4,32 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" styleClass="vertical-spacing">
+<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" styleClass="vertical-spacing"
+      fx:controller="controller.HistoryItemController" fx:id = "mainPanel">
     <styleClass>
         <String fx:value="history"/>
-        <String fx:value="income"/>
+        <String fx:value="expense"/>
     </styleClass>
     <BorderPane>
         <left>
             <HBox alignment="CENTER_LEFT" styleClass="horizontal-spacing" BorderPane.alignment="CENTER_LEFT">
                 <children>
-                    <Pane maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" prefHeight="48.0" prefWidth="48.0" styleClass="item-image" />
-                    <Label styleClass="item-name" text="Can of coke" />
+                    <Pane fx:id = "backgroundPane" maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" prefHeight="48.0" prefWidth="48.0" styleClass="item-image" />
+                    <Label fx:id = "nameLabel" styleClass="item-name" text="" />
                 </children>
             </HBox>
         </left>
         <right>
-            <Label styleClass="item-money" text="1.50$" textAlignment="RIGHT" BorderPane.alignment="CENTER_RIGHT"/>
+            <Label fx:id = "priceLabel" styleClass="item-money" text="" textAlignment="RIGHT" BorderPane.alignment="CENTER_RIGHT"/>
         </right>
     </BorderPane>
-    <Label styleClass="misc-label" text="2018. 11. 05. 11:24" />
-    <FlowPane alignment="BOTTOM_LEFT" styleClass="tag-box">
+    <Label fx:id = "dateLabel" styleClass="misc-label" text="" />
+    <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box">
         <children>
-            <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
-            <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
-            <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
-            <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
-            <Label style="-fx-background-color: #FF7043;" styleClass="tag-label" text="Unhealthy" />
-            <Label style="-fx-background-color: #A1887F;" styleClass="tag-label" text="Unnecessary" />
-            <Label style="-fx-background-color: #FF8F00;" text="Drink" styleClass="tag-label" />
             <Label text=". . .">
                 <styleClass>
                     <String fx:value="tag-label"/>
-                    <String fx:value="ellipse"/>
+                    <String fx:value="ellipsis"/>
                 </styleClass>
             </Label>
         </children>

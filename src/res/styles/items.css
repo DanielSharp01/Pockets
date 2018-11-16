@@ -15,6 +15,7 @@
     -fx-background-radius: 4px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.1, 1, 1);
     -fx-font-family: 'Roboto';
+    -fx-background-color: #fefefe;
 }
 
 .tag .label
@@ -49,7 +50,6 @@
 
 .item-image
 {
-    -fx-background-color: #ccc;
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;

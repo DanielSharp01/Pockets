@@ -23,7 +23,7 @@ public class Money {
      */
     public Money(String currency, BigDecimal amount) {
         this.currency = currency;
-        this.amount = amount;
+        this.amount = amount.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     /**
@@ -31,6 +31,11 @@ public class Money {
      */
     public String getCurrency() {
         return currency;
+    }
+
+    @Override
+    public String toString() {
+        return amount.toString() + " " + currency;
     }
 
     /**

@@ -88,11 +88,16 @@ public class HistoryEntry extends Entity implements IFilterable, Cloneable {
         this.date = date;
     }
 
-    @Override
-    public Collection<String> getWords() {
-        Item item = itemType == Type.Income
+    public Item getItem()
+    {
+        return itemType == Type.Income
                 ? DI.getRepositories().incomes.findById(itemId)
                 : DI.getRepositories().expenses.findById(itemId);
+    }
+
+    @Override
+    public Collection<String> getWords() {
+        Item item = getItem();
         if (item != null)
         {
             return item.getWords();

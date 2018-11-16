@@ -1,6 +1,7 @@
 package utils;
 
 import javafx.fxml.FXMLLoader;
+import view.FXMLInflater;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -52,7 +53,7 @@ public class ResourceLocator {
     /**
      * Gets a single fire FXMLLoader initialized with the resource
      * WARNING: Load with this only once
-     * @param path Path of the FXML within the matching directory from {@link #baseDirectories}.
+     * @param path Path of the FXMLTuple within the matching directory from {@link #baseDirectories}.
      * @return A single fire FXMLLoader initialized with the resource, null if the resource was not found
      * @see #getFXMLInflater(String)
      */
@@ -65,7 +66,7 @@ public class ResourceLocator {
 
     /**
      * Gets FXMLInflater initialized with the resource
-     * @param path Path of the FXML within the matching directory from {@link #baseDirectories}.
+     * @param path Path of the FXMLTuple within the matching directory from {@link #baseDirectories}.
      * @return An FXMLInflater initialized with the resource, null if the resource was not found
      * @see #getFXMLLoader(String)
      */

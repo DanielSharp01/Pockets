@@ -8,6 +8,7 @@ import model.serializers.LocalDateTimeAdapter;
 import model.serializers.RecurrenceAdapter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * DI container used for dependency injection
@@ -41,6 +42,11 @@ public final class DI {
 
     private static final RepositoryContainer repositories = new RepositoryContainer();
     private static RepositoryContainer testRepositories = new RepositoryContainer();
+
+    /**
+     * Default date time formatter
+     */
+    public static final DateTimeFormatter defaultDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd hh:mm:ss");
 
     /**
      * Swaps the repository container, used for unit testing
