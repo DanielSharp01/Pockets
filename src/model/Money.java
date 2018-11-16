@@ -1,5 +1,7 @@
 package model;
 
+import utils.DI;
+
 import java.math.BigDecimal;
 
 /**
@@ -35,6 +37,20 @@ public class Money {
 
     @Override
     public String toString() {
+        CurrencySymbol symbol = CurrencySymbol.symbolFor(currency);
+
+        if (symbol != null)
+        {
+            if (symbol.isAlwaysAfter() || DI.settings.areCurrencySymbolsAfter())
+            {
+                return amount.toString() + symbol.getSymbol();
+            }
+            else
+            {
+                return symbol.getSymbol() + amount.toString();
+            }
+        }
+
         return amount.toString() + " " + currency;
     }
 

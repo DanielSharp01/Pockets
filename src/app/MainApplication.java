@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Money;
+import model.WeeklyRecurrence;
 import model.entities.ExpenseItem;
 import model.entities.HistoryEntry;
 import model.entities.IncomeSource;
@@ -40,6 +41,10 @@ public class MainApplication extends Application {
         tag.setColor(0xFF7043);
         tag.setName("Food & Drink");
         DI.getRepositories().tags.add(tag);
+        tag = new Tag(6);
+        tag.setColor(0x1122ee);
+        tag.setName("First item");
+        DI.getRepositories().tags.add(tag);
 
         IncomeSource source = new IncomeSource(1);
         source.setMoney(new Money("USD", new BigDecimal("200")));
@@ -70,6 +75,7 @@ public class MainApplication extends Application {
         DI.getRepositories().expenses.add(expense);
         expense = new ExpenseItem(3);
         expense.setName("Rent");
+        expense.setRecurrence(new WeeklyRecurrence(LocalDateTime.now(), 2));
         expense.setColor(0xA1887F);
         expense.setMoney(new Money("USD", new BigDecimal("600")));
         expense.getTagIds().add(3);
@@ -91,6 +97,8 @@ public class MainApplication extends Application {
                 DI.getRepositories().history.add(new HistoryEntry(cnt++, i, HistoryEntry.Type.Income, LocalDateTime.now()));
             }
         }
+
+        DI.getRepositories().history.findById(1).getTagIds().add(6);
 
         FXMLTuple itemsTile = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
         ((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());

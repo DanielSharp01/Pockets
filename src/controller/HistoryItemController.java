@@ -8,6 +8,9 @@ import model.entities.Item;
 import model.entities.Tag;
 import utils.DI;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class HistoryItemController {
     @FXML
     Pane mainPanel;
@@ -53,11 +56,15 @@ public class HistoryItemController {
         }
 
         priceLabel.setText((model.getItemType() == HistoryEntry.Type.Income ? "+" : "-") + item.getMoney().toString());
-        dateLabel.setText(model.getDate().format(DI.defaultDateTimeFormatter));
+        dateLabel.setText(model.getDate().format(DI.settings.getDateTimeFormatter()));
 
         tagBox.getChildren().clear();
 
-        for (int tagId : item.getTagIds())
+        Set<Integer> tagIds = new LinkedHashSet<>();
+        tagIds.addAll(item.getTagIds());
+        tagIds.addAll(model.getTagIds());
+
+        for (int tagId : tagIds)
         {
             Tag tag = DI.getRepositories().tags.findById(tagId);
             if (tag != null)

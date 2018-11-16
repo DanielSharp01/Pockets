@@ -40,6 +40,23 @@ public class HistoryRepository extends EntityRepository<HistoryEntry> {
     }
 
     /**
+     * Gets all items with a given tag
+     * @param tagId Tag's id to get tagged items of
+     * @return Matching list of items
+     */
+    public List<HistoryEntry> withTag(int tagId)
+    {
+        List<HistoryEntry> list = new ArrayList<>();
+        for (HistoryEntry item : entities.values())
+        {
+            if (item.getTagIds().contains(tagId))
+                list.add(item);
+        }
+
+        return list;
+    }
+
+    /**
      * Filters entries by the search term
      * @param searchTerm Search term consisting of words that need to be found in the entry's name
      * @return Matching list of entries

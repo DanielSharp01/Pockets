@@ -51,7 +51,7 @@ public class ItemController {
         }
 
         priceLabel.setText(model.getMoney().toString());
-        recurrenceLabel.setText("RECURRENCE TO DO");
+        recurrenceLabel.setText(model.getRecurrence().toString());
 
         tagBox.getChildren().clear();
 

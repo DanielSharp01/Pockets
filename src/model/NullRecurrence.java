@@ -21,4 +21,9 @@ public class NullRecurrence extends Recurrence {
     {
         return new NullRecurrence();
     }
+
+    @Override
+    public String toString() {
+        return "";
+    }
 }

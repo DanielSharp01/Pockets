@@ -24,4 +24,9 @@ public class WeeklyRecurrence extends Recurrence {
     {
         return new WeeklyRecurrence(getLastOccurrence(), getEveryX());
     }
+
+    @Override
+    public String toString() {
+        return "Recurs every " + (everyX == 1 ? "" : everyX + " ") + "week" + (everyX > 1 ? "s" : "");
+    }
 }

@@ -24,4 +24,9 @@ public class MonthlyRecurrence extends Recurrence {
     {
         return new MonthlyRecurrence(getLastOccurrence(), getEveryX());
     }
+
+    @Override
+    public String toString() {
+        return "Recurs every " + (everyX == 1 ? "" : everyX + " ") + "month" + (everyX > 1 ? "s" : "");
+    }
 }

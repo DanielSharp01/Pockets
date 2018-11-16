@@ -26,4 +26,9 @@ public class DailyRecurrence extends Recurrence {
     {
         return new DailyRecurrence(getLastOccurrence(), getEveryX());
     }
+
+    @Override
+    public String toString() {
+        return "Recurs every " + (everyX == 1 ? "" : everyX + " ") + "day" + (everyX > 1 ? "s" : "");
+    }
 }

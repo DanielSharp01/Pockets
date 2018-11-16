@@ -2,13 +2,17 @@ package utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import app.Settings;
 import model.Recurrence;
 import model.repository.RepositoryContainer;
 import model.serializers.LocalDateTimeAdapter;
 import model.serializers.RecurrenceAdapter;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * DI container used for dependency injection
@@ -29,6 +33,19 @@ public final class DI {
      */
     public static final ResourceLocator styles = new ResourceLocator("res/styles", "res/Roboto");
 
+    /**
+     * Global settings object, contains app settings
+     */
+    public static Settings settings;
+
+    /**
+     * JSON file for app settings
+     */
+    public static final String settingsJsonFile = "app-settings.json";
+
+    /**
+     * Gson object used for JSON serialization
+     */
     public static final Gson gson;
 
     static
@@ -38,15 +55,35 @@ public final class DI {
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
                 .setPrettyPrinting()
                 .setDateFormat("yyyy-mm-dd hh:mm:ss").create();
+
+
+        // TODO: Pull this outside of the DI container
+        if (Files.exists(Paths.get(settingsJsonFile)))
+        {
+            try {
+
+                settings = gson.fromJson(new String(Files.readAllBytes(Paths.get(settingsJsonFile)), StandardCharsets.UTF_8), Settings.class);
+            } catch (IOException e) {
+                // TODO: Deserialization error
+                settings = new Settings();
+            }
+        }
+        else
+        {
+            // TODO: Save on exit
+            settings = new Settings();
+        }
     }
 
+    /**
+     * Default repository container
+     */
     private static final RepositoryContainer repositories = new RepositoryContainer();
-    private static RepositoryContainer testRepositories = new RepositoryContainer();
 
     /**
-     * Default date time formatter
+     * Test repository container
      */
-    public static final DateTimeFormatter defaultDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd hh:mm:ss");
+    private static RepositoryContainer testRepositories = new RepositoryContainer();
 
     /**
      * Swaps the repository container, used for unit testing

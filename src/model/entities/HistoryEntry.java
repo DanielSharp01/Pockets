@@ -4,8 +4,7 @@ import model.filters.IFilterable;
 import utils.DI;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * History entry of an item with a date
@@ -88,6 +87,11 @@ public class HistoryEntry extends Entity implements IFilterable, Cloneable {
         this.date = date;
     }
 
+    /**
+     * The list of the Tag ids
+     */
+    private List<Integer> tagIds = new ArrayList<>();
+
     public Item getItem()
     {
         return itemType == Type.Income
@@ -95,14 +99,32 @@ public class HistoryEntry extends Entity implements IFilterable, Cloneable {
                 : DI.getRepositories().expenses.findById(itemId);
     }
 
+    /**
+     * @return The list of the Tag ids
+     */
+    public List<Integer> getTagIds() {
+        return tagIds;
+    }
+
     @Override
     public Collection<String> getWords() {
+        Set<String> words = new HashSet<>();
         Item item = getItem();
         if (item != null)
         {
-            return item.getWords();
+            words.addAll(item.getWords());
         }
-        return new HashSet<>();
+
+        for (int tagId : tagIds)
+        {
+            Tag tag = DI.getRepositories().tags.findById(tagId);
+            if (tag != null)
+            {
+                words.addAll(tag.getWords());
+            }
+        }
+
+        return words;
     }
 
     @Override
