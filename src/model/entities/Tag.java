@@ -1,5 +1,6 @@
 package model.entities;
 
+import javafx.scene.paint.Color;
 import model.filters.IFilterable;
 
 import java.util.Collection;
@@ -17,9 +18,9 @@ public class Tag extends Entity implements IFilterable, Cloneable {
     private String name;
 
     /**
-     * Background color of the tag as 4 byte integer
+     * Background color of the tag
      */
-    private int color;
+    private Color color;
 
     /**
      * @param id Integer key
@@ -43,16 +44,16 @@ public class Tag extends Entity implements IFilterable, Cloneable {
     }
 
     /**
-     * @return Background color of the tag as 4 byte integer
+     * @return Background color of the tag
      */
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
     /**
-     * @param color Background color of the tag as 4 byte integer
+     * @param color Background color of the tag
      */
-    public void setColor(int color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

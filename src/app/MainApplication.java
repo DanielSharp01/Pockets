@@ -1,5 +1,6 @@
 package app;
 
+import controller.ItemEditDialogController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,6 +10,7 @@ import model.entities.ExpenseItem;
 import model.entities.HistoryEntry;
 import model.entities.IncomeSource;
 import model.entities.Tag;
+import utils.ColorUtils;
 import utils.DI;
 import view.FXMLTuple;
 
@@ -21,39 +23,39 @@ public class MainApplication extends Application {
 
         Tag tag = new Tag(1);
         tag.setName("Food");
-        tag.setColor(0xFF8F00);
+        tag.setColor(ColorUtils.fromHex("#FF8F00"));
         DI.getRepositories().tags.add(tag);
         tag = new Tag(2);
         tag.setName("Drink");
-        tag.setColor(0xFF7043);
+        tag.setColor(ColorUtils.fromHex("#FF7043"));
         DI.getRepositories().tags.add(tag);
         tag = new Tag(3);
         tag.setName("Recurrent expenses");
-        tag.setColor(0xA1887F);
+        tag.setColor(ColorUtils.fromHex("#A1887F"));
         DI.getRepositories().tags.add(tag);
         tag = new Tag(4);
         tag.setName("University");
-        tag.setColor(0xFF7043);
+        tag.setColor(ColorUtils.fromHex("#FF7043"));
         DI.getRepositories().tags.add(tag);
         tag = new Tag(5);
-        tag.setColor(0xFF7043);
+        tag.setColor(ColorUtils.fromHex("#FF7043"));
         tag.setName("Food & Drink");
         DI.getRepositories().tags.add(tag);
         tag = new Tag(6);
-        tag.setColor(0x1122ee);
+        tag.setColor(ColorUtils.fromHex("#1122ee"));
         tag.setName("First item");
         DI.getRepositories().tags.add(tag);
 
         IncomeSource source = new IncomeSource(1);
         source.setMoney(new Money("USD", new BigDecimal("200")));
         source.setName("Scholarship");
-        source.setColor(0xFF7043);
+        source.setColor(ColorUtils.fromHex("#FF7043"));
         source.getTagIds().add(4);
         DI.getRepositories().incomes.add(source);
         source = new IncomeSource(2);
         source.setMoney(new Money("USD", new BigDecimal("600")));
         source.setName("Job");
-        source.setColor(0xFF7043);
+        source.setColor(ColorUtils.fromHex("#FF7043"));
         DI.getRepositories().incomes.add(source);
 
         ExpenseItem expense = new ExpenseItem(1);
@@ -61,7 +63,7 @@ public class MainApplication extends Application {
         expense.setMoney(new Money("USD", new BigDecimal("10")));
         expense.getTagIds().add(1);
         expense.getTagIds().add(5);
-        expense.setColor(0xFF7043);
+        expense.setColor(ColorUtils.fromHex("#FF7043"));
         DI.getRepositories().expenses.add(expense);
         expense = new ExpenseItem(2);
         expense.setName("Coke");
@@ -69,12 +71,12 @@ public class MainApplication extends Application {
         expense.setMoney(new Money("USD", new BigDecimal("2")));
         expense.getTagIds().add(2);
         expense.getTagIds().add(5);
-        expense.setColor(0xA1887F);
+        expense.setColor(ColorUtils.fromHex("#A1887F"));
         DI.getRepositories().expenses.add(expense);
         expense = new ExpenseItem(3);
         expense.setName("Rent");
         expense.setRecurrence(new WeeklyRecurrence(LocalDateTime.now(), 2));
-        expense.setColor(0xA1887F);
+        expense.setColor(ColorUtils.fromHex("#A1887F"));
         expense.setMoney(new Money("USD", new BigDecimal("600")));
         expense.getTagIds().add(3);
         DI.getRepositories().expenses.add(expense);
@@ -98,8 +100,10 @@ public class MainApplication extends Application {
 
         DI.getRepositories().history.findById(1).getTagIds().add(6);
 
-        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("history-edit.fxml").inflate();
+        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("item-edit.fxml").inflate();
         //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
+        ((ItemEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().incomes.findById(1));
+
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(380);

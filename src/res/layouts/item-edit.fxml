@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <VBox xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="controller.ItemEditDialogController" styleClass="dialog-box">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.ItemEditDialogController" styleClass="dialog-box">
 
     <TitledPane text="General" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
             <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextField text="Invalid" fx:id="nameField" styleClass="invalid" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <TextField text="Invalid" fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
             <Label text="Error with name" fx:id="nameErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
 
             <Label text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
@@ -23,14 +23,9 @@
     <TitledPane text="Appearance" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
             <Label text="Image:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <ComboBox value="None" fx:id="imageField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="150">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="None" />
-                    </FXCollections>
-                </items>
+            <ComboBox fx:id="imageField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="150">
             </ComboBox>
-            <Button text="Add image" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <Button text="Add image" GridPane.rowIndex="0" GridPane.columnIndex="2" onAction="#addImageActionPerformed"/>
 
             <Label text="Color:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
             <ColorPicker fx:id="colorField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="150"/>
@@ -69,8 +64,8 @@
 
     <TitledPane text="Tags" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
-            <ComboBox fx:id="addTagField" prefWidth="150" value="New tag" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <ComboBox fx:id="addTagField" prefWidth="250" value="New tag" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#addTagActionPerformed"/>
             <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
                 <children>
                     <Label text=". . .">
@@ -84,7 +79,7 @@
         </GridPane>
     </TitledPane>
     <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
-        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60">OK</Button>
-        <Button prefWidth="60">Cancel</Button>
+        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60" onAction="#submitActionPerformed">OK</Button>
+        <Button prefWidth="60"  onAction="#cancelActionPerformed">Cancel</Button>
     </HBox>
 </VBox>

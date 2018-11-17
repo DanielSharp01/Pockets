@@ -35,3 +35,12 @@
 {
     -fx-body-color: derive(#0096C9, 20%);
 }
+
+.combo-image
+{
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}

@@ -6,6 +6,7 @@ import model.entities.HistoryEntry;
 import model.entities.IncomeSource;
 import model.entities.Tag;
 import org.junit.jupiter.api.Test;
+import utils.ColorUtils;
 import utils.DI;
 
 import java.math.BigDecimal;
@@ -33,7 +34,7 @@ public class SerializationTest {
     {
         Tag tag = new Tag(1);
         tag.setName("Tag");
-        tag.setColor(505050);
+        tag.setColor(ColorUtils.fromHex("#505050"));
         String json = DI.gson.toJson(tag, Tag.class);
         System.out.println(json);
         Tag tag2 = DI.gson.fromJson(json, Tag.class);
@@ -48,7 +49,7 @@ public class SerializationTest {
         IncomeSource source = new IncomeSource(1);
         source.setName("Income source");
         source.setMoney(new Money("USD", new BigDecimal("2")));
-        source.setColor(505050);
+        source.setColor(ColorUtils.fromHex("#505050"));
         source.setImageResource(new URL("https://keep.google.com"));
         source.setRecurrence(new DailyRecurrence(LocalDateTime.of(2018, 11, 4, 8, 0, 0), 2));
         String json = DI.gson.toJson(source, IncomeSource.class);
@@ -71,7 +72,7 @@ public class SerializationTest {
         ExpenseItem expense = new ExpenseItem(1);
         expense.setName("Expense item");
         expense.setMoney(new Money("USD", new BigDecimal("2")));
-        expense.setColor(505050);
+        expense.setColor(ColorUtils.fromHex("#505050"));
         expense.setImageResource(new URL("https://keep.google.com"));
         expense.setRecurrence(new DailyRecurrence(LocalDateTime.of(2018, 11, 4, 8, 0, 0), 2));
         String json = DI.gson.toJson(expense, ExpenseItem.class);

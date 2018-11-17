@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import model.entities.Tag;
+import utils.ColorUtils;
 
 public class TagController {
     @FXML
@@ -14,7 +15,7 @@ public class TagController {
 
     public void setContent(Tag model)
     {
-        mainPanel.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & model.getColor())) + ";");
+        mainPanel.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + ";");
         nameLabel.setText(model.getName());
     }
 }

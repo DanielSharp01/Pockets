@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import model.entities.HistoryEntry;
 import model.entities.Item;
 import model.entities.Tag;
+import utils.ColorUtils;
 import utils.DI;
 
 import java.util.LinkedHashSet;
@@ -48,11 +49,11 @@ public class HistoryItemController {
         nameLabel.setText(item.getName());
         if (item.getImageResource() != null)
         {
-            backgroundPane.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & item.getColor())) + "; -fx-background-image: url('" + item.getImageResource().toExternalForm() + "');");
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(item.getColor()) + "; -fx-background-image: url('" + item.getImageResource().toExternalForm() + "');");
         }
         else
         {
-            backgroundPane.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & item.getColor())) + ";");
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(item.getColor()) + ";");
         }
 
         priceLabel.setText((model.getItemType() == HistoryEntry.Type.Income ? "+" : "-") + item.getMoney().toString());
@@ -71,7 +72,7 @@ public class HistoryItemController {
             {
                 Label label = new Label();
                 label.setText(tag.getName());
-                label.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & tag.getColor())) + ";");
+                label.setStyle("-fx-background-color: " + ColorUtils.toHex(tag.getColor()) + ";");
                 label.getStyleClass().add("tag-label");
                 tagBox.getChildren().add(label);
             }

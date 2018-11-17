@@ -11,6 +11,9 @@ import java.util.*;
  */
 public class HistoryEntry extends Entity implements IFilterable, Cloneable {
 
+    /**
+     * Type of HistoryEntry item
+     */
     public enum Type
     {
         Expense,

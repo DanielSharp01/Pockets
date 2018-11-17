@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import model.entities.IncomeSource;
 import model.entities.Item;
 import model.entities.Tag;
+import utils.ColorUtils;
 import utils.DI;
 
 public class ItemController {
@@ -43,11 +44,11 @@ public class ItemController {
         nameLabel.setText(model.getName());
         if (model.getImageResource() != null)
         {
-            backgroundPane.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & model.getColor())) + "; -fx-background-image: url('" + model.getImageResource().toExternalForm() + "');");
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + "; -fx-background-image: url('" + model.getImageResource().toExternalForm() + "');");
         }
         else
         {
-            backgroundPane.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & model.getColor())) + ";");
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + ";");
         }
 
         priceLabel.setText(model.getMoney().toString());
@@ -62,7 +63,7 @@ public class ItemController {
             {
                 Label label = new Label();
                 label.setText(tag.getName());
-                label.setStyle("-fx-background-color: " + String.format("#%06X", (0xFFFFFF & tag.getColor())) + ";");
+                label.setStyle("-fx-background-color: " + ColorUtils.toHex(tag.getColor()) + ";");
                 label.getStyleClass().add("tag-label");
                 tagBox.getChildren().add(label);
             }

@@ -9,15 +9,14 @@
 
     <TitledPane text="Item" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
-            <ComboBox fx:id="itemField" prefWidth="200" value="Some item" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <ComboBox fx:id="itemField" prefWidth="200" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
             <Label text="Error with item" fx:id="itemErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
         </GridPane>
     </TitledPane>
 
     <TitledPane text="Tags" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
-            <ComboBox fx:id="addTagField" prefWidth="150" value="New tag" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="addTagField" prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
             <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
             <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
                 <children>

@@ -1,10 +1,13 @@
 package utils;
 
+import app.Settings;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import app.Settings;
+import javafx.scene.paint.Color;
+import model.ImageRepository;
 import model.Recurrence;
 import model.repository.RepositoryContainer;
+import model.serializers.ColorAdapter;
 import model.serializers.LocalDateTimeAdapter;
 import model.serializers.RecurrenceAdapter;
 
@@ -36,7 +39,7 @@ public final class DI {
     /**
      * Resource locator for "user-images/" folder
      */
-    public static final ResourceLocator userImages = new ResourceLocator("user-images/");
+    public static final ImageRepository userImages = new ImageRepository();
 
     /**
      * Global settings object, contains app settings
@@ -58,6 +61,7 @@ public final class DI {
         gson = new GsonBuilder().serializeNulls()
                 .registerTypeAdapter(Recurrence.class, new RecurrenceAdapter())
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
+                .registerTypeAdapter(Color.class, new ColorAdapter())
                 .setPrettyPrinting()
                 .setDateFormat("yyyy-mm-dd hh:mm:ss").create();
 

@@ -1,5 +1,6 @@
 package model.entities;
 
+import javafx.scene.paint.Color;
 import model.Money;
 import model.NullRecurrence;
 import model.Recurrence;
@@ -26,9 +27,9 @@ public abstract class Item extends Entity implements IFilterable, Cloneable {
     private URL imageResource;
 
     /**
-     * Background color of image circle as 4 byte integer RGBUnused
+     * Background color of image circle
      */
-    private int color;
+    private Color color;
 
     /**
      * Tell if and when this item will recur
@@ -81,16 +82,16 @@ public abstract class Item extends Entity implements IFilterable, Cloneable {
     }
 
     /**
-     * @return Background color of image circle as 4 byte integer RGBUnused
+     * @return Background color of image circle
      */
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
     /**
-     * @param color Background color of image circle as 4 byte integer RGBUnused
+     * @param color Background color of image circle
      */
-    public void setColor(int color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

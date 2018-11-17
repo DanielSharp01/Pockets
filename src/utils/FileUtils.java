@@ -14,7 +14,7 @@ public class FileUtils {
      */
     public static Path getUnusedNumberedPath(Path folder, Path file)
     {
-        String[] fileParts = file.getFileName().toString().split(".", 1);
+        String[] fileParts = file.getFileName().toString().split(".", 2);
         Path ret = Paths.get(folder.toString(), fileParts[0] + "." + fileParts[1]);
         if (!Files.exists(ret))
             return ret;
