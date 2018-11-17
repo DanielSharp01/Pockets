@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<VBox xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.ItemEditDialogController" styleClass="dialog-box">
+
+    <TitledPane text="General" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField text="Invalid" fx:id="nameField" styleClass="invalid" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label text="Error with name" fx:id="nameErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+
+            <Label text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField text="\$5" fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <Label text="Error with price" fx:id="priceErrorLabel" styleClass="error-label" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane text="Appearance" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Image:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox value="None" fx:id="imageField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="150">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="None" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Button text="Add image" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+
+            <Label text="Color:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ColorPicker fx:id="colorField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="150"/>
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane text="Recurrence" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Type:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="recurrenceTypeField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="150" value="No recurrence">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="No recurrence" />
+                        <String fx:value="Daily" />
+                        <String fx:value="Weekly" />
+                        <String fx:value="Monthly" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Label text="Last date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <DatePicker  fx:id="recurrenceDateField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
+            <Label text="Error with date" fx:id="recurrenceDateErrorLabel" styleClass="error-label" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+            <Label fx:id="recurrenceXLabel" text="Days that must pass:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Spinner fx:id="recurrenceXField" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200">
+                <valueFactory>
+                    <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" initialValue="1" amountToStepBy="1">
+                        <max>
+                            <Integer fx:constant="MAX_VALUE"/>
+                        </max>
+                    </SpinnerValueFactory.IntegerSpinnerValueFactory>
+                </valueFactory>
+            </Spinner>
+            <Label text="Error with " fx:id="recurrenceXFieldErrorLabel" styleClass="error-label" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane text="Tags" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <ComboBox fx:id="addTagField" prefWidth="150" value="New tag" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                <children>
+                    <Label text=". . .">
+                        <styleClass>
+                            <String fx:value="tag-label"/>
+                            <String fx:value="ellipsis"/>
+                        </styleClass>
+                    </Label>
+                </children>
+            </FlowPane>
+        </GridPane>
+    </TitledPane>
+    <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
+        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60">OK</Button>
+        <Button prefWidth="60">Cancel</Button>
+    </HBox>
+</VBox>

@@ -1,0 +1,37 @@
+.dialog-box
+{
+    -fx-padding: 10px;
+    -fx-spacing: 8px;
+}
+
+.expander-pane
+{
+    -fx-padding: 10px;
+    -fx-hgap: 8px;
+    -fx-vgap: 8px;
+}
+
+.text-field.invalid
+{
+    -fx-text-inner-color: #D30303;
+    -fx-control-inner-background: #ffdddd;
+    -fx-faint-focus-color: #D3030322;
+    -fx-focus-color: #D30303;
+}
+
+.error-label
+{
+    -fx-text-fill: #D30303;
+}
+
+.highlighted-button
+{
+    -fx-text-fill: #eeeeee;
+    -fx-body-color: #0096C9;
+    -fx-inner-border: derive(-fx-body-color, -10%);
+}
+
+.highlighted-button:hover
+{
+    -fx-body-color: derive(#0096C9, 20%);
+}

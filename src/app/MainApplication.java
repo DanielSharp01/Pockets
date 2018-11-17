@@ -1,6 +1,5 @@
 package app;
 
-import controller.ItemsTileController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,7 +11,6 @@ import model.entities.IncomeSource;
 import model.entities.Tag;
 import utils.DI;
 import view.FXMLTuple;
-import view.ItemHolder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -100,14 +98,15 @@ public class MainApplication extends Application {
 
         DI.getRepositories().history.findById(1).getTagIds().add(6);
 
-        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
-        ((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
+        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("history-edit.fxml").inflate();
+        //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(380);
-        Scene scene = new Scene(itemsTile.getRoot(), 900, 600);
+        Scene scene = new Scene(itemsTile.getRoot(), 380, 700);
         scene.getStylesheets().add(DI.styles.getResource("Roboto.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("general.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("dialog.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("list.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("scroll-pane.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("items.css").toExternalForm());

@@ -11,6 +11,7 @@ import java.util.List;
  * Locates resources within a given directory
  */
 public class ResourceLocator {
+
     /**
      * Base directory of resources
      */

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.TagEditDialogController" styleClass="dialog-box">
+
+    <TitledPane text="General" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField text="Invalid" fx:id="nameField" styleClass="invalid" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label text="Error with name" fx:id="nameErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane text="Appearance" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Color:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ColorPicker fx:id="colorField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="150"/>
+        </GridPane>
+    </TitledPane>
+
+    <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
+        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60">OK</Button>
+        <Button prefWidth="60">Cancel</Button>
+    </HBox>
+</VBox>

@@ -12,7 +12,7 @@
         <TextField promptText="Search" prefWidth="300" />
         <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds=""/>
     </HBox>
-    <ListView fx:id="itemContents" VBox.vgrow="ALWAYS">
+    <ListView fx:id="itemContents" styleClass="history-list" VBox.vgrow="ALWAYS">
         <padding>
             <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
         </padding>

@@ -1,15 +1,15 @@
-.list-view {
+.history-list .list-view {
     -fx-padding: 3px ;
     -fx-background-color: transparent;
 }
 
-.list-cell {
+.history-list .list-cell {
     -fx-padding: 2px ;
     -fx-background-color: transparent;
     -fx-background-insets: 0px, 2px ;
 }
 
-.list-cell:empty {
+.history-list .list-cell:empty {
     -fx-padding: 2px ;
     -fx-background-color: transparent;
     -fx-background-insets: 0 ;

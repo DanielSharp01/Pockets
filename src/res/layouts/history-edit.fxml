@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.HistoryEditDialogController" styleClass="dialog-box">
+
+    <TitledPane text="Item" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <ComboBox fx:id="itemField" prefWidth="200" value="Some item" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Error with item" fx:id="itemErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane text="Tags" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <ComboBox fx:id="addTagField" prefWidth="150" value="New tag" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                <children>
+                    <Label text=". . .">
+                        <styleClass>
+                            <String fx:value="tag-label"/>
+                            <String fx:value="ellipsis"/>
+                        </styleClass>
+                    </Label>
+                </children>
+            </FlowPane>
+        </GridPane>
+    </TitledPane>
+    <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
+        <Button fx:id="submitButton"  styleClass="highlighted-button" prefWidth="60">OK</Button>
+        <Button prefWidth="60">Cancel</Button>
+    </HBox>
+</VBox>

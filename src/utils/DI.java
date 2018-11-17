@@ -34,6 +34,11 @@ public final class DI {
     public static final ResourceLocator styles = new ResourceLocator("res/styles", "res/Roboto");
 
     /**
+     * Resource locator for "user-images/" folder
+     */
+    public static final ResourceLocator userImages = new ResourceLocator("user-images/");
+
+    /**
      * Global settings object, contains app settings
      */
     public static Settings settings;
