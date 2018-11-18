@@ -1,6 +1,6 @@
 package app;
 
-import controller.HistoryEditDialogController;
+import controller.TagEditDialogController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -8,6 +8,7 @@ import model.Money;
 import model.WeeklyRecurrence;
 import model.entities.ExpenseItem;
 import model.entities.HistoryEntry;
+import model.entities.IncomeSource;
 import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
@@ -45,7 +46,7 @@ public class MainApplication extends Application {
         tag.setName("First item");
         DI.getRepositories().tags.add(tag);
 
-        /*IncomeSource source = new IncomeSource(1);
+        IncomeSource source = new IncomeSource(1);
         source.setMoney(new Money("USD", new BigDecimal("200")));
         source.setName("Scholarship");
         source.setColor(ColorUtils.fromHex("#FF7043"));
@@ -55,7 +56,7 @@ public class MainApplication extends Application {
         source.setMoney(new Money("USD", new BigDecimal("600")));
         source.setName("Job");
         source.setColor(ColorUtils.fromHex("#FF7043"));
-        DI.getRepositories().incomes.add(source);*/
+        DI.getRepositories().incomes.add(source);
 
         ExpenseItem expense = new ExpenseItem(1);
         expense.setName("Pizza");
@@ -99,9 +100,9 @@ public class MainApplication extends Application {
 
         DI.getRepositories().history.findById(1).getTagIds().add(6);
 
-        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("history-edit.fxml").inflate();
+        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("tag-edit.fxml").inflate();
         //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
-        ((HistoryEditDialogController)itemsTile.getController()).setModel(new HistoryEntry(cnt++, 0, HistoryEntry.Type.Income, LocalDateTime.now()));
+        ((TagEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().tags.findById(1));
 
 
         primaryStage.setTitle("Pockets 0.0.1");

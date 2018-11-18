@@ -22,7 +22,7 @@
     </TitledPane>
 
     <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
-        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60">OK</Button>
-        <Button prefWidth="60">Cancel</Button>
+        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60" onAction="#submitActionPerformed">OK</Button>
+        <Button prefWidth="60" onAction="#cancelActionPerformed">Cancel</Button>
     </HBox>
 </VBox>
