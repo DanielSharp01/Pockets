@@ -28,6 +28,64 @@ public class Money {
         this.amount = amount.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
+    public static Money parse(String text)
+    {
+        // Split into character number character
+
+        int parseState = 0; // 0 - begun, 1 - [number] word, 2 - number [word], 3 - [word] number, 4 - word [number], 5 - ended
+        String word = "";
+        String number = "";
+
+        for (char c : text.toCharArray())
+        {
+            if (Character.isDigit(c))
+            {
+                if (parseState == 3) parseState = 4;
+
+                if (parseState == 0) parseState = 1;
+                else if (parseState != 1 && parseState != 4) return null; // Number state expected
+
+
+
+                number += c;
+            }
+            else if (Character.isWhitespace(c))
+            {
+                if (parseState == 1) parseState = 2;
+                else if (parseState == 3) parseState = 4;
+                else if (parseState == 2 || parseState == 4) parseState = 5;
+            }
+            else if (c == '.')
+            {
+                if (parseState != 1 && parseState != 4) return null; // Number state expected
+                if (number.contains(".")) return null; // Already has a decimal dot
+                number += c;
+            }
+            else
+            {
+                if (parseState == 1) parseState = 2;
+
+                if (parseState == 0) parseState = 3;
+                else if (parseState != 2 && parseState != 3) return null; // Word state expected
+
+                word += c;
+            }
+        }
+
+        if (number.isEmpty()) return null;
+
+        String[] numberSplit = number.split("\\.");
+        if (numberSplit.length > 1 && numberSplit[1].length() > 2)
+            return null; // Don't allow more than 2 decimals
+
+        String code = CurrencySymbol.codeFor(word);
+        if (code == null) code = word;
+        if (code.isEmpty()) code = "USD"; //TODO: DI.settings.baseCurrency;
+
+        // TODO: Check if it's legal code
+        return new Money(code, new BigDecimal(number));
+    }
+
     /**
      * @return 3 letter code (ISO 4217) of the currency (eg. USD)
      */

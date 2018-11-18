@@ -10,7 +10,7 @@ public class Settings {
     /**
      * Date format used throughout the application
      */
-    private String dateFormat = "yyyy-mm-dd hh:mm:ss";
+    private String dateFormat = "yyyy-M-d H:mm[:ss]";
 
     /**
      * Date time formatter matching the set date format

@@ -18,7 +18,7 @@ public class DailyRecurrence extends Recurrence {
 
     @Override
     public boolean isOccurrence(LocalDateTime date) {
-        return !date.isEqual(lastOccurrence) && DAYS.between(lastOccurrence, date) % everyX == 0;
+        return !date.toLocalDate().isEqual(lastOccurrence.toLocalDate()) && DAYS.between(lastOccurrence.toLocalDate(), date.toLocalDate()) % everyX == 0;
     }
 
     @Override

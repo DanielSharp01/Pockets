@@ -3,6 +3,8 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import view.DateTimePicker?>
+<?import view.EditableIntegerSpinner?>
 <?import java.lang.*?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
@@ -11,10 +13,10 @@
     <TitledPane text="General" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
             <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextField text="Invalid" fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
             <Label text="Error with name" fx:id="nameErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
 
-            <Label text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="priceLabel" text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
             <TextField text="\$5" fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
             <Label text="Error with price" fx:id="priceErrorLabel" styleClass="error-label" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" />
         </GridPane>
@@ -46,10 +48,9 @@
                 </items>
             </ComboBox>
             <Label text="Last date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <DatePicker  fx:id="recurrenceDateField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
-            <Label text="Error with date" fx:id="recurrenceDateErrorLabel" styleClass="error-label" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" />
-            <Label fx:id="recurrenceXLabel" text="Days that must pass:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-            <Spinner fx:id="recurrenceXField" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200">
+            <DateTimePicker fx:id="recurrenceDateField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
+            <Label fx:id="recurrenceXLabel" text="Days that must pass:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <EditableIntegerSpinner fx:id="recurrenceXField" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="200">
                 <valueFactory>
                     <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" initialValue="1" amountToStepBy="1">
                         <max>
@@ -57,8 +58,7 @@
                         </max>
                     </SpinnerValueFactory.IntegerSpinnerValueFactory>
                 </valueFactory>
-            </Spinner>
-            <Label text="Error with " fx:id="recurrenceXFieldErrorLabel" styleClass="error-label" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+            </EditableIntegerSpinner>
         </GridPane>
     </TitledPane>
 

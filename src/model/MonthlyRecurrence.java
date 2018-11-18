@@ -16,7 +16,21 @@ public class MonthlyRecurrence extends Recurrence {
 
     @Override
     public boolean isOccurrence(LocalDateTime date) {
-        return !date.isEqual(lastOccurrence) && MONTHS.between(lastOccurrence, date) % everyX == 0;
+        if (!date.toLocalDate().isEqual(lastOccurrence.toLocalDate()) && MONTHS.between(lastOccurrence.toLocalDate(), date.toLocalDate()) % everyX == 0)
+        {
+            int maxDays = date.getMonth().length(date.toLocalDate().isLeapYear());
+            if (lastOccurrence.getDayOfMonth() > date.getDayOfMonth() && date.getDayOfMonth() == maxDays)
+            {
+                return true;
+            }
+
+            if (lastOccurrence.getDayOfMonth() == date.getDayOfMonth())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override

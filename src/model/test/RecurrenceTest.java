@@ -43,6 +43,15 @@ class RecurrenceTest {
     }
 
     @Test
+    public void testWeekNonFullJump()
+    {
+        LocalDateTime date = LocalDateTime.of(2018, 5, 31, 6, 0, 0);
+        WeeklyRecurrence recurrence = new WeeklyRecurrence(date);
+        assertTrue(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 7, 2, 0, 0)));
+        assertFalse(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 1, 2, 0, 0)));
+    }
+
+    @Test
     public void testEveryMonth()
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
@@ -52,6 +61,15 @@ class RecurrenceTest {
             date = date.plusMonths(1);
             assertTrue(recurrence.isOccurrence(date));
         }
+    }
+
+    @Test
+    public void testMonth31st()
+    {
+        LocalDateTime date = LocalDateTime.of(2018, 5, 31, 6, 0, 0);
+        MonthlyRecurrence recurrence = new MonthlyRecurrence(date);
+        assertTrue(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 30, 2, 0, 0)));
+        assertFalse(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 1, 2, 0, 0)));
     }
 
     @Test

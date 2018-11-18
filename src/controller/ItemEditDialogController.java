@@ -9,20 +9,21 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import model.DailyRecurrence;
-import model.MonthlyRecurrence;
-import model.WeeklyRecurrence;
+import model.*;
 import model.entities.ExpenseItem;
 import model.entities.IncomeSource;
 import model.entities.Item;
 import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
+import view.DateTimePicker;
+import view.EditableIntegerSpinner;
 import view.ImageComboItem;
 import view.TagComboItem;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,6 +34,9 @@ public class ItemEditDialogController {
 
     @FXML
     private Label nameErrorLabel;
+
+    @FXML
+    private Label priceLabel;
 
     @FXML
     private TextField priceField;
@@ -50,19 +54,13 @@ public class ItemEditDialogController {
     private ComboBox recurrenceTypeField;
 
     @FXML
-    private DatePicker recurrenceDateField;
-
-    @FXML
-    private Label recurrenceDateErrorLabel;
+    private DateTimePicker recurrenceDateField;
 
     @FXML
     private Label recurrenceXLabel;
 
     @FXML
-    private Spinner recurrenceXField;
-
-    @FXML
-    private Label recurrenceXFieldErrorLabel;
+    private EditableIntegerSpinner recurrenceXField;
 
     @FXML
     private ComboBox addTagField;
@@ -70,11 +68,17 @@ public class ItemEditDialogController {
     @FXML
     private FlowPane tagBox;
 
+    @FXML
+    private Button submitButton;
+
     private Item model;
 
     @FXML
     public void initialize()
     {
+        imageField.setButtonCell(new ImageComboItem());
+        imageField.setCellFactory(cb -> new ImageComboItem());
+
         recurrenceTypeField.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
         {
             if (newValue.equals("No recurrence"))
@@ -111,32 +115,97 @@ public class ItemEditDialogController {
         addTagField.setCellFactory(combo -> new TagComboItem());
         addTagField.setItems(DI.getRepositories().tags.asObservable());
         addTagField.setValue(null);
+
+        setupValidation();
     }
 
+    /**
+     * Setup validated fields
+     */
+    private void setupValidation()
+    {
+        ValidatedField validatedNameField = new ValidatedField(nameField, nameErrorLabel, new ValidationRuleList(
+                new NonEmptyRule(),
+                new ValidationRule() {
+                    @Override
+                    public String validate(String field) {
+                        for (Item item : (model instanceof IncomeSource) ? DI.getRepositories().incomes : DI.getRepositories().expenses)
+                        {
+                            if (item.getName().equals(field) && model.getId() != item.getId())
+                                return "Item name already exists!";
+                        }
+
+                        return null;
+                    }
+                }), () -> submitButton.setDisable(false), () -> submitButton.setDisable(true));
+
+        nameField.textProperty().addListener((observable, oldValue, newValue) -> validatedNameField.validate(newValue));
+
+        ValidatedField validatedPriceField = new ValidatedField(priceField, priceErrorLabel, new ValidationRuleList(
+                new NonEmptyRule(),
+                new ValidationRule() {
+                    @Override
+                    public String validate(String field) {
+                        Money parsed = Money.parse(field);
+                        if (parsed == null)
+                            return "Money is not in the correct format!";
+
+                        return null;
+                    }
+                }), () -> submitButton.setDisable(false), () -> submitButton.setDisable(true));
+
+        priceField.textProperty().addListener((observable, oldValue, newValue) -> validatedPriceField.validate(newValue));
+    }
+
+    /**
+     * Updates the model before submitting
+     */
+    private void updateModel()
+    {
+        model.setName(nameField.getText());
+        model.setMoney(Money.parse(priceField.getText()));
+        model.setColor(colorField.getValue());
+        model.setImageResource((URL) imageField.getValue());
+
+        if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(0)))
+        {
+            model.setRecurrence(new NullRecurrence());
+        }
+        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(1)))
+        {
+            model.setRecurrence(new DailyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
+        }
+        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(2)))
+        {
+            model.setRecurrence(new WeeklyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
+        }
+        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(3)))
+        {
+            model.setRecurrence(new MonthlyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
+        }
+    }
+
+    /**
+     * Sets the model of this controller to be a clone of the specified one
+     * @param model Model to set
+     */
     public void setModel(Item model)
     {
         this.model = model.clone();
 
         nameField.setText(model.getName());
-        nameErrorLabel.setManaged(false);
 
+        priceLabel.setText(model instanceof IncomeSource ? "Income:" : "Price:");
         priceField.setText(model.getMoney().toString());
-        priceErrorLabel.setManaged(false);
 
         colorField.setValue(model.getColor());
-        imageField.setButtonCell(new ImageComboItem());
-        imageField.setCellFactory(cb -> new ImageComboItem());
-        imageField.setItems(FXCollections.observableArrayList());
-        imageField.getItems().add(null);
-        try
-        {
-            imageField.getItems().addAll(DI.userImages.getImages());
-        }
-        catch (IOException e)
-        {
+        try {
+            imageField.setItems(FXCollections.observableList(DI.userImages.getImages()));
+            imageField.getItems().add(0, new URL("mailto:null@null")); // None item
+            imageField.setValue(model.getImageResource() == null ? new URL("mailto:null@null") : model.getImageResource());
+        } catch (IOException e) {
             // TODO: Warning dialog
         }
-        imageField.setValue(model.getImageResource());
 
         if (model.getRecurrence() instanceof DailyRecurrence)
         {
@@ -163,9 +232,20 @@ public class ItemEditDialogController {
         LocalDateTime lastOccurrence = model.getRecurrence().getLastOccurrence();
         recurrenceDateField.setValue(lastOccurrence == null ? LocalDate.now() : lastOccurrence.toLocalDate()); // TODO: This should be datetime
         recurrenceXField.getValueFactory().setValue(model.getRecurrence().getEveryX());
-        recurrenceDateErrorLabel.setManaged(false);
-        recurrenceXFieldErrorLabel.setManaged(false);
 
+        setupTagBox();
+    }
+
+    public Item getModel(Item model)
+    {
+
+    }
+
+    /**
+     * Sets up the tag box
+     */
+    private void setupTagBox()
+    {
         tagBox.getChildren().clear();
         for (int tagId : model.getTagIds())
         {
@@ -235,7 +315,8 @@ public class ItemEditDialogController {
     @FXML
     private void submitActionPerformed(ActionEvent e)
     {
-        // TODO: Set model up for submission
+        updateModel();
+
         if (model instanceof IncomeSource)
         {
             DI.getRepositories().incomes.update((IncomeSource)model);
@@ -244,6 +325,7 @@ public class ItemEditDialogController {
         {
             DI.getRepositories().expenses.update((ExpenseItem)model);
         }
+
         closeStage((Node)e.getSource());
     }
 

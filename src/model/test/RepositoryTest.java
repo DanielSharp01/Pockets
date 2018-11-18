@@ -26,7 +26,7 @@ public class RepositoryTest {
         item.setMoney(new Money("USD", new BigDecimal("0.5")));
         item.setImageResource(null);
         item.setRecurrence(new MonthlyRecurrence(LocalDateTime.of(2018, 11, 4, 8, 0, 0), 2));
-        item.setColor(ColorUtils.fromHex("0xFF000000"));
+        item.setColor(ColorUtils.fromHex("#FF000000"));
         repository.add(item);
         String json = repository.serialize();
         System.out.println(json);

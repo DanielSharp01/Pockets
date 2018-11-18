@@ -11,10 +11,16 @@
     -fx-vgap: 8px;
 }
 
-.text-field.invalid
+.invalid
 {
     -fx-text-inner-color: #D30303;
     -fx-control-inner-background: #ffdddd;
+    -fx-faint-focus-color: #D3030322;
+    -fx-focus-color: #D30303;
+}
+
+.invalid-border
+{
     -fx-faint-focus-color: #D3030322;
     -fx-focus-color: #D30303;
 }

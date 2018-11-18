@@ -23,12 +23,21 @@ public class CurrencySymbol {
      */
     private static final HashMap<String, CurrencySymbol> currencySignHashMap = new HashMap<>();
 
+    /**
+     * Currency symbol string -> Currency ISO code mapping
+     */
+    private static final HashMap<String, String> reverseCurrencySignHashMap = new HashMap<>();
+
     static
     {
         currencySignHashMap.put("USD", new CurrencySymbol("$", false));
+        reverseCurrencySignHashMap.put("$", "USD");
         currencySignHashMap.put("GBP", new CurrencySymbol("£", false));
+        reverseCurrencySignHashMap.put("£", "GBP");
         currencySignHashMap.put("EUR", new CurrencySymbol("€", false));
+        reverseCurrencySignHashMap.put("€", "EUR");
         currencySignHashMap.put("HUF", new CurrencySymbol("Ft", true));
+        reverseCurrencySignHashMap.put("Ft", "HUF");
     }
 
     /**
@@ -39,6 +48,16 @@ public class CurrencySymbol {
     public static CurrencySymbol symbolFor(String currencyCode)
     {
         return currencySignHashMap.get(currencyCode);
+    }
+
+    /**
+     * Retrieves the currency code for a symbol
+     * @param currencySymbol Symbol string
+     * @return Currency ISO code if symbol exists, null otherwise
+     */
+    public static String codeFor(String currencySymbol)
+    {
+        return reverseCurrencySignHashMap.get(currencySymbol);
     }
 
     /**
