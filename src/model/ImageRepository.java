@@ -35,12 +35,12 @@ public class ImageRepository {
     public List<URL> getImages() throws IOException {
         List<URL> urls = new ArrayList<>();
 
-        for (Path file : Files.newDirectoryStream(path))
-        {
-            for (String format : supportedImageFormats) {
-                if (file.endsWith(format))
-                {
-                    urls.add(file.toUri().toURL());
+        if (Files.isDirectory(path)) {
+            for (Path file : Files.newDirectoryStream(path)) {
+                for (String format : supportedImageFormats) {
+                    if (file.toString().endsWith(format)) {
+                        urls.add(file.toUri().toURL());
+                    }
                 }
             }
         }
@@ -55,6 +55,11 @@ public class ImageRepository {
      */
     public void addImage(Path image) throws IOException
     {
+        if (!Files.isDirectory(path))
+        {
+            Files.createDirectory(path);
+        }
+
         Files.copy(image, FileUtils.getUnusedNumberedPath(path, image));
     }
 }

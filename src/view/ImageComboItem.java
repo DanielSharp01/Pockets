@@ -7,7 +7,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
-import java.nio.file.Paths;
 
 public class ImageComboItem extends ListCell<URL>
 {
@@ -19,7 +18,7 @@ public class ImageComboItem extends ListCell<URL>
     protected void updateItem(URL item, boolean empty) {
         super.updateItem(item, empty);
 
-        if (empty)
+        if (empty || item == null)
         {
             setGraphic(null);
         }
@@ -36,16 +35,17 @@ public class ImageComboItem extends ListCell<URL>
             hbox.getChildren().add(imagePane);
             hbox.getChildren().add(label);
 
-            if (item != null)
+            if (!item.toString().equals("mailto:null@null"))
             {
-                imagePane.setStyle("-fx-background-imagePane: url('" + item.toExternalForm() + "');");
+                imagePane.setStyle("-fx-background-image: url('" + item.toExternalForm() + "');");
+                String[] urlParts = item.toExternalForm().split("\\/");
+                label.setText(urlParts[urlParts.length - 1].split("\\.")[0]);
             }
             else
             {
+                label.setText("None");
                 imagePane.setStyle("-fx-background-color: #aaa;");
             }
-
-            label.setText(item == null ? "None" : Paths.get(item.toExternalForm()).getFileName().toString().split(".", 2)[0]);
             setGraphic(hbox);
         }
     }
