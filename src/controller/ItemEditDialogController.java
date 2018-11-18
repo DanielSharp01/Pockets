@@ -10,7 +10,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import model.*;
-import model.entities.ExpenseItem;
 import model.entities.IncomeSource;
 import model.entities.Item;
 import model.entities.Tag;
@@ -71,6 +70,14 @@ public class ItemEditDialogController {
     @FXML
     private Button submitButton;
 
+    /**
+     * The dialog was submitted and not cancelled
+     */
+    private boolean submitted = false;
+
+    /**
+     * Model edited
+     */
     private Item model;
 
     @FXML
@@ -137,7 +144,7 @@ public class ItemEditDialogController {
 
                         return null;
                     }
-                }), () -> submitButton.setDisable(false), () -> submitButton.setDisable(true));
+                }), (success) -> submitButton.setDisable(!success));
 
         nameField.textProperty().addListener((observable, oldValue, newValue) -> validatedNameField.validate(newValue));
 
@@ -152,7 +159,7 @@ public class ItemEditDialogController {
 
                         return null;
                     }
-                }), () -> submitButton.setDisable(false), () -> submitButton.setDisable(true));
+                }), success -> submitButton.setDisable(!success));
 
         priceField.textProperty().addListener((observable, oldValue, newValue) -> validatedPriceField.validate(newValue));
     }
@@ -191,6 +198,7 @@ public class ItemEditDialogController {
      */
     public void setModel(Item model)
     {
+        submitted = false;
         this.model = model.clone();
 
         nameField.setText(model.getName());
@@ -236,9 +244,20 @@ public class ItemEditDialogController {
         setupTagBox();
     }
 
-    public Item getModel(Item model)
+    /**
+     * @return Model edited
+     */
+    public Item getModel()
     {
+        return model;
+    }
 
+    /**
+     * @return The dialog was submitted and not cancelled
+     */
+    public boolean isSubmitted()
+    {
+        return submitted;
     }
 
     /**
@@ -316,15 +335,7 @@ public class ItemEditDialogController {
     private void submitActionPerformed(ActionEvent e)
     {
         updateModel();
-
-        if (model instanceof IncomeSource)
-        {
-            DI.getRepositories().incomes.update((IncomeSource)model);
-        }
-        else
-        {
-            DI.getRepositories().expenses.update((ExpenseItem)model);
-        }
+        submitted = true;
 
         closeStage((Node)e.getSource());
     }

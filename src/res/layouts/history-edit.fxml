@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.lang.String?>
+<?import java.lang.*?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.HistoryEditDialogController" styleClass="dialog-box">
 
     <TitledPane text="Item" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
-            <ComboBox fx:id="itemField" prefWidth="200" editable="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <Label text="Error with item" fx:id="itemErrorLabel" styleClass="error-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+            <ComboBox fx:id="itemTypeField" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="200" value="Income">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Income" />
+                        <String fx:value="Expense" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <ComboBox fx:id="incomeField" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="expenseField" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label text="Error with item" fx:id="itemErrorLabel" styleClass="error-label" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" wrapText="true"/>
         </GridPane>
     </TitledPane>
 
     <TitledPane text="Tags" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
             <ComboBox fx:id="addTagField" prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#addTagActionPerformed"/>
             <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
                 <children>
                     <Label text=". . .">
@@ -31,7 +41,7 @@
         </GridPane>
     </TitledPane>
     <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
-        <Button fx:id="submitButton"  styleClass="highlighted-button" prefWidth="60">OK</Button>
-        <Button prefWidth="60">Cancel</Button>
+        <Button fx:id="submitButton"  styleClass="highlighted-button" prefWidth="60" onAction="#submitActionPerformed">OK</Button>
+        <Button prefWidth="60" onAction="#cancelActionPerformed">Cancel</Button>
     </HBox>
 </VBox>
