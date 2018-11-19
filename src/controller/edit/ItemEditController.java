@@ -22,6 +22,7 @@ import view.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -75,6 +76,7 @@ public class ItemEditController extends EditController<Item> {
         imageField.setButtonCell(new ImageComboItem());
         imageField.setCellFactory(cb -> new ImageComboItem());
         try {
+            imageField.getItems().add(Paths.get(".NULL.")); // Sentry value, null would cause exception
             imageField.getItems().addAll(DI.userImages.getImages());
         } catch (IOException e) {
             Dialogs.showErrorOk("Error!", "User images could not be loaded! Image selection will be disabled for now.");
@@ -172,6 +174,11 @@ public class ItemEditController extends EditController<Item> {
         colorField.setValue(model.getColor());
         imageField.setValue(model.getImageResource());
 
+        if (imageField.getValue() == null)
+        {
+            imageField.getSelectionModel().select(0);
+        }
+
         if (model.getRecurrence() instanceof DailyRecurrence)
         {
             recurrenceTypeField.setValue(recurrenceTypeField.getItems().get(1));
@@ -207,7 +214,11 @@ public class ItemEditController extends EditController<Item> {
         model.setName(nameField.getText());
         model.setMoney(Money.parse(priceField.getText()));
         model.setColor(colorField.getValue());
-        model.setImageResource((Path) imageField.getValue());
+
+        if (imageField.getValue().toString().equals(".NULL."))
+            model.setImageResource(null);
+        else
+            model.setImageResource((Path) imageField.getValue());
 
         if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(0)))
         {

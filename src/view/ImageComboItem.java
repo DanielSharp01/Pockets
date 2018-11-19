@@ -5,10 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import utils.ColorUtils;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Path;
 
 public class ImageComboItem extends ListCell<Path>
@@ -38,19 +36,26 @@ public class ImageComboItem extends ListCell<Path>
             hbox.getChildren().add(imagePane);
             hbox.getChildren().add(label);
 
-            String urlResource = null;
-            try {
-                urlResource = item.toUri().toURL().toExternalForm();
-            } catch (MalformedURLException e) {
-                // Should not care
-            }
-
-            if (urlResource != null)
+            if (item.toString().equals(".NULL."))
             {
-                imagePane.setStyle("-fx-background-image: url('" + urlResource + "');");
+                label.setText("No image");
             }
+            else
+            {
 
-            label.setText(item.getFileName().toString());
+                String urlResource = null;
+                try {
+                    urlResource = item.toUri().toURL().toExternalForm();
+                } catch (MalformedURLException e) {
+                    // Should not care
+                }
+
+                if (urlResource != null) {
+                    imagePane.setStyle("-fx-background-image: url('" + urlResource + "');");
+                }
+
+                label.setText(item.getFileName().toString());
+            }
 
             setGraphic(hbox);
         }

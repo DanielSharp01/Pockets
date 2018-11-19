@@ -1,7 +1,7 @@
 package app;
 
-import controller.list.HistoryListController;
-import controller.list.ListController;
+import controller.list.ExpenseListController;
+import controller.list.TileController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -19,9 +19,9 @@ public class MainApplication extends Application {
                     "One or more json files can't be loaded! The program is now going to exit.");
             return;
         }
-        FXMLTuple itemList = DI.layouts.getFXMLInflater("items-list.fxml").inflate();
+        FXMLTuple itemList = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
 
-        ((ListController)itemList.getController()).setEntityListController(new HistoryListController());
+        ((TileController)itemList.getController()).setEntityListController(new ExpenseListController());
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(450);
