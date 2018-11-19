@@ -8,6 +8,8 @@ import javafx.scene.layout.Pane;
 import model.entities.Item;
 import utils.ColorUtils;
 
+import java.net.MalformedURLException;
+
 public class ItemComboItem extends ListCell<Item>
 {
     private Pane imagePane;
@@ -36,9 +38,16 @@ public class ItemComboItem extends ListCell<Item>
             hbox.getChildren().add(imagePane);
             hbox.getChildren().add(label);
 
-            if (item.getImageResource() != null)
+            String urlResource = null;
+            try {
+                urlResource = item.getImageResource().toUri().toURL().toExternalForm();
+            } catch (MalformedURLException e) {
+                // Should not care
+            }
+
+            if (urlResource != null)
             {
-                imagePane.setStyle("-fx-background-color: " + ColorUtils.toHex(item.getColor()) + "; -fx-background-image: url('" + item.getImageResource().toExternalForm() + "');");
+                imagePane.setStyle("-fx-background-color: " + ColorUtils.toHex(item.getColor()) + "; -fx-background-image: url('" + urlResource + "');");
             }
             else
             {

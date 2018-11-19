@@ -12,6 +12,8 @@ import utils.DI;
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -50,7 +52,7 @@ public class SerializationTest {
         source.setName("Income source");
         source.setMoney(new Money("USD", new BigDecimal("2")));
         source.setColor(ColorUtils.fromHex("#505050"));
-        source.setImageResource(new URL("https://keep.google.com"));
+        source.setImageResource(Paths.get("user-images/a.jpg"));
         source.setRecurrence(new DailyRecurrence(LocalDateTime.of(2018, 11, 4, 8, 0, 0), 2));
         String json = DI.gson.toJson(source, IncomeSource.class);
         System.out.println(json);
@@ -73,7 +75,7 @@ public class SerializationTest {
         expense.setName("Expense item");
         expense.setMoney(new Money("USD", new BigDecimal("2")));
         expense.setColor(ColorUtils.fromHex("#505050"));
-        expense.setImageResource(new URL("https://keep.google.com"));
+        expense.setImageResource(Paths.get("user-images/a.jpg"));
         expense.setRecurrence(new DailyRecurrence(LocalDateTime.of(2018, 11, 4, 8, 0, 0), 2));
         String json = DI.gson.toJson(expense, ExpenseItem.class);
         System.out.println(json);

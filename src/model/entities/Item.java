@@ -8,6 +8,7 @@ import model.filters.IFilterable;
 import utils.DI;
 
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.*;
 
 /**
@@ -22,9 +23,9 @@ public abstract class Item extends Entity implements IFilterable, Cloneable {
     private String name;
 
     /**
-     * URL to the image (may be on the local file system or be a program resource)
+     * Path to the image (may be on the local file system or be a program resource)
      */
-    private URL imageResource;
+    private Path imageResource;
 
     /**
      * Background color of image circle
@@ -68,16 +69,16 @@ public abstract class Item extends Entity implements IFilterable, Cloneable {
     }
 
     /**
-     * @return URL to the image (may be on the local file system or be a program resource)
+     * @return Path to the image (may be on the local file system or be a program resource)
      */
-    public URL getImageResource() {
+    public Path getImageResource() {
         return imageResource;
     }
 
     /**
-     * @param imageResource URL to the image (may be on the local file system or be a program resource)
+     * @param imageResource Path to the image (may be on the local file system or be a program resource)
      */
-    public void setImageResource(URL imageResource) {
+    public void setImageResource(Path imageResource) {
         this.imageResource = imageResource;
     }
 

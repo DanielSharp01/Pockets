@@ -20,6 +20,7 @@ import view.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -83,6 +84,12 @@ public class ItemEditDialogController {
     {
         imageField.setButtonCell(new ImageComboItem());
         imageField.setCellFactory(cb -> new ImageComboItem());
+        try {
+            imageField.getItems().addAll(DI.userImages.getImages());
+        } catch (IOException e) {
+            Dialogs.showErrorOk("Error!", "User images could not be loaded! Image selection will be disabled for now.");
+            imageField.setDisable(true);
+        }
 
         recurrenceTypeField.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
         {
@@ -170,7 +177,7 @@ public class ItemEditDialogController {
         model.setName(nameField.getText());
         model.setMoney(Money.parse(priceField.getText()));
         model.setColor(colorField.getValue());
-        model.setImageResource((URL) imageField.getValue());
+        model.setImageResource((Path) imageField.getValue());
 
         if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(0)))
         {
@@ -205,13 +212,7 @@ public class ItemEditDialogController {
         priceField.setText(model.getMoney().toString());
 
         colorField.setValue(model.getColor());
-        try {
-            imageField.setItems(FXCollections.observableList(DI.userImages.getImages()));
-            imageField.getItems().add(0, new URL("mailto:null@null")); // None item
-            imageField.setValue(model.getImageResource() == null ? new URL("mailto:null@null") : model.getImageResource());
-        } catch (IOException e) {
-            // TODO: Warning dialog
-        }
+        imageField.setValue(model.getImageResource());
 
         if (model.getRecurrence() instanceof DailyRecurrence)
         {

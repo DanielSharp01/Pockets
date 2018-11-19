@@ -5,17 +5,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import utils.ColorUtils;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
 
-public class ImageComboItem extends ListCell<URL>
+public class ImageComboItem extends ListCell<Path>
 {
     private Pane imagePane;
     private Label label ;
     private HBox hbox;
 
     @Override
-    protected void updateItem(URL item, boolean empty) {
+    protected void updateItem(Path item, boolean empty) {
         super.updateItem(item, empty);
 
         if (empty || item == null)
@@ -35,17 +38,20 @@ public class ImageComboItem extends ListCell<URL>
             hbox.getChildren().add(imagePane);
             hbox.getChildren().add(label);
 
-            if (!item.toString().equals("mailto:null@null"))
-            {
-                imagePane.setStyle("-fx-background-image: url('" + item.toExternalForm() + "');");
-                String[] urlParts = item.toExternalForm().split("\\/");
-                label.setText(urlParts[urlParts.length - 1].split("\\.")[0]);
+            String urlResource = null;
+            try {
+                urlResource = item.toUri().toURL().toExternalForm();
+            } catch (MalformedURLException e) {
+                // Should not care
             }
-            else
+
+            if (urlResource != null)
             {
-                label.setText("None");
-                imagePane.setStyle("-fx-background-color: #aaa;");
+                imagePane.setStyle("-fx-background-image: url('" + urlResource + "');");
             }
+
+            label.setText(item.getFileName().toString());
+
             setGraphic(hbox);
         }
     }

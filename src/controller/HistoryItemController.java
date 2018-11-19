@@ -9,6 +9,7 @@ import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
 
+import java.net.MalformedURLException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -47,13 +48,24 @@ public class HistoryItemController {
         }
 
         nameLabel.setText(item.getName());
-        if (item.getImageResource() != null)
+
+        String urlResource = null;
+        if (model.getItem() != null)
         {
-            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(item.getColor()) + "; -fx-background-image: url('" + item.getImageResource().toExternalForm() + "');");
+            try {
+                urlResource = model.getItem().getImageResource().toUri().toURL().toExternalForm();
+            } catch (MalformedURLException e) {
+                // Should not care
+            }
+        }
+
+        if (urlResource != null)
+        {
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getItem().getColor()) + "; -fx-background-image: url('" + urlResource + "');");
         }
         else
         {
-            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(item.getColor()) + ";");
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getItem().getColor()) + ";");
         }
 
         priceLabel.setText((model.getItemType() == HistoryEntry.Type.Income ? "+" : "-") + item.getMoney().toString());

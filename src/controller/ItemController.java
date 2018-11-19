@@ -9,6 +9,8 @@ import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
 
+import java.net.MalformedURLException;
+
 public class ItemController {
     @FXML
     Pane mainPanel;
@@ -42,9 +44,17 @@ public class ItemController {
         }
 
         nameLabel.setText(model.getName());
-        if (model.getImageResource() != null)
+
+        String urlResource = null;
+        try {
+            urlResource = model.getImageResource().toUri().toURL().toExternalForm();
+        } catch (MalformedURLException e) {
+            // Should not care
+        }
+
+        if (urlResource != null)
         {
-            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + "; -fx-background-image: url('" + model.getImageResource().toExternalForm() + "');");
+            backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + "; -fx-background-image: url('" + urlResource + "');");
         }
         else
         {

@@ -9,11 +9,13 @@ import model.Recurrence;
 import model.repository.RepositoryContainer;
 import model.serializers.ColorAdapter;
 import model.serializers.LocalDateTimeAdapter;
+import model.serializers.PathAdapter;
 import model.serializers.RecurrenceAdapter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
@@ -62,6 +64,7 @@ public final class DI {
                 .registerTypeAdapter(Recurrence.class, new RecurrenceAdapter())
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
                 .registerTypeAdapter(Color.class, new ColorAdapter())
+                .registerTypeAdapter(Path.class, new PathAdapter())
                 .setPrettyPrinting()
                 .setDateFormat("yyyy-mm-dd hh:mm:ss").create();
 

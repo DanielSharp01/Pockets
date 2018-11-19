@@ -19,6 +19,7 @@ import view.FXMLTuple;
 import view.ItemHolder;
 
 import java.math.BigDecimal;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 public class MainApplication extends Application {
@@ -67,11 +68,11 @@ public class MainApplication extends Application {
         expense.setMoney(new Money("USD", new BigDecimal("10")));
         expense.getTagIds().add(1);
         expense.getTagIds().add(5);
+        expense.setImageResource(Paths.get("user-images\\\\BoxTexture.jpg"));
         expense.setColor(ColorUtils.fromHex("#FF7043"));
         DI.getRepositories().expenses.add(expense);
         expense = new ExpenseItem(2);
         expense.setName("Coke");
-        expense.setImageResource(DI.resources.getResource("item-images/coke-can.png"));
         expense.setMoney(new Money("USD", new BigDecimal("2")));
         expense.getTagIds().add(2);
         expense.getTagIds().add(5);
@@ -104,14 +105,14 @@ public class MainApplication extends Application {
 
         DI.getRepositories().history.findById(1).getTagIds().add(6);
 
-        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
-        ((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
-        /*((ItemEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().incomes.findById(1));
+        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("item-edit.fxml").inflate();
+        //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
+        ((ItemEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().expenses.findById(1));
         primaryStage.setOnCloseRequest(e ->
         {
             if (!((ItemEditDialogController)itemsTile.getController()).tryCancel())
                 e.consume();
-        });*/
+        });
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(380);
