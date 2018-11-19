@@ -1,5 +1,6 @@
 package controller;
 
+import app.Settings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -69,7 +70,7 @@ public class HistoryItemController {
         }
 
         priceLabel.setText((model.getItemType() == HistoryEntry.Type.Income ? "+" : "-") + item.getMoney().toString());
-        dateLabel.setText(model.getDate().format(DI.settings.getDateTimeFormatter()));
+        dateLabel.setText(model.getDate().format(Settings.getInstance().getDateTimeFormatter()));
 
         tagBox.getChildren().clear();
 

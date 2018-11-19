@@ -1,6 +1,5 @@
 package utils;
 
-import app.Settings;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.scene.paint.Color;
@@ -12,11 +11,7 @@ import model.serializers.LocalDateTimeAdapter;
 import model.serializers.PathAdapter;
 import model.serializers.RecurrenceAdapter;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 /**
@@ -44,16 +39,6 @@ public final class DI {
     public static final ImageRepository userImages = new ImageRepository();
 
     /**
-     * Global settings object, contains app settings
-     */
-    public static Settings settings;
-
-    /**
-     * JSON file for app settings
-     */
-    public static final String settingsJsonFile = "app-settings.json";
-
-    /**
      * Gson object used for JSON serialization
      */
     public static final Gson gson;
@@ -67,24 +52,6 @@ public final class DI {
                 .registerTypeAdapter(Path.class, new PathAdapter())
                 .setPrettyPrinting()
                 .setDateFormat("yyyy-mm-dd hh:mm:ss").create();
-
-
-        // TODO: Pull this outside of the DI container
-        if (Files.exists(Paths.get(settingsJsonFile)))
-        {
-            try {
-
-                settings = gson.fromJson(new String(Files.readAllBytes(Paths.get(settingsJsonFile)), StandardCharsets.UTF_8), Settings.class);
-            } catch (IOException e) {
-                // TODO: Deserialization error
-                settings = new Settings();
-            }
-        }
-        else
-        {
-            // TODO: Save on exit
-            settings = new Settings();
-        }
     }
 
     /**

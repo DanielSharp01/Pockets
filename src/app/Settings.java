@@ -1,5 +1,13 @@
 package app;
 
+import utils.DI;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -56,5 +64,67 @@ public class Settings {
      */
     public DateTimeFormatter getDateTimeFormatter() {
         return dateTimeFormatter;
+    }
+
+    /**
+     * Global settings object, contains app settings
+     */
+    private static transient Settings settings;
+
+    /**
+     * @return Global settings object, contains app settings
+     */
+    public static Settings getInstance()
+    {
+       return settings;
+    }
+
+    /**
+     * Settings json file
+     */
+    private static transient final String jsonFile = "app-settings.json";
+
+    /**
+     * Loads the global settings from the JSON file
+     * @return Whether the load was successful or not
+     */
+    public static boolean load()
+    {
+        try
+        {
+            if (Files.exists(Paths.get(jsonFile)))
+                settings = DI.gson.fromJson(new String(Files.readAllBytes(Paths.get(jsonFile)), StandardCharsets.UTF_8), Settings.class);
+            else
+                settings = new Settings();
+        }
+        catch (IOException e)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Saves the setting onto the file system as JSON
+     * @return Whether the save was successful or not
+     */
+    public boolean save()
+    {
+        try
+        {
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(jsonFile), StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.WRITE);
+
+            writer.write(DI.gson.toJson(this, Settings.class));
+            writer.close();
+        }
+        catch (IOException e)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

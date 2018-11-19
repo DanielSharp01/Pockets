@@ -1,5 +1,7 @@
 package model.repository;
 
+import utils.DI;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
@@ -59,7 +61,9 @@ public class RepositoryContainer {
         boolean successful = true;
         try
         {
-            Files.newBufferedWriter(Paths.get(expensesJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(expensesJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            writer.write(expenses.serialize());
+            writer.close();
         }
         catch (IOException e)
         {
@@ -68,7 +72,9 @@ public class RepositoryContainer {
 
         try
         {
-            Files.newBufferedWriter(Paths.get(incomesJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(incomesJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            writer.write(incomes.serialize());
+            writer.close();
         }
         catch (IOException e)
         {
@@ -77,7 +83,9 @@ public class RepositoryContainer {
 
         try
         {
-            Files.newBufferedWriter(Paths.get(tagsJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(tagsJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            writer.write(tags.serialize());
+            writer.close();
         }
         catch (IOException e)
         {
@@ -86,7 +94,9 @@ public class RepositoryContainer {
 
         try
         {
-            Files.newBufferedWriter(Paths.get(historyJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(historyJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            writer.write(history.serialize());
+            writer.close();
         }
         catch (IOException e)
         {
@@ -100,7 +110,7 @@ public class RepositoryContainer {
      * Loads repository contents from JSON files
      * @return True if successful, false if exceptions occurred
      */
-    public boolean load() throws IOException
+    public boolean load()
     {
         boolean successful = true;
         try

@@ -15,9 +15,12 @@ import model.entities.IncomeSource;
 import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
+import view.Dialogs;
 import view.FXMLTuple;
 import view.ItemHolder;
 
+import java.awt.*;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -25,85 +28,6 @@ import java.time.LocalDateTime;
 public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        Tag tag = new Tag(1);
-        tag.setName("Food");
-        tag.setColor(ColorUtils.fromHex("#FF8F00"));
-        DI.getRepositories().tags.add(tag);
-        tag = new Tag(2);
-        tag.setName("Drink");
-        tag.setColor(ColorUtils.fromHex("#FF7043"));
-        DI.getRepositories().tags.add(tag);
-        tag = new Tag(3);
-        tag.setName("Recurrent expenses");
-        tag.setColor(ColorUtils.fromHex("#A1887F"));
-        DI.getRepositories().tags.add(tag);
-        tag = new Tag(4);
-        tag.setName("University");
-        tag.setColor(ColorUtils.fromHex("#FF7043"));
-        DI.getRepositories().tags.add(tag);
-        tag = new Tag(5);
-        tag.setColor(ColorUtils.fromHex("#FF7043"));
-        tag.setName("Food & Drink");
-        DI.getRepositories().tags.add(tag);
-        tag = new Tag(6);
-        tag.setColor(ColorUtils.fromHex("#1122ee"));
-        tag.setName("First item");
-        DI.getRepositories().tags.add(tag);
-
-        IncomeSource source = new IncomeSource(1);
-        source.setMoney(new Money("USD", new BigDecimal("200")));
-        source.setName("Scholarship");
-        source.setColor(ColorUtils.fromHex("#FF7043"));
-        source.getTagIds().add(4);
-        DI.getRepositories().incomes.add(source);
-        source = new IncomeSource(2);
-        source.setMoney(new Money("USD", new BigDecimal("600")));
-        source.setName("Job");
-        source.setColor(ColorUtils.fromHex("#FF7043"));
-        DI.getRepositories().incomes.add(source);
-
-        ExpenseItem expense = new ExpenseItem(1);
-        expense.setName("Pizza");
-        expense.setMoney(new Money("USD", new BigDecimal("10")));
-        expense.getTagIds().add(1);
-        expense.getTagIds().add(5);
-        expense.setImageResource(Paths.get("user-images\\\\BoxTexture.jpg"));
-        expense.setColor(ColorUtils.fromHex("#FF7043"));
-        DI.getRepositories().expenses.add(expense);
-        expense = new ExpenseItem(2);
-        expense.setName("Coke");
-        expense.setMoney(new Money("USD", new BigDecimal("2")));
-        expense.getTagIds().add(2);
-        expense.getTagIds().add(5);
-        expense.setColor(ColorUtils.fromHex("#A1887F"));
-        DI.getRepositories().expenses.add(expense);
-        expense = new ExpenseItem(3);
-        expense.setName("Rent");
-        expense.setRecurrence(new WeeklyRecurrence(LocalDateTime.now(), 2));
-        expense.setColor(ColorUtils.fromHex("#A1887F"));
-        expense.setMoney(new Money("USD", new BigDecimal("600")));
-        expense.getTagIds().add(3);
-        DI.getRepositories().expenses.add(expense);
-
-        int cnt = 1;
-        for (int i = 1; i <= 3; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                DI.getRepositories().history.add(new HistoryEntry(cnt++, i, HistoryEntry.Type.Expense, LocalDateTime.now()));
-            }
-        }
-
-        for (int i = 1; i <= 2; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                DI.getRepositories().history.add(new HistoryEntry(cnt++, i, HistoryEntry.Type.Income, LocalDateTime.now()));
-            }
-        }
-
-        DI.getRepositories().history.findById(1).getTagIds().add(6);
 
         FXMLTuple itemsTile = DI.layouts.getFXMLInflater("item-edit.fxml").inflate();
         //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
@@ -129,6 +53,17 @@ public class MainApplication extends Application {
 
 
     public static void main(String[] args) {
+        if (!Settings.load() || !DI.getRepositories().load())
+        {
+            Dialogs.showErrorOk("Fatal error!",
+                    "One or more json files can't be loaded! The program is now going to exit.");
+            return;
+        }
+
         launch(args);
+        if (!DI.getRepositories().save() | !Settings.getInstance().save())
+        {
+            Dialogs.showErrorOk("Fatal error!", "Could not save changes to the file system!");
+        }
     }
 }

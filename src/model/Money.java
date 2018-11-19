@@ -1,5 +1,6 @@
 package model;
 
+import app.Settings;
 import utils.DI;
 
 import java.math.BigDecimal;
@@ -99,7 +100,7 @@ public class Money {
 
         if (symbol != null)
         {
-            if (symbol.isAlwaysAfter() || DI.settings.areCurrencySymbolsAfter())
+            if (symbol.isAlwaysAfter() || Settings.getInstance().areCurrencySymbolsAfter())
             {
                 return amount.toString() + symbol.getSymbol();
             }

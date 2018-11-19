@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Scholarship",
+    "imageResource": null,
+    "color": "#FF7043",
+    "recurrence": false,
+    "tagIds": [
+      4
+    ],
+    "money": {
+      "currency": "USD",
+      "amount": 200.00
+    },
+    "id": 1
+  },
+  {
+    "name": "Job",
+    "imageResource": null,
+    "color": "#FF7043",
+    "recurrence": false,
+    "tagIds": [],
+    "money": {
+      "currency": "USD",
+      "amount": 600.00
+    },
+    "id": 2
+  }
+]

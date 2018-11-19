@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Pizza",
+    "imageResource": "user-images\\BoxTexture.jpg",
+    "color": "#FF7043",
+    "recurrence": false,
+    "tagIds": [
+      1,
+      5
+    ],
+    "money": {
+      "currency": "USD",
+      "amount": 10.00
+    },
+    "id": 1
+  },
+  {
+    "name": "Coke",
+    "imageResource": null,
+    "color": "#A1887F",
+    "recurrence": false,
+    "tagIds": [
+      2,
+      5
+    ],
+    "money": {
+      "currency": "USD",
+      "amount": 2.00
+    },
+    "id": 2
+  },
+  {
+    "name": "Rent",
+    "imageResource": null,
+    "color": "#A1887F",
+    "recurrence": {
+      "lastOccurrence": "2018-11-19 14:49:06",
+      "everyX": 2,
+      "type": "weekly"
+    },
+    "tagIds": [
+      3
+    ],
+    "money": {
+      "currency": "USD",
+      "amount": 600.00
+    },
+    "id": 3
+  }
+]

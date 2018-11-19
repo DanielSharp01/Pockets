@@ -1,5 +1,6 @@
 package view;
 
+import app.Settings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.DatePicker;
@@ -33,7 +34,7 @@ public class DateTimePicker extends DatePicker {
             @Override
             public String toString(LocalDate object)
             {
-                return (dateTimeValue.get() != null) ? dateTimeValue.get().format(DI.settings.getDateTimeFormatter()) : "";
+                return (dateTimeValue.get() != null) ? dateTimeValue.get().format(Settings.getInstance().getDateTimeFormatter()) : "";
             }
 
             @Override
@@ -47,7 +48,7 @@ public class DateTimePicker extends DatePicker {
                 {
                     try
                     {
-                        setDateTimeValue(LocalDateTime.parse(string, DI.settings.getDateTimeFormatter()));
+                        setDateTimeValue(LocalDateTime.parse(string, Settings.getInstance().getDateTimeFormatter()));
                     }
                     catch (DateTimeParseException e)
                     {
@@ -91,7 +92,7 @@ public class DateTimePicker extends DatePicker {
 
             try
             {
-                LocalDateTime.parse(newValue, DI.settings.getDateTimeFormatter());
+                LocalDateTime.parse(newValue, Settings.getInstance().getDateTimeFormatter());
             }
             catch (DateTimeParseException e)
             {

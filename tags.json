@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Food",
+    "color": "#FF8F00",
+    "id": 1
+  },
+  {
+    "name": "Drink",
+    "color": "#FF7043",
+    "id": 2
+  },
+  {
+    "name": "Recurrent expenses",
+    "color": "#A1887F",
+    "id": 3
+  },
+  {
+    "name": "University",
+    "color": "#FF7043",
+    "id": 4
+  },
+  {
+    "name": "Food \u0026 Drink",
+    "color": "#FF7043",
+    "id": 5
+  },
+  {
+    "name": "First item",
+    "color": "#1122EE",
+    "id": 6
+  }
+]
