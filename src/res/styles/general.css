@@ -1,6 +1,7 @@
 .root
 {
     -fx-font-family: 'Roboto Regular';
+    tag-color: gray;
 }
 
 .vertical-spacing
@@ -26,12 +27,20 @@
 
 .tag-label
 {
+    -fx-background-color: tag-color;
     -fx-padding: 5px 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
     -fx-border-width: 1px;
     -fx-background-radius: 10px;
     -fx-background-insets: 1px;
+}
+
+.tag-label.editable:hover
+{
+    -fx-border-color: red;
+    -fx-background-color: derive(tag-color, -40%);
+    -fx-cursor: hand;
 }
 
 .tag-label.ellipsis

@@ -1,6 +1,7 @@
 package controller.edit;
 
 import javafx.scene.Parent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import view.SceneFactory;
 
@@ -18,6 +19,7 @@ public class EditDialogStage<T> extends Stage {
      */
     public EditDialogStage(Parent rootNode, double width, double height, EditController<T> controller)
     {
+        initModality(Modality.APPLICATION_MODAL);
         setScene(SceneFactory.getScene(rootNode, width, height));
         sceneController = controller;
         sceneController.setStage(this);

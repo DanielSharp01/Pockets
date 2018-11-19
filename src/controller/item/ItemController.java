@@ -75,7 +75,7 @@ public class ItemController {
             {
                 Label label = new Label();
                 label.setText(tag.getName());
-                label.setStyle("-fx-background-color: " + ColorUtils.toHex(tag.getColor()) + ";");
+                label.setStyle("tag-color: " + ColorUtils.toHex(tag.getColor()) + ";");
                 label.getStyleClass().add("tag-label");
                 tagBox.getChildren().add(label);
             }
