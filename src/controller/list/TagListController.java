@@ -40,15 +40,29 @@ public class TagListController extends EntityListController<Tag> {
 
     @Override
     public Callback<TileListView, ViewHolder<Tag>> getHolderFactory() {
-        return l -> new TagHolder();
+        return l -> new TagHolder(this);
     }
 
     @Override
     public void newEntity() {
         FXMLTuple tuple = editDialogInflater.inflate();
         EditDialogStage<Tag> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 400, (EditController<Tag>) tuple.getController());
+        editDialog.setTitle("Add tag");
         Tag tag = new Tag(0);
         tag.setName(currentFilter);
         editDialog.showAndWaitForSubmit(tag);
+    }
+
+    @Override
+    public void edit(Tag model) {
+        FXMLTuple tuple = editDialogInflater.inflate();
+        EditDialogStage<Tag> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 400, (EditController<Tag>) tuple.getController());
+        editDialog.setTitle("Edit tag");
+        editDialog.showAndWaitForSubmit(model);
+    }
+
+    @Override
+    public void delete(Tag model) {
+        DI.getRepositories().tags.delete(model);
     }
 }

@@ -132,6 +132,8 @@ public class HistoryEntry extends Entity implements Cloneable {
     @Override
     public HistoryEntry clone()
     {
-        return new HistoryEntry(getId(), getItemId(), getItemType(), getDate());
+        HistoryEntry entry = new HistoryEntry(getId(), getItemId(), getItemType(), getDate());
+        entry.getTagIds().addAll(getTagIds());
+        return entry;
     }
 }

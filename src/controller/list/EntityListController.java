@@ -51,4 +51,16 @@ public abstract class EntityListController<T extends Entity> {
      * Add button was pressed on the parent ListController
      */
     public abstract void newEntity();
+
+    /**
+     * Edit request was made by the view for the specified model
+     * @param model Model to edit
+     */
+    public abstract void edit(T model);
+
+    /**
+     * Delete request was made by the view for the specified model
+     * @param model Model to delete
+     */
+    public abstract void delete(T model);
 }

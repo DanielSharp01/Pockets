@@ -40,15 +40,29 @@ public class ExpenseListController extends EntityListController<ExpenseItem> {
 
     @Override
     public Callback<TileListView, ViewHolder<ExpenseItem>> getHolderFactory() {
-        return l -> (ViewHolder)(new ItemHolder());
+        return l -> (ViewHolder)(new ItemHolder((EntityListController) this));
     }
 
     @Override
     public void newEntity() {
         FXMLTuple tuple = editDialogInflater.inflate();
         EditDialogStage<Item> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 600, (EditController<Item>) tuple.getController());
+        editDialog.setTitle("Add expense item");
         ExpenseItem item = new ExpenseItem(0);
         item.setName(currentFilter);
         editDialog.showAndWaitForSubmit(item);
+    }
+
+    @Override
+    public void edit(ExpenseItem model) {
+        FXMLTuple tuple = editDialogInflater.inflate();
+        EditDialogStage<Item> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 600, (EditController<Item>) tuple.getController());
+        editDialog.setTitle("Edit expense item");
+        editDialog.showAndWaitForSubmit(model);
+    }
+
+    @Override
+    public void delete(ExpenseItem model) {
+        DI.getRepositories().expenses.delete(model);
     }
 }

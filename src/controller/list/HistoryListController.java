@@ -35,7 +35,7 @@ public class HistoryListController extends EntityListController<HistoryEntry> {
 
     @Override
     public Callback<ListView, ListCell<HistoryEntry>> getCellFactory() {
-        return l -> new HistoryCell();
+        return l -> new HistoryCell(this);
     }
 
     @Override
@@ -47,7 +47,21 @@ public class HistoryListController extends EntityListController<HistoryEntry> {
     public void newEntity() {
         FXMLTuple tuple = editDialogInflater.inflate();
         EditDialogStage<HistoryEntry> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 500, (EditController<HistoryEntry>) tuple.getController());
-        HistoryEntry tag = new HistoryEntry(0, 0, HistoryEntry.Type.Expense, LocalDateTime.now());
-        editDialog.showAndWaitForSubmit(tag);
+        editDialog.setTitle("Add history entry");
+        HistoryEntry historyEntry = new HistoryEntry(0, 0, HistoryEntry.Type.Expense, LocalDateTime.now());
+        editDialog.showAndWaitForSubmit(historyEntry);
+    }
+
+    @Override
+    public void edit(HistoryEntry model) {
+        FXMLTuple tuple = editDialogInflater.inflate();
+        EditDialogStage<HistoryEntry> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 500, (EditController<HistoryEntry>) tuple.getController());
+        editDialog.setTitle("Edit history entry");
+        editDialog.showAndWaitForSubmit(model);
+    }
+
+    @Override
+    public void delete(HistoryEntry model) {
+        DI.getRepositories().history.delete(model);
     }
 }

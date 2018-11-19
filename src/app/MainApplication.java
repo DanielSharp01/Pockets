@@ -1,6 +1,6 @@
 package app;
 
-import controller.list.ExpenseListController;
+import controller.list.TagListController;
 import controller.list.TileController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,7 +21,7 @@ public class MainApplication extends Application {
         }
         FXMLTuple itemList = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
 
-        ((TileController)itemList.getController()).setEntityListController(new ExpenseListController());
+        ((TileController)itemList.getController()).setEntityListController(new TagListController());
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(450);

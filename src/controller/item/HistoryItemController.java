@@ -1,8 +1,11 @@
 package controller.item;
 
 import app.Settings;
+import controller.list.EntityListController;
 import javafx.fxml.FXML;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import model.entities.HistoryEntry;
 import model.entities.Item;
@@ -33,8 +36,24 @@ public class HistoryItemController {
     @FXML
     Pane tagBox;
 
+    private HistoryEntry model;
+
+    public void setListController(EntityListController<HistoryEntry> listController)
+    {
+        final ContextMenu contextMenu = new ContextMenu();
+        MenuItem edit = new MenuItem("Edit");
+        edit.setOnAction(e -> listController.edit(model));
+        contextMenu.getItems().add(edit);
+        MenuItem delete = new MenuItem("Delete");
+        delete.setOnAction(e -> listController.delete(model));
+        contextMenu.getItems().add(delete);
+
+        mainPanel.setOnContextMenuRequested(e -> contextMenu.show(mainPanel, e.getScreenX(), e.getScreenY()));
+    }
+
     public void setContent(HistoryEntry model)
     {
+        this.model = model;
         Item item = model.getItem();
 
         if (model.getItemType() == HistoryEntry.Type.Income)
