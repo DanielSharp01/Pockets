@@ -18,7 +18,11 @@ public class IncomeSource extends Item {
         c.setName(getName());
         c.setColor(getColor());
         c.setImageResource(getImageResource());
-        c.setMoney(getMoney().clone());
+        if (getMoney() != null)
+            c.setMoney(getMoney().clone());
+        else
+            c.setMoney(null);
+
         c.setRecurrence(getRecurrence().clone());
         c.getTagIds().addAll(getTagIds());
         return c;

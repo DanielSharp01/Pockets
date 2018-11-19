@@ -39,10 +39,13 @@ public class ItemComboItem extends ListCell<Item>
             hbox.getChildren().add(label);
 
             String urlResource = null;
-            try {
-                urlResource = item.getImageResource().toUri().toURL().toExternalForm();
-            } catch (MalformedURLException e) {
-                // Should not care
+            if (item.getImageResource() != null)
+            {
+                try {
+                    urlResource = item.getImageResource().toUri().toURL().toExternalForm();
+                } catch (MalformedURLException e) {
+                    // Should not care
+                }
             }
 
             if (urlResource != null)

@@ -21,7 +21,7 @@ public class RepositoryTest {
     public void testJsonRepositorySerialization()
     {
         ExpenseRepository repository = new ExpenseRepository(null);
-        ExpenseItem item = new ExpenseItem(1);
+        ExpenseItem item = new ExpenseItem(0);
         item.setName("Coke 0.33ml");
         item.setMoney(new Money("USD", new BigDecimal("0.5")));
         item.setImageResource(null);
@@ -36,6 +36,7 @@ public class RepositoryTest {
         assertNotNull(item1 = repository.findById(1));
         assertSame(item, item1);
         ExpenseItem item2;
+        assertEquals(repository.getAutoIncrement(), repository2.getAutoIncrement());
         assertNotNull(item2 = repository2.findById(1));
         assertEquals(item1.getId(), item2.getId());
         assertEquals(item1.getName(), item2.getName());

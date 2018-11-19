@@ -1,17 +1,20 @@
-package controller;
+package controller.edit;
 
+import controller.validation.NonEmptyRule;
+import controller.validation.ValidatedField;
+import controller.validation.ValidationRule;
+import controller.validation.ValidationRuleList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import model.*;
 import model.entities.IncomeSource;
 import model.entities.Item;
 import model.entities.Tag;
+import model.repository.EntityRepository;
 import utils.ColorUtils;
 import utils.DI;
 import view.*;
@@ -22,9 +25,8 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
-public class ItemEditDialogController {
+public class ItemEditController extends EditController<Item> {
     @FXML
     private TextField nameField;
 
@@ -66,16 +68,6 @@ public class ItemEditDialogController {
 
     @FXML
     private Button submitButton;
-
-    /**
-     * The dialog was submitted and not cancelled
-     */
-    private boolean submitted = false;
-
-    /**
-     * Model edited
-     */
-    private Item model;
 
     @FXML
     public void initialize()
@@ -123,7 +115,7 @@ public class ItemEditDialogController {
 
         addTagField.setButtonCell(new TagComboItem());
         addTagField.setCellFactory(combo -> new TagComboItem());
-        addTagField.setItems(DI.getRepositories().tags.asObservable());
+        addTagField.setItems(DI.getRepositories().tags.asObservableList());
         addTagField.setValue(null);
 
         setupValidation();
@@ -167,47 +159,15 @@ public class ItemEditDialogController {
         priceField.textProperty().addListener((observable, oldValue, newValue) -> validatedPriceField.validate(newValue));
     }
 
-    /**
-     * Updates the model before submitting
-     */
-    private void updateModel()
-    {
-        model.setName(nameField.getText());
-        model.setMoney(Money.parse(priceField.getText()));
-        model.setColor(colorField.getValue());
-        model.setImageResource((Path) imageField.getValue());
-
-        if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(0)))
-        {
-            model.setRecurrence(new NullRecurrence());
-        }
-        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(1)))
-        {
-            model.setRecurrence(new DailyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
-        }
-        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(2)))
-        {
-            model.setRecurrence(new WeeklyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
-        }
-        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(3)))
-        {
-            model.setRecurrence(new MonthlyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
-        }
-    }
-
-    /**
-     * Sets the model of this controller to be a clone of the specified one
-     * @param model Model to set
-     */
+    @Override
     public void setModel(Item model)
     {
-        submitted = false;
         this.model = model.clone();
 
         nameField.setText(model.getName());
 
         priceLabel.setText(model instanceof IncomeSource ? "Income:" : "Price:");
-        priceField.setText(model.getMoney().toString());
+        priceField.setText(model.getMoney() == null ? "" : model.getMoney().toString());
 
         colorField.setValue(model.getColor());
         imageField.setValue(model.getImageResource());
@@ -241,20 +201,36 @@ public class ItemEditDialogController {
         setupTagBox();
     }
 
-    /**
-     * @return Model edited
-     */
-    public Item getModel()
+    @Override
+    protected void updateModel()
     {
-        return model;
-    }
+        model.setName(nameField.getText());
+        model.setMoney(Money.parse(priceField.getText()));
+        model.setColor(colorField.getValue());
+        model.setImageResource((Path) imageField.getValue());
 
-    /**
-     * @return The dialog was submitted and not cancelled
-     */
-    public boolean isSubmitted()
-    {
-        return submitted;
+        if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(0)))
+        {
+            model.setRecurrence(new NullRecurrence());
+        }
+        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(1)))
+        {
+            model.setRecurrence(new DailyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
+        }
+        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(2)))
+        {
+            model.setRecurrence(new WeeklyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
+        }
+        else if (recurrenceTypeField.getValue().equals(recurrenceTypeField.getItems().get(3)))
+        {
+            model.setRecurrence(new MonthlyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
+        }
+
+        EntityRepository repository = (model instanceof IncomeSource) ?  DI.getRepositories().incomes :  DI.getRepositories().expenses;
+        if (model.getId() == 0)
+            repository.add(model);
+        else
+            repository.update(model);
     }
 
     /**
@@ -298,7 +274,7 @@ public class ItemEditDialogController {
                 DI.userImages.addImage(file.toPath());
                 imageField.getItems().add(file.toPath().toUri().toURL());
             } catch (IOException e1) {
-                // TODO: Warning dialog
+                Dialogs.showErrorOk("Error!", "Image could not be loaded or added!");
             }
         }
     }
@@ -331,33 +307,12 @@ public class ItemEditDialogController {
     @FXML
     private void submitActionPerformed(ActionEvent e)
     {
-        updateModel();
-        submitted = true;
-
-        closeStage((Node)e.getSource());
+        submit();
     }
 
     @FXML
     private void cancelActionPerformed(ActionEvent e)
     {
-        if (tryCancel())
-            closeStage((Node) e.getSource());
-    }
-
-    public boolean tryCancel()
-    {
-        Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!",
-                "Do you really want to cancel without saving?");
-        if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private void closeStage(Node source)
-    {
-        ((Stage)source.getScene().getWindow()).close();
+        cancel();
     }
 }

@@ -1,4 +1,4 @@
-package controller;
+package controller.item;
 
 import app.Settings;
 import javafx.fxml.FXML;
@@ -51,7 +51,7 @@ public class HistoryItemController {
         nameLabel.setText(item.getName());
 
         String urlResource = null;
-        if (model.getItem() != null)
+        if (model.getItem() != null && model.getItem().getImageResource() != null)
         {
             try {
                 urlResource = model.getItem().getImageResource().toUri().toURL().toExternalForm();

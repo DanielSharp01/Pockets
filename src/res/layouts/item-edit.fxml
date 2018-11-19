@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.ItemEditDialogController" styleClass="dialog-box">
+      fx:controller="controller.edit.ItemEditController" styleClass="dialog-box">
 
     <TitledPane text="General" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">

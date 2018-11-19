@@ -44,7 +44,7 @@
 
 .item-name
 {
-    -fx-font-size: 20;
+    -fx-font-size: 20;  
     -fx-font-family: 'Roboto Bold';
 }
 
@@ -53,10 +53,8 @@
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-border-color: black;
     -fx-border-radius: 24px;
     -fx-background-radius: 24px;
-    -fx-border-width: 1px;
 }
 
 .item-money
@@ -68,6 +66,6 @@
 
 .misc-label
 {
-    -fx-text-fill: #797979;
+    -fx-text-fill: #393939;
     -fx-font-family: 'Roboto Light Italic';
 }

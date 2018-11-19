@@ -1,5 +1,6 @@
 package model.repository;
 
+import com.google.gson.JsonArray;
 import model.entities.ExpenseItem;
 import model.filters.SatisfyFilter;
 import utils.DI;
@@ -48,11 +49,8 @@ public class ExpenseRepository extends EntityRepository<ExpenseItem> {
     }
 
     @Override
-    public void deserialize(String json)
+    public ExpenseItem[] deserializeArray(JsonArray array)
     {
-        for (ExpenseItem entity : DI.gson.fromJson(json, ExpenseItem[].class))
-        {
-            entities.put(entity.getId(), entity);
-        }
+        return DI.gson.fromJson(array.toString(), ExpenseItem[].class);
     }
 }

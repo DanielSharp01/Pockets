@@ -1,25 +1,23 @@
-package controller;
+package controller.edit;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import model.entities.HistoryEntry;
 import model.entities.Item;
 import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
-import view.Dialogs;
 import view.ItemComboItem;
 import view.TagComboItem;
 
 import java.util.List;
-import java.util.Optional;
 
-public class HistoryEditDialogController {
+public class HistoryEditController extends EditController<HistoryEntry> {
     @FXML
     private ComboBox itemTypeField;
 
@@ -41,16 +39,6 @@ public class HistoryEditDialogController {
     @FXML
     private Button submitButton;
 
-    /**
-     * The dialog was submitted and not cancelled
-     */
-    private boolean submitted = false;
-
-    /**
-     * Model edited
-     */
-    private HistoryEntry model;
-
     @FXML
     public void initialize()
     {
@@ -59,8 +47,8 @@ public class HistoryEditDialogController {
         incomeField.setCellFactory(cb -> new ItemComboItem());
         expenseField.setCellFactory(cb -> new ItemComboItem());
 
-        incomeField.setItems(DI.getRepositories().incomes.asObservable());
-        expenseField.setItems(DI.getRepositories().expenses.asObservable());
+        incomeField.setItems(DI.getRepositories().incomes.asObservableList());
+        expenseField.setItems(DI.getRepositories().expenses.asObservableList());
 
         itemTypeField.valueProperty().addListener((observable, oldValue, newValue) -> changeItemType((String)newValue));
 
@@ -84,7 +72,7 @@ public class HistoryEditDialogController {
 
         addTagField.setButtonCell(new TagComboItem());
         addTagField.setCellFactory(combo -> new TagComboItem());
-        addTagField.setItems(DI.getRepositories().tags.asObservable());
+        addTagField.setItems(DI.getRepositories().tags.asObservableList());
         addTagField.setValue(null);
     }
 
@@ -136,25 +124,9 @@ public class HistoryEditDialogController {
         }
     }
 
-    /**
-     * Updates the model before submitting
-     */
-    private void updateModel()
-    {
-        model.setItemType(itemTypeField.getValue().equals("Income") ? HistoryEntry.Type.Income : HistoryEntry.Type.Expense);
-        Item item = model.getItemType() == HistoryEntry.Type.Income ? (Item)incomeField.getValue() : (Item)expenseField.getValue();
-        model.setItemId(item.getId());
-
-        System.out.println(DI.gson.toJson(model, HistoryEntry.class));
-    }
-
-    /**
-     * Sets the model of this controller to be a clone of the specified one
-     * @param model Model to set
-     */
+    @Override
     public void setModel(HistoryEntry model)
     {
-        submitted = false;
         this.model = model.clone();
 
         if (model.getItemType() == HistoryEntry.Type.Income)
@@ -187,20 +159,18 @@ public class HistoryEditDialogController {
         setupTagBox();
     }
 
-    /**
-     * @return Model edited
-     */
-    public HistoryEntry getModel()
+    @Override
+    protected void updateModel()
     {
-        return model;
-    }
+        model.setItemType(itemTypeField.getValue().equals("Income") ? HistoryEntry.Type.Income : HistoryEntry.Type.Expense);
+        Item item = model.getItemType() == HistoryEntry.Type.Income ? (Item)incomeField.getValue() : (Item)expenseField.getValue();
+        model.setItemId(item.getId());
+        if (model.getId() == 0)
+            DI.getRepositories().history.add(model);
+        else
+            DI.getRepositories().history.update(model);
 
-    /**
-     * @return The dialog was submitted and not cancelled
-     */
-    public boolean isSubmitted()
-    {
-        return submitted;
+        System.out.println(DI.gson.toJson(model, HistoryEntry.class));
     }
 
     /**
@@ -258,33 +228,12 @@ public class HistoryEditDialogController {
     @FXML
     private void submitActionPerformed(ActionEvent e)
     {
-        updateModel();
-        submitted = true;
-
-        closeStage((Node)e.getSource());
+        submit();
     }
 
     @FXML
     private void cancelActionPerformed(ActionEvent e)
     {
-        if (tryCancel())
-            closeStage((Node) e.getSource());
-    }
-
-    public boolean tryCancel()
-    {
-        Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!",
-                "Do you really want to cancel without saving?");
-        if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private void closeStage(Node source)
-    {
-        ((Stage)source.getScene().getWindow()).close();
+        cancel();
     }
 }

@@ -1,17 +1,19 @@
-package controller;
+package controller.edit;
 
+import controller.validation.NonEmptyRule;
+import controller.validation.ValidatedField;
+import controller.validation.ValidationRule;
+import controller.validation.ValidationRuleList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import model.entities.Tag;
 import utils.DI;
-import view.Dialogs;
 
-import java.util.Optional;
-
-public class TagEditDialogController {
+public class TagEditController extends EditController<Tag> {
     @FXML
     private TextField nameField;
 
@@ -28,11 +30,6 @@ public class TagEditDialogController {
      * The dialog was submitted and not cancelled
      */
     private boolean submitted = false;
-
-    /**
-     * Model edited
-     */
-    private Tag model;
 
     @FXML
     public void initialize()
@@ -63,76 +60,37 @@ public class TagEditDialogController {
         nameField.textProperty().addListener((observable, oldValue, newValue) -> validatedNameField.validate(newValue));
     }
 
-    /**
-     * Updates the model before submitting
-     */
-    private void updateModel()
-    {
-        model.setName(nameField.getText());
-        model.setColor(colorField.getValue());
-
-        System.out.println(DI.gson.toJson(model, Tag.class));
-    }
-
-    /**
-     * Sets the model of this controller to be a clone of the specified one
-     * @param model Model to set
-     */
+    @Override
     public void setModel(Tag model)
     {
-        submitted = false;
         this.model = model.clone();
 
         nameField.setText(model.getName());
         colorField.setValue(model.getColor());
     }
 
-    /**
-     * @return Model edited
-     */
-    public Tag getModel()
+    @Override
+    protected void updateModel()
     {
-        return model;
-    }
+        model.setName(nameField.getText());
+        model.setColor(colorField.getValue());
+        if (model.getId() == 0)
+            DI.getRepositories().tags.add(model);
+        else
+            DI.getRepositories().tags.update(model);
 
-    /**
-     * @return The dialog was submitted and not cancelled
-     */
-    public boolean isSubmitted()
-    {
-        return submitted;
+        System.out.println(DI.gson.toJson(model, Tag.class));
     }
 
     @FXML
     private void submitActionPerformed(ActionEvent e)
     {
-        updateModel();
-        submitted = true;
-
-        closeStage((Node)e.getSource());
+        submit();
     }
 
     @FXML
     private void cancelActionPerformed(ActionEvent e)
     {
-        if (tryCancel())
-            closeStage((Node) e.getSource());
-    }
-
-    public boolean tryCancel()
-    {
-        Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!",
-                "Do you really want to cancel without saving?");
-        if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private void closeStage(Node source)
-    {
-        ((Stage)source.getScene().getWindow()).close();
+        cancel();
     }
 }

@@ -1,5 +1,6 @@
 package model.repository;
 
+import com.google.gson.JsonArray;
 import model.entities.HistoryEntry;
 import model.filters.SatisfyFilter;
 import utils.DI;
@@ -68,11 +69,8 @@ public class HistoryRepository extends EntityRepository<HistoryEntry> {
     }
 
     @Override
-    public void deserialize(String json)
+    public HistoryEntry[] deserializeArray(JsonArray array)
     {
-        for (HistoryEntry entity : DI.gson.fromJson(json, HistoryEntry[].class))
-        {
-            entities.put(entity.getId(), entity);
-        }
+        return DI.gson.fromJson(array.toString(), HistoryEntry[].class);
     }
 }

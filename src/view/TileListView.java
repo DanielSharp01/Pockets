@@ -51,8 +51,8 @@ public class TileListView {
     public void setFactory(Callback<TileListView, ViewHolder> factory) {
         this.factory = factory == null ? listView -> new DefaultViewHolder() : factory;
 
-        this.contents.getChildren().clear();
-        this.holders.clear();
+        contents.getChildren().clear();
+        holders.clear();
 
         if (this.items != null)
         {
@@ -94,21 +94,42 @@ public class TileListView {
         setFactory(factory);
 
         listener = c -> {
-            if (c.wasAdded())
-            {
-              ViewHolder holder = factory.call(this);
-              holder.update(c.getList().get(c.getFrom()));
-              holders.add(c.getFrom(), holder);
-              contents.getChildren().add(c.getFrom(), holder.getNode());
-            }
-            else if (c.wasRemoved())
-            {
-              holders.remove(c.getFrom());
-              contents.getChildren().remove(c.getFrom());
-            }
-            else if (c.wasUpdated())
-            {
-              holders.get(c.getFrom()).update(c.getList().get(c.getFrom()));
+            while (c.next()) {
+                if (c.wasRemoved())
+                {
+                    // All bets are off, we can't get index information of removed items -> regenerate the whole list
+
+                    contents.getChildren().clear();
+                    holders.clear();
+                    for (Object item : c.getList())
+                    {
+                        ViewHolder holder = factory.call(this);
+                        holder.update(item);
+                        holders.add(holder);
+                        contents.getChildren().add(holder.getNode());
+                    }
+                    break; // Don't look at any other changes
+                }
+                else if (c.wasAdded())
+                {
+                    int index = c.getFrom();
+                    for (Object item : c.getAddedSubList())
+                    {
+                        ViewHolder holder = factory.call(this);
+                        holder.update(item);
+                        holders.add(index, holder);
+                        contents.getChildren().add(index, holder.getNode());
+                        index++;
+                    }
+
+                }
+                else if (c.wasUpdated())
+                {
+                    for (int i = c.getFrom(); i < c.getTo(); i++)
+                    {
+                        holders.get(i).update(c.getList().get(i));
+                    }
+                }
             }
         };
         this.items.addListener(listener);

@@ -1,6 +1,6 @@
 package view;
 
-import controller.HistoryItemController;
+import controller.item.HistoryItemController;
 import javafx.scene.control.ListCell;
 import model.entities.HistoryEntry;
 import utils.DI;

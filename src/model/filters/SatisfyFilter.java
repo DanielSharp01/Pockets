@@ -1,5 +1,7 @@
 package model.filters;
 
+import javafx.collections.transformation.FilteredList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -32,6 +34,12 @@ public class SatisfyFilter implements IFilter {
         }
 
         return ret;
+    }
+
+    @Override
+    public void setFilteredListPredicate(FilteredList<? extends IFilterable> filterables)
+    {
+        filterables.setPredicate(this::passesFilter);
     }
 
     /**

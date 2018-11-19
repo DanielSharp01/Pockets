@@ -5,7 +5,7 @@
 <?import java.lang.String?>
 
 <VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" styleClass="vertical-spacing"
-      fx:controller="controller.HistoryItemController" fx:id = "mainPanel">
+      fx:controller="controller.item.HistoryItemController" fx:id = "mainPanel">
     <styleClass>
         <String fx:value="history"/>
         <String fx:value="expense"/>

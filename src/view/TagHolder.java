@@ -1,6 +1,6 @@
 package view;
 
-import controller.TagController;
+import controller.item.TagController;
 import javafx.scene.Node;
 import model.entities.Tag;
 import utils.DI;

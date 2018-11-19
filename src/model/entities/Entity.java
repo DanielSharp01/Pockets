@@ -1,9 +1,11 @@
 package model.entities;
 
+import model.filters.IFilterable;
+
 /**
  * Entity with an integer key
  */
-public class Entity {
+public abstract class Entity implements IFilterable {
     /**
      * Integer key
      */

@@ -6,7 +6,7 @@
 <?import java.lang.String?>
 
 <BorderPane prefHeight="180.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ItemController" fx:id = "mainPanel">
+            fx:controller="controller.item.ItemController" fx:id = "mainPanel">
     <styleClass>
         <String fx:value="card"/>
         <String fx:value="income"/>

@@ -1,5 +1,6 @@
 package model.repository;
 
+import com.google.gson.JsonArray;
 import model.entities.Tag;
 import model.filters.SatisfyFilter;
 import utils.DI;
@@ -30,11 +31,8 @@ public class TagRepository extends EntityRepository<Tag> {
     }
 
     @Override
-    public void deserialize(String json)
+    public Tag[] deserializeArray(JsonArray array)
     {
-        for (Tag entity : DI.gson.fromJson(json, Tag[].class))
-        {
-            entities.put(entity.getId(), entity);
-        }
+        return DI.gson.fromJson(array.toString(), Tag[].class);
     }
 }

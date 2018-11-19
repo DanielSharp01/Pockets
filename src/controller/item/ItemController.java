@@ -1,4 +1,4 @@
-package controller;
+package controller.item;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -46,10 +46,12 @@ public class ItemController {
         nameLabel.setText(model.getName());
 
         String urlResource = null;
-        try {
-            urlResource = model.getImageResource().toUri().toURL().toExternalForm();
-        } catch (MalformedURLException e) {
-            // Should not care
+        if (model.getImageResource() != null) {
+            try {
+                urlResource = model.getImageResource().toUri().toURL().toExternalForm();
+            } catch (MalformedURLException e) {
+                // Should not care
+            }
         }
 
         if (urlResource != null)

@@ -1,4 +1,4 @@
-package controller;
+package controller.validation;
 
 /**
  * Used to validate a field

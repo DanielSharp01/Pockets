@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemsTileController">
+<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.list.TileController">
     <HBox alignment="CENTER_LEFT" styleClass="horizontal-spacing">
         <padding>
             <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
         </padding>
-        <TextField promptText="Search" prefWidth="300" />
-        <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds=""/>
+        <TextField fx:id="filterField" promptText="Search" prefWidth="300" />
+        <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" onAction="#addButtonActionPerformed"/>
     </HBox>
     <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="edge-to-edge" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
           <TilePane fx:id="itemContents" hgap="6.0" vgap="6.0">

@@ -4,10 +4,8 @@ import javafx.scene.paint.Color;
 import model.Money;
 import model.NullRecurrence;
 import model.Recurrence;
-import model.filters.IFilterable;
 import utils.DI;
 
-import java.net.URL;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -16,11 +14,11 @@ import java.util.*;
  * @see ExpenseItem
  * @see IncomeSource
  */
-public abstract class Item extends Entity implements IFilterable, Cloneable {
+public abstract class Item extends Entity implements Cloneable {
     /**
      * Name of the item
      */
-    private String name;
+    private String name = "";
 
     /**
      * Path to the image (may be on the local file system or be a program resource)
@@ -30,7 +28,7 @@ public abstract class Item extends Entity implements IFilterable, Cloneable {
     /**
      * Background color of image circle
      */
-    private Color color;
+    private Color color = Color.GRAY;
 
     /**
      * Tell if and when this item will recur

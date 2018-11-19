@@ -1,4 +1,4 @@
-package controller;
+package controller.validation;
 
 /**
  * Represents a set of validation rules that must be followed in order

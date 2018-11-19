@@ -1,5 +1,6 @@
 package model.repository;
 
+import com.google.gson.JsonArray;
 import model.entities.IncomeSource;
 import model.filters.SatisfyFilter;
 import utils.DI;
@@ -48,11 +49,8 @@ public class IncomeRepository extends EntityRepository<IncomeSource> {
     }
 
     @Override
-    public void deserialize(String json)
+    public IncomeSource[] deserializeArray(JsonArray array)
     {
-        for (IncomeSource entity : DI.gson.fromJson(json, IncomeSource[].class))
-        {
-            entities.put(entity.getId(), entity);
-        }
+        return DI.gson.fromJson(array.toString(), IncomeSource[].class);
     }
 }

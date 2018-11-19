@@ -1,6 +1,7 @@
 package app;
 
-import controller.ItemEditDialogController;
+import controller.list.HistoryListController;
+import controller.list.ListController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,18 +19,13 @@ public class MainApplication extends Application {
                     "One or more json files can't be loaded! The program is now going to exit.");
             return;
         }
-        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("item-edit.fxml").inflate();
-        //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
-        ((ItemEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().expenses.findById(1));
-        primaryStage.setOnCloseRequest(e ->
-        {
-            if (!((ItemEditDialogController)itemsTile.getController()).tryCancel())
-                e.consume();
-        });
+        FXMLTuple itemList = DI.layouts.getFXMLInflater("items-list.fxml").inflate();
+
+        ((ListController)itemList.getController()).setEntityListController(new HistoryListController());
 
         primaryStage.setTitle("Pockets 0.0.1");
-        primaryStage.setMinWidth(380);
-        Scene scene = new Scene(itemsTile.getRoot(), 380, 700);
+        primaryStage.setMinWidth(450);
+        Scene scene = new Scene(itemList.getRoot(), 1600, 900);
         scene.getStylesheets().add(DI.styles.getResource("Roboto.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("general.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("dialog.css").toExternalForm());
@@ -38,6 +34,7 @@ public class MainApplication extends Application {
         scene.getStylesheets().add(DI.styles.getResource("items.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
+
         primaryStage.setOnHidden(e ->
         {
             if (!DI.getRepositories().save() | !Settings.getInstance().save())

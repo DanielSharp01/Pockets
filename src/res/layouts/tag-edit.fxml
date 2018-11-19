@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.TagEditDialogController" styleClass="dialog-box">
+      fx:controller="controller.edit.TagEditController" styleClass="dialog-box">
 
     <TitledPane text="General" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">

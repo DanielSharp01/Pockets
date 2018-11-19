@@ -1,6 +1,5 @@
 package model.entities;
 
-import model.filters.IFilterable;
 import utils.DI;
 
 import java.time.LocalDateTime;
@@ -9,7 +8,7 @@ import java.util.*;
 /**
  * History entry of an item with a date
  */
-public class HistoryEntry extends Entity implements IFilterable, Cloneable {
+public class HistoryEntry extends Entity implements Cloneable {
 
     /**
      * Type of HistoryEntry item

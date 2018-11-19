@@ -1,7 +1,6 @@
 package model.entities;
 
 import javafx.scene.paint.Color;
-import model.filters.IFilterable;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -11,16 +10,16 @@ import java.util.Set;
 /**
  * Represents a Tag with which you can tag Items
  */
-public class Tag extends Entity implements IFilterable, Cloneable {
+public class Tag extends Entity implements Cloneable {
     /**
      * Name of the tag
      */
-    private String name;
+    private String name = "";
 
     /**
      * Background color of the tag
      */
-    private Color color;
+    private Color color = Color.GRAY;
 
     /**
      * @param id Integer key

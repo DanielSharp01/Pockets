@@ -1,6 +1,6 @@
 package view;
 
-import controller.ItemController;
+import controller.item.ItemController;
 import javafx.scene.Node;
 import model.entities.Item;
 import utils.DI;
