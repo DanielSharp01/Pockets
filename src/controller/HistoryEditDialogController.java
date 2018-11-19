@@ -3,9 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -14,10 +12,12 @@ import model.entities.Item;
 import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
+import view.Dialogs;
 import view.ItemComboItem;
 import view.TagComboItem;
 
 import java.util.List;
+import java.util.Optional;
 
 public class HistoryEditDialogController {
     @FXML
@@ -267,9 +267,20 @@ public class HistoryEditDialogController {
     @FXML
     private void cancelActionPerformed(ActionEvent e)
     {
-        // TODO: Warning dialog
+        if (tryCancel())
+            closeStage((Node) e.getSource());
+    }
 
-        closeStage((Node)e.getSource());
+    public boolean tryCancel()
+    {
+        Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!",
+                "Do you really want to cancel without saving?");
+        if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void closeStage(Node source)

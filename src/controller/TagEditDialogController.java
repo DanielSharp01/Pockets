@@ -3,13 +3,13 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.entities.Tag;
 import utils.DI;
+import view.Dialogs;
+
+import java.util.Optional;
 
 public class TagEditDialogController {
     @FXML
@@ -115,9 +115,20 @@ public class TagEditDialogController {
     @FXML
     private void cancelActionPerformed(ActionEvent e)
     {
-        // TODO: Warning dialog
+        if (tryCancel())
+            closeStage((Node) e.getSource());
+    }
 
-        closeStage((Node)e.getSource());
+    public boolean tryCancel()
+    {
+        Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!",
+                "Do you really want to cancel without saving?");
+        if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void closeStage(Node source)

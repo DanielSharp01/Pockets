@@ -15,10 +15,7 @@ import model.entities.Item;
 import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
-import view.DateTimePicker;
-import view.EditableIntegerSpinner;
-import view.ImageComboItem;
-import view.TagComboItem;
+import view.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +23,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public class ItemEditDialogController {
     @FXML
@@ -343,9 +341,20 @@ public class ItemEditDialogController {
     @FXML
     private void cancelActionPerformed(ActionEvent e)
     {
-        // TODO: Warning dialog
+        if (tryCancel())
+            closeStage((Node) e.getSource());
+    }
 
-        closeStage((Node)e.getSource());
+    public boolean tryCancel()
+    {
+        Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!",
+                "Do you really want to cancel without saving?");
+        if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void closeStage(Node source)

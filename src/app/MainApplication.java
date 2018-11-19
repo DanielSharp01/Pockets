@@ -1,5 +1,8 @@
 package app;
 
+import controller.HistoryEditDialogController;
+import controller.ItemEditDialogController;
+import controller.ItemsTileController;
 import controller.TagEditDialogController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,6 +16,7 @@ import model.entities.Tag;
 import utils.ColorUtils;
 import utils.DI;
 import view.FXMLTuple;
+import view.ItemHolder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -100,10 +104,14 @@ public class MainApplication extends Application {
 
         DI.getRepositories().history.findById(1).getTagIds().add(6);
 
-        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("tag-edit.fxml").inflate();
-        //((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
-        ((TagEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().tags.findById(1));
-
+        FXMLTuple itemsTile = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
+        ((ItemsTileController)itemsTile.getController()).setRepository(DI.getRepositories().expenses, listView -> new ItemHolder());
+        /*((ItemEditDialogController)itemsTile.getController()).setModel(DI.getRepositories().incomes.findById(1));
+        primaryStage.setOnCloseRequest(e ->
+        {
+            if (!((ItemEditDialogController)itemsTile.getController()).tryCancel())
+                e.consume();
+        });*/
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(380);
