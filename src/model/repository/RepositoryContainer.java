@@ -1,10 +1,10 @@
 package model.repository;
 
-import utils.DI;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Container containing all repositories
@@ -61,7 +61,7 @@ public class RepositoryContainer {
         boolean successful = true;
         try
         {
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(expensesJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(expensesJSONFile), StandardCharsets.UTF_8);
             writer.write(expenses.serialize());
             writer.close();
         }
@@ -72,7 +72,7 @@ public class RepositoryContainer {
 
         try
         {
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(incomesJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(incomesJSONFile), StandardCharsets.UTF_8);
             writer.write(incomes.serialize());
             writer.close();
         }
@@ -83,7 +83,7 @@ public class RepositoryContainer {
 
         try
         {
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(tagsJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(tagsJSONFile), StandardCharsets.UTF_8);
             writer.write(tags.serialize());
             writer.close();
         }
@@ -94,7 +94,7 @@ public class RepositoryContainer {
 
         try
         {
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(historyJSONFile), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(historyJSONFile), StandardCharsets.UTF_8);
             writer.write(history.serialize());
             writer.close();
         }

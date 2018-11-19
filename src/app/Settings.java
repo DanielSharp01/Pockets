@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -113,9 +112,7 @@ public class Settings {
     {
         try
         {
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(jsonFile), StandardCharsets.UTF_8,
-                    StandardOpenOption.CREATE,
-                    StandardOpenOption.WRITE);
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(jsonFile), StandardCharsets.UTF_8);
 
             writer.write(DI.gson.toJson(this, Settings.class));
             writer.close();
