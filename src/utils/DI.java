@@ -3,6 +3,7 @@ package utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.scene.paint.Color;
+import model.CurrencyConverter;
 import model.ImageRepository;
 import model.Recurrence;
 import model.repository.RepositoryContainer;
@@ -81,4 +82,6 @@ public final class DI {
     {
         return testRepositories == null ? repositories : testRepositories;
     }
+
+    public static final CurrencyConverter currencyConverter = new CurrencyConverter();
 }

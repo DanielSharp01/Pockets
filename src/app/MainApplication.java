@@ -1,18 +1,25 @@
 package app;
 
+import controller.list.ExpenseListController;
 import controller.list.TagListController;
 import controller.list.TileController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.CurrencyConverter;
 import utils.DI;
 import view.Dialogs;
 import view.FXMLTuple;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        DI.currencyConverter.requestAPI();
         if (!Settings.load() || !DI.getRepositories().load())
         {
             Dialogs.showErrorOk("Fatal error!",
@@ -21,7 +28,7 @@ public class MainApplication extends Application {
         }
         FXMLTuple itemList = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
 
-        ((TileController)itemList.getController()).setEntityListController(new TagListController());
+        ((TileController)itemList.getController()).setEntityListController(new ExpenseListController());
 
         primaryStage.setTitle("Pockets 0.0.1");
         primaryStage.setMinWidth(450);
@@ -44,9 +51,7 @@ public class MainApplication extends Application {
         });
     }
 
-
     public static void main(String[] args) {
-
         launch(args);
     }
 }

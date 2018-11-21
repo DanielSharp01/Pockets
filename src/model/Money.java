@@ -114,6 +114,25 @@ public class Money {
     }
 
     /**
+     * Converts this Money object to the specified currency
+     * @param currencyCode New currency's code
+     * @return New Money object with the specified currency
+     */
+    public Money toCurrency(String currencyCode)
+    {
+        return new Money(currencyCode, DI.currencyConverter.convert(currency, amount, currencyCode));
+    }
+
+    /**
+     * Converts this Money object to the display currency
+     * @return New Money object with the display currency
+     */
+    public Money toDisplayCurrency()
+    {
+        return toCurrency(Settings.getInstance().getDisplayCurrency());
+    }
+
+    /**
      * @return mount of money in the specified currency
      */
     public BigDecimal getAmount() {

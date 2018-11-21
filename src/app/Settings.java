@@ -66,6 +66,25 @@ public class Settings {
     }
 
     /**
+     * Display currency throughout the application
+     */
+    private String displayCurrency;
+
+    /**
+     * @return Display currency throughout the application
+     */
+    public String getDisplayCurrency() {
+        return displayCurrency;
+    }
+
+    /**
+     * @param displayCurrency Display currency throughout the application
+     */
+    public void setDisplayCurrency(String displayCurrency) {
+        this.displayCurrency = displayCurrency;
+    }
+
+    /**
      * Global settings object, contains app settings
      */
     private static transient Settings settings;

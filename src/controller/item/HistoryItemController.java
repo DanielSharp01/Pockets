@@ -88,7 +88,7 @@ public class HistoryItemController {
             backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getItem().getColor()) + ";");
         }
 
-        priceLabel.setText((model.getItemType() == HistoryEntry.Type.Income ? "+" : "-") + item.getMoney().toString());
+        priceLabel.setText((model.getItemType() == HistoryEntry.Type.Income ? "+" : "-") + item.getMoney().toDisplayCurrency().toString());
         dateLabel.setText(model.getDate().format(Settings.getInstance().getDateTimeFormatter()));
 
         tagBox.getChildren().clear();
