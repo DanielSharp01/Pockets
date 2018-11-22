@@ -68,9 +68,13 @@ public class JsonAPI {
     /**
      * @return Gets the request URL with the replaced API key
      */
-    protected String getRequestURL()
-    {
-        return apiUrl.replaceAll("<API-KEY>", apiKey);
+    protected String getRequestURL() throws APIKeyNotFoundException {
+        if (apiUrl.contains("<API-KEY>")) {
+            if (apiKey == null) throw new APIKeyNotFoundException();
+            return apiUrl.replaceAll("<API-KEY>", apiKey);
+        }
+        else
+            return apiUrl;
     }
 
     /**
@@ -78,7 +82,7 @@ public class JsonAPI {
      * @return String of response, null if throttle is still active
      * @throws IOException If the request failed, see exception for reason
      */
-    public String requestString() throws IOException {
+    public String requestString() throws IOException, APIKeyNotFoundException {
         if (throttleSeconds > Instant.now().getEpochSecond() - lastTimestamp)
             return null;
 
@@ -101,7 +105,7 @@ public class JsonAPI {
      * @return Response as a JsonObject
      * @throws IOException If the request failed, see exception for reason
      */
-    public JsonObject requestJsonObject() throws IOException {
+    public JsonObject requestJsonObject() throws IOException, APIKeyNotFoundException {
         return new JsonParser().parse(requestString()).getAsJsonObject();
     }
 
@@ -110,9 +114,12 @@ public class JsonAPI {
      * @param file File to write into (should be .json)
      * @throws IOException If the request failed, see exception for reason
      */
-    public void requestIntoFile(Path file) throws IOException {
+    public void requestIntoFile(Path file) throws IOException, APIKeyNotFoundException {
         BufferedWriter writer = Files.newBufferedWriter(file);
         writer.write(requestString());
         writer.close();
+    }
+
+    public static class APIKeyNotFoundException extends Exception {
     }
 }

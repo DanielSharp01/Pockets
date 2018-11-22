@@ -116,16 +116,19 @@ public class Money {
     /**
      * Converts this Money object to the specified currency
      * @param currencyCode New currency's code
-     * @return New Money object with the specified currency
+     * @return New Money object with the specified currency, it will be the clone of this one
+     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()
      */
     public Money toCurrency(String currencyCode)
     {
+        if (!DI.currencyConverter.canUseConverter()) return clone();
         return new Money(currencyCode, DI.currencyConverter.convert(currency, amount, currencyCode));
     }
 
     /**
      * Converts this Money object to the display currency
-     * @return New Money object with the display currency
+     * @return New Money object with the display currency, it will be the clone of this one
+     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()
      */
     public Money toDisplayCurrency()
     {

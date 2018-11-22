@@ -19,7 +19,8 @@ public class FileAssistedJsonAPI extends JsonAPI {
 
     /**
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
-     *               to replace with the supplied API key
+     *               to replace with the supplied API key. Can be null if you want to disable the API and only
+     *               use the file
      * @param apiKey API key which will be replaced into &lt;APY-KEY&gt (optional but recommended)
      * @param file File to save the requests into and load result from when throttled
      * @param throttleSeconds Seconds to wait between requests
@@ -31,7 +32,8 @@ public class FileAssistedJsonAPI extends JsonAPI {
 
     /**
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
-     *               to replace with the supplied API key
+     *               to replace with the supplied API key. Can be null if you want to disable the API and only
+     *               use the file
      * @param apiKey API key which will be replaced into &lt;APY-KEY&gt (optional but recommended)
      * @param file File to save the requests into and load result from when throttled
      */
@@ -41,7 +43,8 @@ public class FileAssistedJsonAPI extends JsonAPI {
 
     /**
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
-     *               to replace with the supplied API key
+     *               to replace with the supplied API key. Can be null if you want to disable the API and only
+     *               use the file
      * @param file File to save the requests into and load result from when throttled
      */
     public FileAssistedJsonAPI(String apiUrl, Path file) {
@@ -54,7 +57,7 @@ public class FileAssistedJsonAPI extends JsonAPI {
      * @throws IOException If the request failed, see exception for reason
      */
     @Override
-    public String requestString() throws IOException {
+    public String requestString() throws IOException, APIKeyNotFoundException {
         if (Files.exists(assistFile))
         {
             long fileTimestamp = Files.getLastModifiedTime(assistFile).toInstant().getEpochSecond();
@@ -65,7 +68,7 @@ public class FileAssistedJsonAPI extends JsonAPI {
             }
         }
 
-        if (throttleSeconds > Instant.now().getEpochSecond() - lastTimestamp)
+        if (apiUrl == null || throttleSeconds > Instant.now().getEpochSecond() - lastTimestamp)
         {
             if (assistFile != null && Files.exists(assistFile))
                 return new String(Files.readAllBytes(assistFile), StandardCharsets.UTF_8);
@@ -73,7 +76,7 @@ public class FileAssistedJsonAPI extends JsonAPI {
                 return null;
         }
 
-        String response = "{}";
+        String response;
         try
         {
             response = IOUtils.readAllFromURL(getRequestURL());

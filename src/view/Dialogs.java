@@ -10,6 +10,8 @@ import java.util.Optional;
 public class Dialogs {
     /**
      * Shows a warning dialog with a yes, no button
+     * @param title Title of the alert dialog
+     * @param message Message of the alert dialog
      * @return Optionally which button was pressed if it was pressed
      */
     public static Optional<ButtonType> showWarningYesNo(String title, String message)
@@ -25,11 +27,25 @@ public class Dialogs {
 
     /**
      * Shows an error dialog with an OK button
+     * @param title Title of the alert dialog
+     * @param message Message of the alert dialog
      */
     public static void showErrorOk(String title, String message)
     {
-        Alert alert = new Alert(Alert.AlertType.ERROR, message,
-                new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE));
+        Alert alert = new Alert(Alert.AlertType.ERROR, message, new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE));
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setHeaderText(null);
+        alert.setTitle(title);
+        alert.showAndWait();
+    }
+
+    /**
+     * Shows a warning dialog with an OK button
+     * @param title Title of the alert dialog
+     * @param message Message of the alert dialog
+     */
+    public static void showWarningOk(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING, message, new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE));
         alert.initStyle(StageStyle.UTILITY);
         alert.setHeaderText(null);
         alert.setTitle(title);

@@ -1,9 +1,12 @@
 package model;
 
+import app.Settings;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import utils.FileAssistedJsonAPI;
+import utils.JsonAPI;
+import view.Dialogs;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -21,6 +24,11 @@ public class CurrencyConverter {
      * Currency Code -> how much of this currency a dollar is worth
      */
     private HashMap<String, BigDecimal> currencyRates = new HashMap<>();
+
+    /**
+     * Conversion data was loaded correctly and currency converter can be used
+     */
+    private boolean canUse = false;
 
     /**
      * Sets how much dollars the specified currency is worth
@@ -52,6 +60,10 @@ public class CurrencyConverter {
      */
     public void deserializeRates(String json)
     {
+        if (json == null) return;
+
+        canUse = true;
+
         JsonObject object = new JsonParser().parse(json).getAsJsonObject();
         for (Map.Entry<String, JsonElement> entry : object.get("rates").getAsJsonObject().entrySet())
         {
@@ -69,22 +81,44 @@ public class CurrencyConverter {
      */
     private static final String apiRequestURL = "https://openexchangerates.org/api/latest.json?app_id=<API-KEY>&base=USD";
 
-    private static final FileAssistedJsonAPI api = new FileAssistedJsonAPI(
-            apiRequestURL,
-            System.getenv("OpenExchangeRatesApiKey"),
-            Paths.get(currencyRatesFile),7200);
+    private static FileAssistedJsonAPI api = null;
 
     /**
      * Requests the file assisted JSON API for the currency rates and updates them
+     * @param onlyFile Only reads the file does not request the API
      * @return True on success, false on failure
      */
-    public boolean requestAPI()
+    public boolean requestAPI(boolean onlyFile)
     {
+        if (api == null)
+        {
+            api = new FileAssistedJsonAPI(
+                    onlyFile ? null : apiRequestURL,
+                    Settings.getInstance().getRealApiKey(),
+                    Paths.get(currencyRatesFile), 7200);
+        }
         try {
             deserializeRates(api.requestString());
-            return true;
+            if (!canUse)
+            {
+                Dialogs.showWarningOk("No currency converter data.", "The currency converter can't be used as there" +
+                        "is no currency-rates.json file in the app's folder. Please consider turning on the API once to download" +
+                        "the data at least once, or provide one manually. See the user documentation for more details.");
+            }
+            return canUse;
         } catch (IOException e) {
             return false;
+        } catch (JsonAPI.APIKeyNotFoundException e) {
+            Dialogs.showWarningOk("API key not found.", "You set to use the Open Exchange Rates API but did not supply a valid API key," +
+                    "check the settings or your environment variables. Keep in mind that you must restart this application after setting and environment variable.");
+            return false;
         }
+    }
+
+    /**
+     * @return Conversion data was loaded correctly and currency converter can be used
+     */
+    public boolean canUseConverter() {
+        return canUse;
     }
 }
