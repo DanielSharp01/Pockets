@@ -11,9 +11,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 import model.*;
-import model.entities.IncomeSource;
-import model.entities.Item;
-import model.entities.Tag;
+import model.entities.*;
 import model.repository.EntityRepository;
 import utils.ColorUtils;
 import utils.DI;
@@ -133,7 +131,7 @@ public class ItemEditController extends EditController<Item> {
                 new ValidationRule() {
                     @Override
                     public String validate(String field) {
-                        for (Item item : (model instanceof IncomeSource) ? DI.getRepositories().incomes : DI.getRepositories().expenses)
+                        for (Item item : (model instanceof IncomeSource) ? DI.getRepositories().incomes.asObservableList() : DI.getRepositories().expenses.asObservableList())
                         {
                             if (item.getName().equals(field) && model.getId() != item.getId())
                                 return "Item name already exists!";
@@ -237,6 +235,39 @@ public class ItemEditController extends EditController<Item> {
             model.setRecurrence(new MonthlyRecurrence(recurrenceDateField.getDateTimeValue(), (Integer)recurrenceXField.getValueFactory().getValue()));
         }
 
+        if (model instanceof IncomeSource)
+        {
+            if (model.getId() == 0)
+                DI.getRepositories().incomes.add((IncomeSource) model);
+            else if (!DI.getRepositories().incomes.isUsedInHistory((IncomeSource)model))
+                DI.getRepositories().incomes.update((IncomeSource) model);
+            else
+            {
+                IncomeSource oldModel = DI.getRepositories().incomes.findById(model.getId());
+                DI.getRepositories().incomes.update((IncomeSource) model);
+                oldModel.setId(0);
+                oldModel.setDisabled(true);
+                DI.getRepositories().incomes.add(oldModel);
+                DI.getRepositories().history.swapItemIds(model.getId(), oldModel.getId(), HistoryEntry.Type.Income);
+            }
+        }
+        else
+        {
+            if (model.getId() == 0)
+                DI.getRepositories().expenses.add((ExpenseItem) model);
+            else if (!DI.getRepositories().expenses.isUsedInHistory((ExpenseItem)model))
+                DI.getRepositories().expenses.update((ExpenseItem) model);
+            else
+            {
+                ExpenseItem oldModel = DI.getRepositories().expenses.findById(model.getId());
+                DI.getRepositories().expenses.update((ExpenseItem) model);
+                oldModel.setId(0);
+                oldModel.setDisabled(true);
+                DI.getRepositories().expenses.add(oldModel);
+                DI.getRepositories().history.swapItemIds(model.getId(), oldModel.getId(), HistoryEntry.Type.Expense);
+            }
+        }
+
         EntityRepository repository = (model instanceof IncomeSource) ?  DI.getRepositories().incomes :  DI.getRepositories().expenses;
         if (model.getId() == 0)
             repository.add(model);
@@ -267,7 +298,6 @@ public class ItemEditController extends EditController<Item> {
                 label.getStyleClass().add("tag-label");
                 label.getStyleClass().add("editable");
                 tagBox.getChildren().add(label);
-                addTagField.getItems().remove(tag);
             }
         }
     }

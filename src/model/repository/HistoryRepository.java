@@ -58,6 +58,21 @@ public class HistoryRepository extends EntityRepository<HistoryEntry> {
     }
 
     /**
+     * Swaps all old item ids with equivalent new ones for each HistoryEntry that has it (used to maintain order in the entity repository of items)
+     * @param oldItemId Old item id
+     * @param newItemId New item id
+     * @param type Type of item this applies to
+     */
+    public void swapItemIds(int oldItemId, int newItemId, HistoryEntry.Type type)
+    {
+        for (HistoryEntry entry : this)
+        {
+            if (entry.getItemType() == type && entry.getItemId() == oldItemId)
+                entry.setItemId(newItemId);
+        }
+    }
+
+    /**
      * Filters entries by the search term
      * @param searchTerm Search term consisting of words that need to be found in the entry's name
      * @return Matching list of entries

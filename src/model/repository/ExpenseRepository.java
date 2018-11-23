@@ -2,6 +2,7 @@ package model.repository;
 
 import com.google.gson.JsonArray;
 import model.entities.ExpenseItem;
+import model.entities.HistoryEntry;
 import model.filters.SatisfyFilter;
 import utils.DI;
 
@@ -46,6 +47,21 @@ public class ExpenseRepository extends EntityRepository<ExpenseItem> {
         }
 
         return list;
+    }
+
+    /**
+     * Determines whether this item is used in any history entry
+     * @return True if used, false otherwise
+     */
+    public boolean isUsedInHistory(ExpenseItem item)
+    {
+        for (HistoryEntry entry : DI.getRepositories().history)
+        {
+            if (entry.getItemType() == HistoryEntry.Type.Expense && entry.getItemId() == item.getId())
+                return true;
+        }
+
+        return false;
     }
 
     @Override

@@ -18,9 +18,15 @@
     -fx-background-color: #fefefe;
 }
 
-.tag .label
+.card.tag
+{
+    -fx-background-color: tag-color;
+}
+
+.tag > .label
 {
     -fx-font-size: 20;
+    -fx-text-fill: ladder(tag-color, white 49%, black 50%);
 }
 
 .card:hover

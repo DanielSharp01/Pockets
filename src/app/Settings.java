@@ -83,7 +83,7 @@ public class Settings {
     /**
      * Display currency throughout the application
      */
-    private String displayCurrency;
+    private String displayCurrency = "USD";
 
     /**
      * @return Display currency throughout the application

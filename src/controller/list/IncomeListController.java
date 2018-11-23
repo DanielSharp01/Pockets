@@ -63,6 +63,10 @@ public class IncomeListController extends EntityListController<IncomeSource> {
 
     @Override
     public void delete(IncomeSource model) {
-        DI.getRepositories().incomes.delete(model);
+        if (DI.getRepositories().incomes.isUsedInHistory(model))
+        {
+            model.setDisabled(true);
+            DI.getRepositories().incomes.update(model);
+        }
     }
 }

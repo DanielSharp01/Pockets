@@ -34,7 +34,7 @@ public class TagController {
     public void setContent(Tag model)
     {
         this.model = model;
-        mainPanel.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + ";");
+        mainPanel.setStyle("tag-color: " + ColorUtils.toHex(model.getColor()) + ";");
         nameLabel.setText(model.getName());
     }
 }

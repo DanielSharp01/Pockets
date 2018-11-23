@@ -23,7 +23,7 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T> 
     protected Map<Integer, T> entities = new LinkedHashMap<>();
 
     /**
-     * Observable list used by JavaFX
+     * Observable list
      */
     private ObservableList<T> observableList = FXCollections.observableArrayList();
 
@@ -166,18 +166,20 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T> 
     }
 
     /**
-     * @return The entities in an observable list
+     * NOTE: if you need disabled entities iterate over the repo
+     * @return Observable list, it does not contain disabled entities
      */
     public ObservableList<T> asObservableList()
     {
-        return observableList;
+        return new FilteredList<>(observableList, s -> !s.isDisabled());
     }
 
     /**
-     * @return The entities in an filtered observable list (with match all predicate as default)
+     * NOTE: if you need disabled entities iterate over the repo
+     * @return The entities in an filtered observable list, it does not contain disabled entities (with match all predicate as default)
      */
     public FilteredList<T> asFilteredList()
     {
-        return new FilteredList<>(observableList, s -> true);
+        return new FilteredList<>(asObservableList(), s -> true);
     }
 }

@@ -1,6 +1,7 @@
 package model.repository;
 
 import com.google.gson.JsonArray;
+import model.entities.HistoryEntry;
 import model.entities.IncomeSource;
 import model.filters.SatisfyFilter;
 import utils.DI;
@@ -46,6 +47,21 @@ public class IncomeRepository extends EntityRepository<IncomeSource> {
         }
 
         return list;
+    }
+
+    /**
+     * Determines whether this item is used in any history entry
+     * @return True if used, false otherwise
+     */
+    public boolean isUsedInHistory(IncomeSource item)
+    {
+        for (HistoryEntry entry : DI.getRepositories().history)
+        {
+            if (entry.getItemType() == HistoryEntry.Type.Income && entry.getItemId() == item.getId())
+                return true;
+        }
+
+        return false;
     }
 
     @Override

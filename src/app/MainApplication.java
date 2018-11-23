@@ -1,20 +1,16 @@
 package app;
 
-import controller.list.ExpenseListController;
-import controller.list.TagListController;
+import controller.list.HistoryListController;
+import controller.list.IncomeListController;
+import controller.list.ListController;
 import controller.list.TileController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.CurrencyConverter;
 import utils.DI;
 import view.Dialogs;
 import view.FXMLTuple;
 import view.SceneFactory;
-
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 public class MainApplication extends Application {
     @Override
@@ -29,8 +25,10 @@ public class MainApplication extends Application {
 
         DI.currencyConverter.requestAPI(!Settings.getInstance().areUsingApi());
 
-        FXMLTuple itemList = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
-        ((TileController)itemList.getController()).setEntityListController(new ExpenseListController());
+        FXMLTuple itemList = DI.layouts.getFXMLInflater("items-list.fxml").inflate();
+        ((ListController)itemList.getController()).setEntityListController(new HistoryListController());
+        FXMLTuple itemTile = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
+        ((TileController)itemTile.getController()).setEntityListController(new IncomeListController());
         FXMLTuple settings = DI.layouts.getFXMLInflater("settings.fxml").inflate();
 
         primaryStage.setTitle("Pockets 0.0.2");

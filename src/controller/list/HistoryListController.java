@@ -54,10 +54,7 @@ public class HistoryListController extends EntityListController<HistoryEntry> {
 
     @Override
     public void edit(HistoryEntry model) {
-        FXMLTuple tuple = editDialogInflater.inflate();
-        EditDialogStage<HistoryEntry> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 500, (EditController<HistoryEntry>) tuple.getController());
-        editDialog.setTitle("Edit history entry");
-        editDialog.showAndWaitForSubmit(model);
+        throw new NotImplementedException();
     }
 
     @Override

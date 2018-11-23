@@ -3,6 +3,8 @@ package controller.list;
 import controller.edit.EditController;
 import controller.edit.EditDialogStage;
 import javafx.collections.transformation.FilteredList;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
@@ -11,6 +13,8 @@ import model.entities.Tag;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import utils.DI;
 import view.*;
+
+import java.util.Optional;
 
 /**
  * List controller for the tag list
@@ -63,6 +67,18 @@ public class TagListController extends EntityListController<Tag> {
 
     @Override
     public void delete(Tag model) {
-        DI.getRepositories().tags.delete(model);
+        if (DI.getRepositories().tags.isUsed(model))
+        {
+            Optional<ButtonType> button = Dialogs.showWarningYesNo("Warning!", "This tag is used in one or more items. Do you still want to delete it?");
+            if (button.isPresent() && button.get().getButtonData().equals(ButtonBar.ButtonData.YES))
+            {
+                DI.getRepositories().tags.removeTagUsage(model);
+                DI.getRepositories().tags.delete(model);
+            }
+        }
+        else
+        {
+            DI.getRepositories().tags.delete(model);
+        }
     }
 }

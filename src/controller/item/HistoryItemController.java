@@ -41,9 +41,6 @@ public class HistoryItemController {
     public void setListController(EntityListController<HistoryEntry> listController)
     {
         final ContextMenu contextMenu = new ContextMenu();
-        MenuItem edit = new MenuItem("Edit");
-        edit.setOnAction(e -> listController.edit(model));
-        contextMenu.getItems().add(edit);
         MenuItem delete = new MenuItem("Delete");
         delete.setOnAction(e -> listController.delete(model));
         contextMenu.getItems().add(delete);
