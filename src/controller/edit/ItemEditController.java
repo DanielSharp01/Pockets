@@ -152,7 +152,7 @@ public class ItemEditController extends EditController<Item> {
                     public String validate(String field) {
                         Money parsed = Money.parse(field);
                         if (parsed == null)
-                            return "Money is not in the correct format!";
+                            return "Money is not in the correct format or uses an unknown currency!";
 
                         return null;
                     }

@@ -30,6 +30,21 @@ public class Settings {
     private boolean currencySymbolsAfter = false;
 
     /**
+     * Use Open Exchange Rates API or not
+     */
+    private boolean useApi = true;
+
+    /**
+     * Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
+     */
+    private boolean useEnvironmentVariableApiKey = true;
+
+    /**
+     * API key, may be null when supplied from environment variable
+     */
+    private String apiKey = null;
+
+    /**
      * @return Date format used throughout the application
      */
     public String getDateFormat() {
@@ -63,6 +78,25 @@ public class Settings {
      */
     public DateTimeFormatter getDateTimeFormatter() {
         return dateTimeFormatter;
+    }
+
+    /**
+     * Display currency throughout the application
+     */
+    private String displayCurrency;
+
+    /**
+     * @return Display currency throughout the application
+     */
+    public String getDisplayCurrency() {
+        return displayCurrency;
+    }
+
+    /**
+     * @param displayCurrency Display currency throughout the application
+     */
+    public void setDisplayCurrency(String displayCurrency) {
+        this.displayCurrency = displayCurrency;
     }
 
     /**
@@ -123,5 +157,63 @@ public class Settings {
         }
 
         return true;
+    }
+
+    /**
+     * @return Use Open Exchange Rates API or not
+     */
+    public boolean areUsingApi() {
+        return useApi;
+    }
+
+    /**
+     * @param useApi Use Open Exchange Rates API or not
+     */
+    public void setUseApi(boolean useApi) {
+        this.useApi = useApi;
+    }
+
+    /**
+     * @return Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
+     */
+    public boolean areUsingEnvironmentVariableApiKey() {
+        return useEnvironmentVariableApiKey;
+    }
+
+    /**
+     * @param useEnvironmentVariableApiKey Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
+     */
+    public void setUseEnvironmentVariableApiKey(boolean useEnvironmentVariableApiKey) {
+        this.useEnvironmentVariableApiKey = useEnvironmentVariableApiKey;
+    }
+
+    /**
+     * @return API key, may be null when supplied from environment variable
+     */
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    /**
+     * @return API key always environment variables or null if not set
+     */
+    public String getEnvironmentApiKey()
+    {
+        return System.getenv("OpenExchangeRatesApiKey");
+    }
+
+    /**
+     * @return API key from environment variables or if disabled directly from this class
+     */
+    public String getRealApiKey()
+    {
+        return useEnvironmentVariableApiKey ? getEnvironmentApiKey() : getApiKey();
+    }
+
+    /**
+     * @param apiKey API key, may be null when supplied from environment variable
+     */
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 }

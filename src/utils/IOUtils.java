@@ -1,10 +1,14 @@
 package utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.net.URL;
 
-public class FileUtils {
+public class IOUtils {
 
     /**
      * Gets path in a folder for the specified file (preserves filename)
@@ -38,5 +42,29 @@ public class FileUtils {
         }
 
         throw new UnsupportedOperationException("That's crazy!");
+    }
+
+    /**
+     * @param urlString URL as string
+     * @return Read string
+     * @throws IOException If any error occurs during reading
+     */
+    public static String readAllFromURL(String urlString) throws IOException {
+        BufferedReader reader = null;
+        try {
+            URL url = new URL(urlString);
+            reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuffer buffer = new StringBuffer();
+            int read;
+            char[] chars = new char[1024];
+            while ((read = reader.read(chars)) != -1) {
+                buffer.append(chars, 0, read);
+            }
+
+            return buffer.toString();
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
     }
 }

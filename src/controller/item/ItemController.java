@@ -82,7 +82,7 @@ public class ItemController {
             backgroundPane.setStyle("-fx-background-color: " + ColorUtils.toHex(model.getColor()) + ";");
         }
 
-        priceLabel.setText(model.getMoney().toString());
+        priceLabel.setText(model.getMoney().toDisplayCurrency().toString());
         recurrenceLabel.setText(model.getRecurrence().toString());
 
         tagBox.getChildren().clear();

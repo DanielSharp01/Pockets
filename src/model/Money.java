@@ -4,6 +4,7 @@ import app.Settings;
 import utils.DI;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  * Represents an amount of money in a specific currency
@@ -81,9 +82,13 @@ public class Money {
 
         String code = CurrencySymbol.codeFor(word);
         if (code == null) code = word;
-        if (code.isEmpty()) code = "USD"; //TODO: DI.settings.baseCurrency;
+        if (code.isEmpty()) code = Settings.getInstance().getDisplayCurrency();
 
-        // TODO: Check if it's legal code
+        if (!Arrays.stream(CurrencySymbol.currencies).anyMatch(code::equals))
+        {
+            return null; // Must have a valid currency
+        }
+
         return new Money(code, new BigDecimal(number));
     }
 
@@ -111,6 +116,28 @@ public class Money {
         }
 
         return amount.toString() + " " + currency;
+    }
+
+    /**
+     * Converts this Money object to the specified currency
+     * @param currencyCode New currency's code
+     * @return New Money object with the specified currency, it will be the clone of this one
+     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()
+     */
+    public Money toCurrency(String currencyCode)
+    {
+        if (!DI.currencyConverter.canUseConverter()) return clone();
+        return new Money(currencyCode, DI.currencyConverter.convert(currency, amount, currencyCode));
+    }
+
+    /**
+     * Converts this Money object to the display currency
+     * @return New Money object with the display currency, it will be the clone of this one
+     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()
+     */
+    public Money toDisplayCurrency()
+    {
+        return toCurrency(Settings.getInstance().getDisplayCurrency());
     }
 
     /**

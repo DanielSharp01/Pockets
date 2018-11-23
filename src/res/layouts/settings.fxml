@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.SettingsController" styleClass="dialog-box">
+    <TitledPane text="Date-time" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Date-time Format:" />
+            <ComboBox fx:id="dateTimeFormatComboBox" GridPane.columnIndex="1"/>
+        </GridPane>
+    </TitledPane>
+    <TitledPane text="Currency" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Display currency:" />
+            <ComboBox fx:id="displayCurrencyComboBox" GridPane.columnIndex="1"/>
+            <Label text="Always show currency symbol on the right:" GridPane.rowIndex="1" />
+            <CheckBox fx:id="alwaysShowSymbolOnRightCheckBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        </GridPane>
+    </TitledPane>
+    <TitledPane text="Currency API" expanded="true" collapsible="false">
+        <GridPane styleClass="expander-pane">
+            <Label text="Use Open Exchange Rates API: " />
+            <CheckBox fx:id="useAPICheckBox" selected="true" GridPane.columnIndex="1"/>
+            <Label text="Use environment variable $OpenExchangeRatesApiKey$: " wrapText="true" GridPane.rowIndex="1" />
+            <CheckBox fx:id="useEnvVarCheckBox" selected="true" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="API key:" GridPane.rowIndex="2" />
+            <TextField fx:id="apiKeyField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label styleClass="error-label" fx:id="apiErrorLabel" text="These changes will only take effect after restart!"
+                   GridPane.rowIndex="3" GridPane.columnSpan="2"/>
+        </GridPane>
+    </TitledPane>
+    <HBox styleClass="horizontal-spacing" alignment="CENTER_RIGHT">
+        <Button fx:id="submitButton" styleClass="highlighted-button" prefWidth="60" onAction="#submitActionPerformed">Apply</Button>
+        <Button prefWidth="60" onAction="#cancelActionPerformed">Cancel</Button>
+    </HBox>
+</VBox>

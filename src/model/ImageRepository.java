@@ -2,7 +2,7 @@ package model;
 
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import utils.FileUtils;
+import utils.IOUtils;
 import view.Dialogs;
 
 import java.io.IOException;
@@ -64,14 +64,14 @@ public class ImageRepository {
             Files.createDirectory(path);
         }
 
-        Path movePath = FileUtils.getPathInFolder(path, image);
+        Path movePath = IOUtils.getPathInFolder(path, image);
         if (Files.exists(movePath))
         {
             Optional<ButtonType> result = Dialogs.showWarningYesNo("Warning!",
                     "Image already added. Do you want to overwrite \"" + image.getFileName() + "\"?");
             if (!result.isPresent() || !result.get().getButtonData().equals(ButtonBar.ButtonData.YES))
             {
-                movePath = FileUtils.getUnusedNumberedPathInFolder(path, image);
+                movePath = IOUtils.getUnusedNumberedPathInFolder(path, image);
             }
         }
 
