@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static java.time.temporal.ChronoUnit.MONTHS;
@@ -15,10 +16,10 @@ public class MonthlyRecurrence extends Recurrence {
     }
 
     @Override
-    public boolean isOccurrence(LocalDateTime date) {
-        if (!date.toLocalDate().isEqual(lastOccurrence.toLocalDate()) && MONTHS.between(lastOccurrence.toLocalDate(), date.toLocalDate()) % everyX == 0)
+    public boolean isOccurrence(LocalDate date) {
+        if (date.isAfter(lastOccurrence.toLocalDate()) && MONTHS.between(lastOccurrence.toLocalDate(), date) % everyX == 0)
         {
-            int maxDays = date.getMonth().length(date.toLocalDate().isLeapYear());
+            int maxDays = date.getMonth().length(date.isLeapYear());
             if (lastOccurrence.getDayOfMonth() > date.getDayOfMonth() && date.getDayOfMonth() == maxDays)
             {
                 return true;

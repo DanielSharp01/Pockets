@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * Represents a never occurring recurrence
@@ -12,7 +12,7 @@ public class NullRecurrence extends Recurrence {
     }
 
     @Override
-    public boolean isOccurrence(LocalDateTime date) {
+    public boolean isOccurrence(LocalDate date) {
         return false;
     }
 

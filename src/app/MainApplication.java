@@ -7,6 +7,7 @@ import controller.list.TileController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.RecurrenceLogic;
 import utils.DI;
 import view.Dialogs;
 import view.FXMLTuple;
@@ -24,6 +25,8 @@ public class MainApplication extends Application {
         }
 
         DI.currencyConverter.requestAPI(!Settings.getInstance().areUsingApi());
+
+        RecurrenceLogic.setupTimedRecurrenceChecks();
 
         FXMLTuple itemList = DI.layouts.getFXMLInflater("items-list.fxml").inflate();
         ((ListController)itemList.getController()).setEntityListController(new HistoryListController());

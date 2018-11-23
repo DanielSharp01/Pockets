@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -43,6 +44,11 @@ public class Settings {
      * API key, may be null when supplied from environment variable
      */
     private String apiKey = null;
+
+    /**
+     * Last time the app checked recurrences, null means we should regard first set value as the last one
+     */
+    private LocalDateTime lastRecurrenceCheck = null;
 
     /**
      * @return Date format used throughout the application
@@ -97,6 +103,78 @@ public class Settings {
      */
     public void setDisplayCurrency(String displayCurrency) {
         this.displayCurrency = displayCurrency;
+    }
+
+    /**
+     * @return Use Open Exchange Rates API or not
+     */
+    public boolean areUsingApi() {
+        return useApi;
+    }
+
+    /**
+     * @param useApi Use Open Exchange Rates API or not
+     */
+    public void setUseApi(boolean useApi) {
+        this.useApi = useApi;
+    }
+
+    /**
+     * @return Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
+     */
+    public boolean areUsingEnvironmentVariableApiKey() {
+        return useEnvironmentVariableApiKey;
+    }
+
+    /**
+     * @param useEnvironmentVariableApiKey Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
+     */
+    public void setUseEnvironmentVariableApiKey(boolean useEnvironmentVariableApiKey) {
+        this.useEnvironmentVariableApiKey = useEnvironmentVariableApiKey;
+    }
+
+    /**
+     * @return API key, may be null when supplied from environment variable
+     */
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    /**
+     * @return API key always environment variables or null if not set
+     */
+    public String getEnvironmentApiKey()
+    {
+        return System.getenv("OpenExchangeRatesApiKey");
+    }
+
+    /**
+     * @return API key from environment variables or if disabled directly from this class
+     */
+    public String getRealApiKey()
+    {
+        return useEnvironmentVariableApiKey ? getEnvironmentApiKey() : getApiKey();
+    }
+
+    /**
+     * @param apiKey API key, may be null when supplied from environment variable
+     */
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
+    /**
+     * @return Last time the app checked recurrences, null means we should regard first set value as the last one
+     */
+    public LocalDateTime getLastRecurrenceCheck() {
+        return lastRecurrenceCheck;
+    }
+
+    /**
+     * @param lastRecurrenceCheck Last time the app checked recurrences, null means we should regard first set value as the last one
+     */
+    public void setLastRecurrenceCheck(LocalDateTime lastRecurrenceCheck) {
+        this.lastRecurrenceCheck = lastRecurrenceCheck;
     }
 
     /**
@@ -157,63 +235,5 @@ public class Settings {
         }
 
         return true;
-    }
-
-    /**
-     * @return Use Open Exchange Rates API or not
-     */
-    public boolean areUsingApi() {
-        return useApi;
-    }
-
-    /**
-     * @param useApi Use Open Exchange Rates API or not
-     */
-    public void setUseApi(boolean useApi) {
-        this.useApi = useApi;
-    }
-
-    /**
-     * @return Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
-     */
-    public boolean areUsingEnvironmentVariableApiKey() {
-        return useEnvironmentVariableApiKey;
-    }
-
-    /**
-     * @param useEnvironmentVariableApiKey Use the environment variables to get API key or not ($OpenExchangeRatesApiKey$ is the name of the variable)
-     */
-    public void setUseEnvironmentVariableApiKey(boolean useEnvironmentVariableApiKey) {
-        this.useEnvironmentVariableApiKey = useEnvironmentVariableApiKey;
-    }
-
-    /**
-     * @return API key, may be null when supplied from environment variable
-     */
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    /**
-     * @return API key always environment variables or null if not set
-     */
-    public String getEnvironmentApiKey()
-    {
-        return System.getenv("OpenExchangeRatesApiKey");
-    }
-
-    /**
-     * @return API key from environment variables or if disabled directly from this class
-     */
-    public String getRealApiKey()
-    {
-        return useEnvironmentVariableApiKey ? getEnvironmentApiKey() : getApiKey();
-    }
-
-    /**
-     * @param apiKey API key, may be null when supplied from environment variable
-     */
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
     }
 }

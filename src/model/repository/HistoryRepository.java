@@ -40,6 +40,14 @@ public class HistoryRepository extends EntityRepository<HistoryEntry> {
         return list;
     }
 
+    @Override
+    public boolean add(HistoryEntry entity) {
+        if (entity.getItem() != null)
+            entity.getItem().getRecurrence().setLastOccurrence(entity.getDate());
+
+        return super.add(entity);
+    }
+
     /**
      * Gets all items with a given tag
      * @param tagId Tag's id to get tagged items of

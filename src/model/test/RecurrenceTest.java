@@ -6,6 +6,7 @@ import model.NullRecurrence;
 import model.WeeklyRecurrence;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -15,7 +16,7 @@ class RecurrenceTest {
     @Test
     public void testNullRecurrence()
     {
-        assertFalse(new NullRecurrence().isOccurrence(LocalDateTime.of(2018, 5, 6, 0, 0, 0)));
+        assertFalse(new NullRecurrence().isOccurrence(LocalDate.of(2018, 5, 6)));
     }
 
     @Test
@@ -23,10 +24,10 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         DailyRecurrence recurrence = new DailyRecurrence(date);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         for (int i = 0; i < 50; i++) {
             date = date.plusDays(1);
-            assertTrue(recurrence.isOccurrence(date));
+            assertTrue(recurrence.isOccurrence(date.toLocalDate()));
         }
     }
 
@@ -35,20 +36,20 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         WeeklyRecurrence recurrence = new WeeklyRecurrence(date);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         for (int i = 0; i < 50; i++) {
             date = date.plusWeeks(1);
-            assertTrue(recurrence.isOccurrence(date));
+            assertTrue(recurrence.isOccurrence(date.toLocalDate()));
         }
     }
 
     @Test
     public void testWeekNonFullJump()
     {
-        LocalDateTime date = LocalDateTime.of(2018, 5, 31, 6, 0, 0);
+        LocalDateTime date = LocalDateTime.of(2018, 5, 31, 0, 0, 0);
         WeeklyRecurrence recurrence = new WeeklyRecurrence(date);
-        assertTrue(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 7, 2, 0, 0)));
-        assertFalse(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 1, 2, 0, 0)));
+        assertTrue(recurrence.isOccurrence(LocalDate.of(2018, 6, 7)));
+        assertFalse(recurrence.isOccurrence(LocalDate.of(2018, 6, 1)));
     }
 
     @Test
@@ -56,10 +57,10 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         MonthlyRecurrence recurrence = new MonthlyRecurrence(date);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         for (int i = 0; i < 50; i++) {
             date = date.plusMonths(1);
-            assertTrue(recurrence.isOccurrence(date));
+            assertTrue(recurrence.isOccurrence(date.toLocalDate()));
         }
     }
 
@@ -68,8 +69,8 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 31, 6, 0, 0);
         MonthlyRecurrence recurrence = new MonthlyRecurrence(date);
-        assertTrue(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 30, 2, 0, 0)));
-        assertFalse(recurrence.isOccurrence(LocalDateTime.of(2018, 6, 1, 2, 0, 0)));
+        assertTrue(recurrence.isOccurrence(LocalDate.of(2018, 6, 30)));
+        assertFalse(recurrence.isOccurrence(LocalDate.of(2018, 6, 1)));
     }
 
     @Test
@@ -77,11 +78,11 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         DailyRecurrence recurrence = new DailyRecurrence(date, 2);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         for (int i = 1; i < 50; i++) {
             date = date.plusDays(1);
-            if (i % 2 == 0) assertTrue(recurrence.isOccurrence(date));
-            else assertFalse(recurrence.isOccurrence(date));
+            if (i % 2 == 0) assertTrue(recurrence.isOccurrence(date.toLocalDate()));
+            else assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         }
     }
 
@@ -90,11 +91,11 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         WeeklyRecurrence recurrence = new WeeklyRecurrence(date, 2);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         for (int i = 1; i < 50; i++) {
             date = date.plusWeeks(1);
-            if (i % 2 == 0) assertTrue(recurrence.isOccurrence(date));
-            else assertFalse(recurrence.isOccurrence(date));
+            if (i % 2 == 0) assertTrue(recurrence.isOccurrence(date.toLocalDate()));
+            else assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         }
     }
 
@@ -103,11 +104,11 @@ class RecurrenceTest {
     {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         MonthlyRecurrence recurrence = new MonthlyRecurrence(date, 2);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         for (int i = 1; i < 50; i++) {
             date = date.plusMonths(1);
-            if (i % 2 == 0) assertTrue(recurrence.isOccurrence(date));
-            else assertFalse(recurrence.isOccurrence(date));
+            if (i % 2 == 0) assertTrue(recurrence.isOccurrence(date.toLocalDate()));
+            else assertFalse(recurrence.isOccurrence(date.toLocalDate()));
         }
     }
 
@@ -117,9 +118,9 @@ class RecurrenceTest {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         DailyRecurrence recurrence = new DailyRecurrence(date);
         date = date.plusDays(1);
-        assertTrue(recurrence.isOccurrence(date));
+        assertTrue(recurrence.isOccurrence(date.toLocalDate()));
         recurrence.setLastOccurrence(date);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
     }
 
     @Test
@@ -128,8 +129,8 @@ class RecurrenceTest {
         LocalDateTime date = LocalDateTime.of(2018, 5, 6, 0, 0, 0);
         DailyRecurrence recurrence = new DailyRecurrence(date);
         date = date.plusDays(1).plusHours(4).plusMinutes(2).plusSeconds(3);
-        assertTrue(recurrence.isOccurrence(date));
+        assertTrue(recurrence.isOccurrence(date.toLocalDate()));
         recurrence.setLastOccurrence(date);
-        assertFalse(recurrence.isOccurrence(date));
+        assertFalse(recurrence.isOccurrence(date.toLocalDate()));
     }
 }

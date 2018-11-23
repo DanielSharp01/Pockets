@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -66,7 +67,7 @@ public abstract class Recurrence implements Cloneable {
      * @param date The specific date to check
      * @return Whether the date is an occurrence
      */
-    public abstract boolean isOccurrence(LocalDateTime date);
+    public abstract boolean isOccurrence(LocalDate date);
 
     @Override
     public abstract Recurrence clone();

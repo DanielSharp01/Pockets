@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -14,8 +15,8 @@ public class WeeklyRecurrence extends Recurrence {
     }
 
     @Override
-    public boolean isOccurrence(LocalDateTime date) {
-        return !date.toLocalDate().isEqual(lastOccurrence.toLocalDate()) && DAYS.between(lastOccurrence.toLocalDate(), date.toLocalDate()) % (everyX * 7) == 0
+    public boolean isOccurrence(LocalDate date) {
+        return date.isAfter(lastOccurrence.toLocalDate()) && DAYS.between(lastOccurrence.toLocalDate(), date) % (everyX * 7) == 0
                 && lastOccurrence.getDayOfWeek() == date.getDayOfWeek();
     }
 
