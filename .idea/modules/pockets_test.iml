@@ -3,7 +3,10 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output-test url="file://$MODULE_DIR$/../../pockets/out/test/classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../pockets/src/test" />
+    <content url="file://$MODULE_DIR$/../../pockets/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../pockets/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../pockets/src/test/resources" type="java-test-resource" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pockets_main" />

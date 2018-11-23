@@ -62,7 +62,7 @@ public final class DI {
     /**
      * Test repository container
      */
-    private static RepositoryContainer testRepositories = new RepositoryContainer();
+    private static RepositoryContainer testRepositories = null;
 
     /**
      * Swaps the repository container, used for unit testing
