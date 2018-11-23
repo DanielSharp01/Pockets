@@ -59,6 +59,13 @@ public class HistoryListController extends EntityListController<HistoryEntry> {
 
     @Override
     public void delete(HistoryEntry model) {
+        if (model.getItem().isDisabled())
+        {
+            if (model.getItemType() == HistoryEntry.Type.Income)
+                DI.getRepositories().incomes.delete(model.getItemId());
+            else
+                DI.getRepositories().expenses.delete(model.getItemId());
+        }
         DI.getRepositories().history.delete(model);
     }
 }
