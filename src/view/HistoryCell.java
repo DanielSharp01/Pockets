@@ -6,17 +6,29 @@ import javafx.scene.control.ListCell;
 import model.entities.HistoryEntry;
 import utils.DI;
 
+/**
+ * ListCell for HistoryEntry
+ */
 public class HistoryCell extends ListCell<HistoryEntry> {
 
+    /**
+     * FXMLInflater that loads the underlying FXMLTuple
+     */
+    private static FXMLInflater inflater = DI.layouts.getFXMLInflater("history-item.fxml");
+
+    /**
+     * Underlying FXML node and controller
+     */
     private FXMLTuple fxmlTuple;
-    private static FXMLInflater inflater;
+
+    /**
+     * ListController of the parent list
+     */
     private EntityListController<HistoryEntry> listController;
 
-    static
-    {
-        inflater = DI.layouts.getFXMLInflater("history-item.fxml");
-    }
-
+    /**
+     * @param listController ListController of the parent list
+     */
     public HistoryCell(EntityListController<HistoryEntry> listController)
     {
         this.listController = listController;
@@ -35,7 +47,7 @@ public class HistoryCell extends ListCell<HistoryEntry> {
             fxmlTuple = inflater.inflate();
             setGraphic(fxmlTuple.getRoot());
             prefWidth(USE_PREF_SIZE);
-            ((HistoryItemController)fxmlTuple.getController()).setContent(item);
+            ((HistoryItemController)fxmlTuple.getController()).setModel(item);
             ((HistoryItemController)fxmlTuple.getController()).setListController(listController);
         }
     }

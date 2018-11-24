@@ -5,6 +5,9 @@ import javafx.scene.input.KeyCode;
 
 import static javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 
+/**
+ * Integer spinner that can be edited (adds events to a regular JavaFX Spinner)
+ */
 public class EditableIntegerSpinner extends Spinner<Integer> {
 
     public EditableIntegerSpinner()

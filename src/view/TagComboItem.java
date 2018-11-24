@@ -8,10 +8,24 @@ import javafx.scene.layout.Pane;
 import model.entities.Tag;
 import utils.ColorUtils;
 
+/**
+ * ComboBox item for Tag
+ */
 public class TagComboItem extends ListCell<Tag>
 {
+    /**
+     * Pane holding the image of the Tag
+     */
     private Pane imagePane;
+
+    /**
+     * Tag name label
+     */
     private Label label;
+
+    /**
+     * Root node of ListCell
+     */
     private HBox hbox;
 
     @Override

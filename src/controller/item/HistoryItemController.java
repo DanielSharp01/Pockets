@@ -17,6 +17,9 @@ import java.net.MalformedURLException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Controller for {@link view.HistoryCell}'s content
+ */
 public class HistoryItemController {
     @FXML
     Pane mainPanel;
@@ -36,8 +39,15 @@ public class HistoryItemController {
     @FXML
     Pane tagBox;
 
+    /**
+     * Model of the controller
+     */
     private HistoryEntry model;
 
+    /**
+     * Sets the parent lists's controller, used for context menus
+     * @param listController The parent lists's controller
+     */
     public void setListController(EntityListController<HistoryEntry> listController)
     {
         final ContextMenu contextMenu = new ContextMenu();
@@ -48,7 +58,10 @@ public class HistoryItemController {
         mainPanel.setOnContextMenuRequested(e -> contextMenu.show(mainPanel, e.getScreenX(), e.getScreenY()));
     }
 
-    public void setContent(HistoryEntry model)
+    /**
+     * @param model Model of the controller
+     */
+    public void setModel(HistoryEntry model)
     {
         this.model = model;
         Item item = model.getItem();

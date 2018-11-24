@@ -20,14 +20,15 @@
             </ComboBox>
             <ComboBox fx:id="incomeField" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
             <ComboBox fx:id="expenseField" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <Label text="Error with item" fx:id="itemErrorLabel" styleClass="error-label" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" wrapText="true"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" GridPane.rowIndex="0" GridPane.columnIndex="2" onAction="#addItemActionPerformed"/>
+            <Label text="Error with item" fx:id="itemErrorLabel" styleClass="error-label" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="3" wrapText="true"/>
         </GridPane>
     </TitledPane>
 
     <TitledPane text="Tags" expanded="true" collapsible="false">
         <GridPane styleClass="expander-pane">
             <ComboBox fx:id="addTagField" prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <Button minWidth="32" minHeight="32" styleClass="add-button" pickOnBounds="" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#addTagActionPerformed"/>
+            <Button minWidth="32" minHeight="32" styleClass="add-button" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#addTagActionPerformed"/>
             <FlowPane fx:id = "tagBox" alignment="BOTTOM_LEFT" styleClass="tag-box" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
                 <children>
                     <Label text=". . .">

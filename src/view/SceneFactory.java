@@ -4,7 +4,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import utils.DI;
 
+/**
+ * Convenience factory for scenes that adds all the stylesheets to them
+ */
 public class SceneFactory {
+
+    /**
+     * Creates a scene with all the stylesheets attached
+     * @param root Root node of the scene
+     * @param width Width of the scene
+     * @param height Height of the scene
+     * @return Scene with all the stylesheets attached
+     */
     public static Scene getScene(Parent root, double width, double height)
     {
         Scene scene = new Scene(root, width, height);

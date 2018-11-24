@@ -14,6 +14,9 @@ import utils.DI;
 
 import java.net.MalformedURLException;
 
+/**
+ * Controller for {@link view.ItemHolder}'s content
+ */
 public class ItemController {
     @FXML
     Pane mainPanel;
@@ -33,8 +36,15 @@ public class ItemController {
     @FXML
     Pane tagBox;
 
+    /**
+     * Model of the controller
+     */
     private Item model;
 
+    /**
+     * Sets the parent lists's controller, used for context menus
+     * @param listController The parent lists's controller
+     */
     public void setListController(EntityListController<Item> listController)
     {
         final ContextMenu contextMenu = new ContextMenu();
@@ -48,7 +58,10 @@ public class ItemController {
         mainPanel.setOnContextMenuRequested(e -> contextMenu.show(mainPanel, e.getScreenX(), e.getScreenY()));
     }
 
-    public void setContent(Item model)
+    /**
+     * @param model Model of the controller
+     */
+    public void setModel(Item model)
     {
         this.model = model;
         if (model instanceof IncomeSource)

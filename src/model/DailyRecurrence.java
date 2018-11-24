@@ -9,10 +9,17 @@ import static java.time.temporal.ChronoUnit.DAYS;
  * Represents a daily recurrence with optional every X days property
  */
 public class DailyRecurrence extends Recurrence {
+    /**
+     * @param lastOccurrence Last occurrence to count from
+     * @param everyX Will only occur every X days
+     */
     public DailyRecurrence(LocalDateTime lastOccurrence, int everyX) {
         super(lastOccurrence, everyX);
     }
 
+    /**
+     * @param lastOccurrence Last occurrence to count from
+     */
     public DailyRecurrence(LocalDateTime lastOccurrence) {
         super(lastOccurrence);
     }

@@ -7,17 +7,26 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.util.StringConverter;
-import model.entities.HistoryEntry;
-import model.entities.Item;
-import model.entities.Tag;
+import model.entities.*;
 import utils.ColorUtils;
 import utils.DI;
+import view.FXMLInflater;
+import view.FXMLTuple;
 import view.ItemComboItem;
 import view.TagComboItem;
 
 import java.util.List;
 
+/**
+ * Edit controller for HistoryEntry
+ */
 public class HistoryEditController extends EditController<HistoryEntry> {
+
+    /**
+     * FXMLInflater for item edit layout
+     */
+    private static final FXMLInflater itemEditDialogInflater = DI.layouts.getFXMLInflater("item-edit.fxml");
+
     @FXML
     private ComboBox itemTypeField;
 
@@ -72,7 +81,7 @@ public class HistoryEditController extends EditController<HistoryEntry> {
 
         addTagField.setButtonCell(new TagComboItem());
         addTagField.setCellFactory(combo -> new TagComboItem());
-        addTagField.setItems(DI.getRepositories().tags.asObservableList());
+        addTagField.getItems().setAll(DI.getRepositories().tags.asObservableList());
         addTagField.setValue(null);
     }
 
@@ -197,6 +206,28 @@ public class HistoryEditController extends EditController<HistoryEntry> {
                 tagBox.getChildren().add(label);
                 addTagField.getItems().remove(tag);
             }
+        }
+    }
+
+    @FXML
+    private void addItemActionPerformed(ActionEvent e) {
+        if (itemTypeField.getValue().equals("Income"))
+        {
+            FXMLTuple tuple = itemEditDialogInflater.inflate();
+            EditDialogStage<Item> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 600, (EditController<Item>) tuple.getController());
+            editDialog.setTitle("Add income source");
+            IncomeSource item = new IncomeSource(0);
+            editDialog.showAndWaitForSubmit(item);
+            incomeField.setValue(((EditController<Item>) tuple.getController()).getModel());
+        }
+        else
+        {
+            FXMLTuple tuple = itemEditDialogInflater.inflate();
+            EditDialogStage<Item> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 600, (EditController<Item>) tuple.getController());
+            editDialog.setTitle("Add expense item");
+            ExpenseItem item = new ExpenseItem(0);
+            editDialog.showAndWaitForSubmit(item);
+            expenseField.setValue(((EditController<Item>) tuple.getController()).getModel());
         }
     }
 

@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+/**
+ * Controller for settings
+ */
 public class SettingsController {
     /**
      * Date format item for the date format ComboBox
@@ -134,10 +137,13 @@ public class SettingsController {
             validateAPI();
         });
 
-        setSettings();
+        setupFields();
     }
 
-    private void setSettings()
+    /**
+     * Sets up the fields according to the global Settings object
+     */
+    private void setupFields()
     {
         DateTimeFormatItem displayDateFormat = null;
         for (Object item : dateTimeFormatComboBox.getItems())
@@ -161,6 +167,9 @@ public class SettingsController {
         setUseEnvironmentVariable(Settings.getInstance().areUsingEnvironmentVariableApiKey());
     }
 
+    /**
+     * Applies fields to the global Settings object
+     */
     public void applySettings()
     {
         Settings.getInstance().setDateFormat(((DateTimeFormatItem)dateTimeFormatComboBox.getValue()).getFormat());
@@ -230,11 +239,11 @@ public class SettingsController {
     @FXML
     private void submitActionPerformed(ActionEvent ee) {
         applySettings();
-        setSettings();
+        setupFields();
     }
 
     @FXML
     private void cancelActionPerformed(ActionEvent e) {
-        setSettings();
+        setupFields();
     }
 }

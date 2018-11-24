@@ -9,6 +9,9 @@ import javafx.scene.layout.Pane;
 import model.entities.Tag;
 import utils.ColorUtils;
 
+/**
+ * Controller for {@link view.TagHolder}'s content
+ */
 public class TagController {
     @FXML
     Pane mainPanel;
@@ -16,8 +19,15 @@ public class TagController {
     @FXML
     Label nameLabel;
 
+    /**
+     * Model of the controller
+     */
     private Tag model;
 
+    /**
+     * Sets the parent lists's controller, used for context menus
+     * @param listController The parent lists's controller
+     */
     public void setListController(EntityListController<Tag> listController)
     {
         final ContextMenu contextMenu = new ContextMenu();
@@ -31,7 +41,10 @@ public class TagController {
         mainPanel.setOnContextMenuRequested(e -> contextMenu.show(mainPanel, e.getScreenX(), e.getScreenY()));
     }
 
-    public void setContent(Tag model)
+    /**
+     * @param model Model of the controller
+     */
+    public void setModel(Tag model)
     {
         this.model = model;
         mainPanel.setStyle("tag-color: " + ColorUtils.toHex(model.getColor()) + ";");

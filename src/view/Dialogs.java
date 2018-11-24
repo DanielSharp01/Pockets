@@ -7,6 +7,9 @@ import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
+/**
+ * Contains static methods to construct Alert dialogs (also known as MessageBox)
+ */
 public class Dialogs {
     /**
      * Shows a warning dialog with a yes, no button

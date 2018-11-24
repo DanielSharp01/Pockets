@@ -13,6 +13,9 @@ import java.util.*;
 
 public class RecurrenceLogic {
 
+    /**
+     * Sets up an every minute timer that calls {@link #checkRecurrencesNow} (and calls it immediately as well)
+     */
     public static void setupTimedRecurrenceChecks()
     {
         if (Settings.getInstance().getLastRecurrenceCheck() == null)
@@ -29,6 +32,9 @@ public class RecurrenceLogic {
         }, (60 - LocalDateTime.now().getSecond()) * 1000, 60000);
     }
 
+    /**
+     * Checks recurrences according to current date and time
+     */
     public static void checkRecurrencesNow()
     {
         LocalDateTime now = LocalDateTime.now();

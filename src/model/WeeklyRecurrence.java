@@ -5,11 +5,21 @@ import java.time.LocalDateTime;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
+/**
+ * Represents a weekly recurrence with optional every X days property
+ */
 public class WeeklyRecurrence extends Recurrence {
+    /**
+     * @param lastOccurrence Last occurrence to count from
+     * @param everyX Will only occur every X weeks
+     */
     public WeeklyRecurrence(LocalDateTime lastOccurrence, int everyX) {
         super(lastOccurrence, everyX);
     }
 
+    /**
+     * @param lastOccurrence Last occurrence to count from
+     */
     public WeeklyRecurrence(LocalDateTime lastOccurrence) {
         super(lastOccurrence);
     }

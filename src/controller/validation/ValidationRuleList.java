@@ -1,17 +1,17 @@
 package controller.validation;
 
 /**
- * Represents a set of validation rules that must be followed in order
+ * Represents a set of validation rules that must be followed.
  */
 public class ValidationRuleList extends ValidationRule {
 
     /**
-     * Rule list
+     * Rule list. Rules get evaluated in the order they are specified in the array.
      */
     private ValidationRule[] rules;
 
     /**
-     * @param rules Rule list
+     * @param rules Rule list. Rules get evaluated in the order they are specified in the array.
      */
     public ValidationRuleList(ValidationRule... rules) {
         this.rules = rules;

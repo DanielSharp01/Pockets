@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import model.entities.Tag;
 import utils.DI;
 
+/**
+ * Edit controller for Tag
+ */
 public class TagEditController extends EditController<Tag> {
     @FXML
     private TextField nameField;
@@ -25,11 +28,6 @@ public class TagEditController extends EditController<Tag> {
 
     @FXML
     private Button submitButton;
-
-    /**
-     * The dialog was submitted and not cancelled
-     */
-    private boolean submitted = false;
 
     @FXML
     public void initialize()

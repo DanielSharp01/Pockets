@@ -10,10 +10,24 @@ import utils.ColorUtils;
 
 import java.net.MalformedURLException;
 
+/**
+ * ComboBox item for IncomeSource or ExpenseItem
+ */
 public class ItemComboItem extends ListCell<Item>
 {
+    /**
+     * Pane holding the image of the Item
+     */
     private Pane imagePane;
+
+    /**
+     * Item name label
+     */
     private Label label;
+
+    /**
+     * Root node of ListCell
+     */
     private HBox hbox;
 
     @Override

@@ -6,17 +6,29 @@ import javafx.scene.Node;
 import model.entities.Item;
 import utils.DI;
 
+/**
+ * ViewHolder for IncomeSource and ExpenseItem
+ */
 public class ItemHolder extends ViewHolder<Item> {
 
+    /**
+     * FXMLInflater that loads the underlying FXMLTuple
+     */
+    private static FXMLInflater inflater = DI.layouts.getFXMLInflater("item.fxml");
+
+    /**
+     * Underlying FXML node and controller
+     */
     private FXMLTuple fxmlTuple;
-    private static FXMLInflater inflater;
+
+    /**
+     * ListController of the parent list
+     */
     private EntityListController<Item> listController;
 
-    static
-    {
-        inflater = DI.layouts.getFXMLInflater("item.fxml");
-    }
-
+    /**
+     * @param listController ListController of the parent list
+     */
     public ItemHolder(EntityListController<Item> listController)
     {
         this.listController = listController;
@@ -25,7 +37,7 @@ public class ItemHolder extends ViewHolder<Item> {
     @Override
     public void update(Item item) {
         fxmlTuple = inflater.inflate();
-        ((ItemController)fxmlTuple.getController()).setContent(item);
+        ((ItemController)fxmlTuple.getController()).setModel(item);
         ((ItemController)fxmlTuple.getController()).setListController(listController);
     }
 

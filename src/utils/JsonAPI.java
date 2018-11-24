@@ -120,6 +120,9 @@ public class JsonAPI {
         writer.close();
     }
 
+    /**
+     * Exception thrown when the JSON API can't find the API key
+     */
     public static class APIKeyNotFoundException extends Exception {
     }
 }

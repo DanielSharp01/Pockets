@@ -21,10 +21,12 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Edit controller for IncomeSource or ExpenseItem
+ */
 public class ItemEditController extends EditController<Item> {
     @FXML
     private TextField nameField;
@@ -115,7 +117,7 @@ public class ItemEditController extends EditController<Item> {
 
         addTagField.setButtonCell(new TagComboItem());
         addTagField.setCellFactory(combo -> new TagComboItem());
-        addTagField.setItems(DI.getRepositories().tags.asObservableList());
+        addTagField.getItems().setAll(DI.getRepositories().tags.asObservableList().toArray());
         addTagField.setValue(null);
 
         setupValidation();
@@ -200,7 +202,7 @@ public class ItemEditController extends EditController<Item> {
         }
 
         LocalDateTime lastOccurrence = model.getRecurrence().getLastOccurrence();
-        recurrenceDateField.setValue(lastOccurrence == null ? LocalDate.now() : lastOccurrence.toLocalDate()); // TODO: This should be datetime
+        recurrenceDateField.setDateTimeValue(lastOccurrence == null ? LocalDateTime.now() : lastOccurrence);
         recurrenceXField.getValueFactory().setValue(model.getRecurrence().getEveryX());
 
         setupTagBox();

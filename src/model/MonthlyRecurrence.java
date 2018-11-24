@@ -5,12 +5,22 @@ import java.time.LocalDateTime;
 
 import static java.time.temporal.ChronoUnit.MONTHS;
 
+/**
+ * Represents a monthly recurrence with optional every X days property
+ */
 public class MonthlyRecurrence extends Recurrence {
 
+    /**
+     * @param lastOccurrence Last occurrence to count from
+     * @param everyX Will only occur every X months
+     */
     public MonthlyRecurrence(LocalDateTime lastOccurrence, int everyX) {
         super(lastOccurrence, everyX);
     }
 
+    /**
+     * @param lastOccurrence Last occurrence to count from
+     */
     public MonthlyRecurrence(LocalDateTime lastOccurrence) {
         super(lastOccurrence);
     }

@@ -83,5 +83,8 @@ public final class DI {
         return testRepositories == null ? repositories : testRepositories;
     }
 
+    /**
+     * Currency converter object
+     */
     public static final CurrencyConverter currencyConverter = new CurrencyConverter();
 }

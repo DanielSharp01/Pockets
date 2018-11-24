@@ -10,6 +10,9 @@ import javafx.scene.layout.VBox;
 import utils.DI;
 import view.FXMLTuple;
 
+/**
+ * Controller for the main window
+ */
 public class MainController {
 
     /**

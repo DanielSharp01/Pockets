@@ -5,6 +5,9 @@ import model.*;
 
 import java.lang.reflect.Type;
 
+/**
+ * Serializes and deserializes {@link Recurrence}, can be added to the GSON object
+ */
 public class RecurrenceAdapter implements JsonSerializer<Recurrence>, JsonDeserializer<Recurrence> {
 
     @Override

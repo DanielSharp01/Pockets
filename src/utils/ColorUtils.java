@@ -2,6 +2,9 @@ package utils;
 
 import javafx.scene.paint.Color;
 
+/**
+ * Color conversion utilities
+ */
 public class ColorUtils {
     /**
      * Converts a hex color string to a JavaFX color
