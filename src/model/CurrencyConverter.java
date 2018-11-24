@@ -21,7 +21,7 @@ import java.util.Map;
 public class CurrencyConverter {
 
     /**
-     * Currency Code -> how much of this currency a dollar is worth
+     * Currency Code -&gt; how much of this currency a dollar is worth
      */
     private HashMap<String, BigDecimal> currencyRates = new HashMap<>();
 

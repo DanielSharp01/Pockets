@@ -37,7 +37,7 @@ public class JsonAPI {
     /**
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
      *               to replace with the supplied API key
-     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt (optional but recommended)
+     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt; (optional but recommended)
      * @param throttleSeconds Seconds to wait between requests
      */
     public JsonAPI(String apiUrl, String apiKey, int throttleSeconds)
@@ -50,7 +50,7 @@ public class JsonAPI {
     /**
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
      *               to replace with the supplied API key
-     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt (optional but recommended)
+     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt; (optional but recommended)
      */
     public JsonAPI(String apiUrl, String apiKey)
     {
@@ -67,6 +67,7 @@ public class JsonAPI {
 
     /**
      * @return Gets the request URL with the replaced API key
+     * @throws APIKeyNotFoundException The JSON API can't find the API key
      */
     protected String getRequestURL() throws APIKeyNotFoundException {
         if (apiUrl.contains("<API-KEY>")) {
@@ -81,6 +82,7 @@ public class JsonAPI {
      * Requests the API for a string (may be non JSON)
      * @return String of response, null if throttle is still active
      * @throws IOException If the request failed, see exception for reason
+     * @throws APIKeyNotFoundException The JSON API can't find the API key
      */
     public String requestString() throws IOException, APIKeyNotFoundException {
         if (throttleSeconds > Instant.now().getEpochSecond() - lastTimestamp)
@@ -104,6 +106,7 @@ public class JsonAPI {
      * Requests the API for JsonObject
      * @return Response as a JsonObject
      * @throws IOException If the request failed, see exception for reason
+     * @throws APIKeyNotFoundException The JSON API can't find the API key
      */
     public JsonObject requestJsonObject() throws IOException, APIKeyNotFoundException {
         return new JsonParser().parse(requestString()).getAsJsonObject();
@@ -113,6 +116,7 @@ public class JsonAPI {
      * Requests the API and writes the resulting string into a file
      * @param file File to write into (should be .json)
      * @throws IOException If the request failed, see exception for reason
+     * @throws APIKeyNotFoundException The JSON API can't find the API key
      */
     public void requestIntoFile(Path file) throws IOException, APIKeyNotFoundException {
         BufferedWriter writer = Files.newBufferedWriter(file);

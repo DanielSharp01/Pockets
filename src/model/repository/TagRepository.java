@@ -35,6 +35,7 @@ public class TagRepository extends EntityRepository<Tag> {
 
     /**
      * Determines whether a tag is used on any item or history entry
+     * @param tag Tag to check
      * @return True if used, false otherwise
      */
     public boolean isUsed(Tag tag)
@@ -48,6 +49,7 @@ public class TagRepository extends EntityRepository<Tag> {
 
     /**
      * Remove the tag from any item or history entry using it
+     * @param tag Tag to remove
      */
     public void removeTagUsage(Tag tag)
     {

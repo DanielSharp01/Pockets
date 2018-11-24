@@ -51,6 +51,7 @@ public class IncomeRepository extends EntityRepository<IncomeSource> {
 
     /**
      * Determines whether this item is used in any history entry
+     * @param item Item to check
      * @return True if used, false otherwise
      */
     public boolean isUsedInHistory(IncomeSource item)

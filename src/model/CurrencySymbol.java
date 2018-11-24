@@ -37,10 +37,10 @@ public class CurrencySymbol {
             "AZM","man.","BAD","KM","BAN","Bds$","Tk","BEC","BF","BEL","BGL","BGM","BGN","BGO","BD","FBu","BD$","BN$","Bs","BOL",
             "$b.","BOV","BRB","BRC","BRE","R$","BRN","BRR","BRZ","BS$","Nu.","BUK","BWP","BYB","BYR","BZ$","CA$","CDF","CHE","CHF",
             "CHW","Eº","CLF","CL$","CNX","CN¥","CO$","COU","₡","CSD","CSK","CUC$","CU$","CV$","CY£","Kč","DDM","DM","Fdj","Dkr",
-            "RD$","DA","ECS","ECV","Ekr","EGP","(null)","Nfk","ESA","ESB","Pts","Br","€","mk","FJ$","FK£","₣","£","GEK","GEL",
+            "RD$","DA","ECS","ECV","Ekr","EGP","EQE","Nfk","ESA","ESB","Pts","Br","€","mk","FJ$","FK£","₣","£","GEK","GEL",
             "₵","GH₵","GI£","GMD","FG","GNS","GQE","₯","GTQ","GWE","GWP","GY$","HK$","HNL","HRD","kn","HTG","Ft","Rp","IR£",
             "I£","ILR","₪","₹","IQD","IRR","ISJ","Ikr","IT₤","J$","JD","¥","Ksh","KGS","KHR","CF","KPW","KRH","KRO","₩",
-            "KD","KY$","KZT","₭","LB£","SLRs","L$","LSL","(null)","Lt","LTT","LUC","LUF","LUL","Ls","LVR","LD","MAD","MAF","MCF",
+            "KD","KY$","KZT","₭","LB£","SLRs","L$","LSL","LSM","Lt","LTT","LUC","LUF","LUL","Ls","LVR","LD","MAD","MAF","MCF",
             "MDC","MDL","MGA","MGF","MKD","MKN","MLF","MMK","₮","MOP$","UM","Lm","MT£","MURs","MVP","MVR","MWK","MX$","MXP","MXV",
             "RM","MZE","Mt","MTn","N$","₦","NIC","C$","fl","Nkr","NPRs","NZ$","OMR","B/.","I/.","S/.","PES","PGK","₱","PKRs",
             "zł","PLZ","Esc","₲","QR","RH$","ROL","RON","din.","RUB","RUR","RWF","SR","SI$","SRe","LSd","SDG","SDP","Skr","S$",
@@ -60,12 +60,12 @@ public class CurrencySymbol {
     private boolean alwaysAfter;
 
     /**
-     * Currency ISO code -> CurrencySymbol mapping
+     * Currency ISO code -&gt; CurrencySymbol mapping
      */
     private static final HashMap<String, CurrencySymbol> currencySignHashMap = new HashMap<>();
 
     /**
-     * Currency symbol string -> Currency ISO code mapping
+     * Currency symbol string -&gt; Currency ISO code mapping
      */
     private static final HashMap<String, String> reverseCurrencySignHashMap = new HashMap<>();
 

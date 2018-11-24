@@ -122,7 +122,7 @@ public class Money {
      * Converts this Money object to the specified currency
      * @param currencyCode New currency's code
      * @return New Money object with the specified currency, it will be the clone of this one
-     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()
+     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()}
      */
     public Money toCurrency(String currencyCode)
     {
@@ -133,7 +133,7 @@ public class Money {
     /**
      * Converts this Money object to the display currency
      * @return New Money object with the display currency, it will be the clone of this one
-     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()
+     *         if the converter can't be used. See also {@link CurrencyConverter#canUseConverter()}
      */
     public Money toDisplayCurrency()
     {

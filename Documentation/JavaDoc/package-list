@@ -1,0 +1,14 @@
+app
+controller
+controller.edit
+controller.item
+controller.list
+controller.validation
+model
+model.entities
+model.filters
+model.repository
+model.serializers
+model.test
+utils
+view

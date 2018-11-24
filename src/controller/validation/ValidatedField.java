@@ -59,6 +59,7 @@ public class ValidatedField {
 
     /**
      * Validates the field and displays it's error
+     * @param text text Text to validate (text of the field)
      */
     public void validate(String text)
     {

@@ -42,7 +42,7 @@ public abstract class EditController<T> {
     }
 
     /**
-     * @return Stage of the edit dialog
+     * @param stage Stage of the edit dialog
      */
     public void setStage(EditDialogStage stage)
     {
@@ -61,6 +61,7 @@ public abstract class EditController<T> {
 
     /**
      * Cancels (doesn't submit the model) only closes the stage
+     * @return True if user really wants to cancel, false if the cancel was canceled
      */
     public boolean cancel()
     {

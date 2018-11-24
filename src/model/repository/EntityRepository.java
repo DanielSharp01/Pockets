@@ -18,7 +18,7 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T> 
     protected RepositoryContainer container;
 
     /**
-     * Map of id -> Entity
+     * Map of id -&gt; Entity
      */
     protected Map<Integer, T> entities = new LinkedHashMap<>();
 
@@ -140,6 +140,7 @@ public abstract class EntityRepository<T extends Entity> implements Iterable<T> 
 
     /**
      * Deserializes a JSON into this repository
+     * @param json JSON to deserialize
      */
     public void deserialize(String json)
     {

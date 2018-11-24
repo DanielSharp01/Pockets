@@ -21,7 +21,7 @@ public class FileAssistedJsonAPI extends JsonAPI {
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
      *               to replace with the supplied API key. Can be null if you want to disable the API and only
      *               use the file
-     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt (optional but recommended)
+     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt; (optional but recommended)
      * @param file File to save the requests into and load result from when throttled
      * @param throttleSeconds Seconds to wait between requests
      */
@@ -34,7 +34,7 @@ public class FileAssistedJsonAPI extends JsonAPI {
      * @param apiUrl URL of the requested API, optionally you can put &lt;APY-KEY&gt; anywhere
      *               to replace with the supplied API key. Can be null if you want to disable the API and only
      *               use the file
-     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt (optional but recommended)
+     * @param apiKey API key which will be replaced into &lt;APY-KEY&gt; (optional but recommended)
      * @param file File to save the requests into and load result from when throttled
      */
     public FileAssistedJsonAPI(String apiUrl, String apiKey, Path file) {

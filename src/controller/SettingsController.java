@@ -36,6 +36,7 @@ public class SettingsController {
 
         /**
          * @param format The internal yyyy-MM-dd like representation
+         * @param displayDate Displayed date
          */
         public DateTimeFormatItem(String format, LocalDateTime displayDate) {
             this.format = format;

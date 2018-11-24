@@ -15,7 +15,9 @@ public class EditDialogStage<T> extends Stage {
     /**
      * Constructs a stage from the root node with the specified controller
      * @param rootNode Root of the scene
-     * @param controller Controller to callback
+     * @param width Width of the scene
+     * @param height Height of the scene
+     * @param controller Controller to call back
      */
     public EditDialogStage(Parent rootNode, double width, double height, EditController<T> controller)
     {
