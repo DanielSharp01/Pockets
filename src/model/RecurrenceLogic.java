@@ -26,7 +26,7 @@ public class RecurrenceLogic {
             public void run() {
                 checkRecurrencesNow();
             }
-            }, (60 - LocalDateTime.now().getSecond()) * 1000, 60000);
+        }, (60 - LocalDateTime.now().getSecond()) * 1000, 60000);
     }
 
     public static void checkRecurrencesNow()

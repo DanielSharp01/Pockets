@@ -28,6 +28,7 @@ public class MainApplication extends Application {
 
         RecurrenceLogic.setupTimedRecurrenceChecks();
 
+        FXMLTuple mainLayout = DI.layouts.getFXMLInflater("main-layout.fxml").inflate();
         FXMLTuple itemList = DI.layouts.getFXMLInflater("items-list.fxml").inflate();
         ((ListController)itemList.getController()).setEntityListController(new HistoryListController());
         FXMLTuple itemTile = DI.layouts.getFXMLInflater("items-tile.fxml").inflate();
@@ -35,8 +36,8 @@ public class MainApplication extends Application {
         FXMLTuple settings = DI.layouts.getFXMLInflater("settings.fxml").inflate();
 
         primaryStage.setTitle("Pockets 0.0.2");
-        primaryStage.setMinWidth(450);
-        Scene scene = SceneFactory.getScene(itemList.getRoot(), 1600, 900);
+        primaryStage.setMinWidth(700);
+        Scene scene = SceneFactory.getScene(mainLayout.getRoot(), 1600, 900);
         primaryStage.setScene(scene);
         primaryStage.show();
 

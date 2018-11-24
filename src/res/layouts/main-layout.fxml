@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<HBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MainController"
+            styleClass="main-window">
+    <VBox styleClass="side-menu" prefWidth="200" minWidth="200">
+        <Label fx:id="historyMenuLabel" text="History" onMouseClicked="#historyMenuClicked" prefWidth="200" alignment="CENTER_LEFT"/>
+        <Label fx:id="incomeMenuLabel" text="Income sources" onMouseClicked="#incomeMenuClicked" prefWidth="200" alignment="CENTER_LEFT"/>
+        <Label fx:id="expenseMenuLabel" text="Expense items" onMouseClicked="#expenseMenuClicked" prefWidth="200" alignment="CENTER_LEFT"/>
+        <Label fx:id="tagMenuLabel" text="Tags" onMouseClicked="#tagMenuClicked" prefWidth="200" alignment="CENTER_LEFT"/>
+        <Label fx:id="settingsMenuLabel" text="Settings" onMouseClicked="#settingsMenuClicked" prefWidth="200" alignment="CENTER_LEFT"/>
+    </VBox>
+    <VBox fx:id="scenePane" styleClass="scene-pane" HBox.hgrow="ALWAYS">
+
+    </VBox>
+</HBox>

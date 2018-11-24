@@ -10,6 +10,7 @@ public class SceneFactory {
         Scene scene = new Scene(root, width, height);
         scene.getStylesheets().add(DI.styles.getResource("Roboto.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("general.css").toExternalForm());
+        scene.getStylesheets().add(DI.styles.getResource("main-panel.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("dialog.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("list.css").toExternalForm());
         scene.getStylesheets().add(DI.styles.getResource("scroll-pane.css").toExternalForm());

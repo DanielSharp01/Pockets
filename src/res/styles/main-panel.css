@@ -1,0 +1,22 @@
+.scene-pane
+{
+    -fx-padding: 0px 10px;
+}
+
+.side-menu
+{
+    -fx-padding: 12px 0px;
+}
+
+.side-menu .label
+{
+    -fx-font-size: 20px;
+    -fx-padding: 8px;
+    -fx-margin: 10px 0px;
+}
+
+.side-menu .label.selected
+{
+    -fx-background-color: #253A42;
+    -fx-text-fill: #eee;
+}
