@@ -25,7 +25,7 @@ public class MainApplication extends Application {
         RecurrenceLogic.setupTimedRecurrenceChecks();
 
         FXMLTuple mainLayout = DI.layouts.getFXMLInflater("main-layout.fxml").inflate();
-        primaryStage.setTitle("Pockets 0.0.2");
+        primaryStage.setTitle("Pockets 1.0");
         primaryStage.setMinWidth(700);
         Scene scene = SceneFactory.getScene(mainLayout.getRoot(), 1600, 900);
         primaryStage.setScene(scene);
