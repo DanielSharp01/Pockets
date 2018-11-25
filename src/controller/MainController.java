@@ -1,6 +1,7 @@
 package controller;
 
 import controller.list.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -62,7 +63,8 @@ public class MainController {
         selectedLabel = historyMenuLabel;
     }
 
-    public void historyMenuClicked(MouseEvent e) {
+    @FXML
+    private  void historyMenuClicked(MouseEvent e) {
         if (currentScene != Scenes.History)
         {
             scenePane.getChildren().clear();
@@ -77,7 +79,8 @@ public class MainController {
         }
     }
 
-    public void incomeMenuClicked(MouseEvent e) {
+    @FXML
+    private  void incomeMenuClicked(MouseEvent e) {
         if (currentScene != Scenes.Income)
         {
             scenePane.getChildren().clear();
@@ -92,7 +95,8 @@ public class MainController {
         }
     }
 
-    public void expenseMenuClicked(MouseEvent e) {
+    @FXML
+    private  void expenseMenuClicked(MouseEvent e) {
         if (currentScene != Scenes.Expense)
         {
             scenePane.getChildren().clear();
@@ -107,7 +111,8 @@ public class MainController {
         }
     }
 
-    public void tagMenuClicked(MouseEvent e) {
+    @FXML
+    private  void tagMenuClicked(MouseEvent e) {
         if (currentScene != Scenes.Tag)
         {
             scenePane.getChildren().clear();
@@ -122,7 +127,8 @@ public class MainController {
         }
     }
 
-    public void settingsMenuClicked(MouseEvent e) {
+    @FXML
+    private void settingsMenuClicked(MouseEvent e) {
         if (currentScene != Scenes.Settings)
         {
             scenePane.getChildren().clear();
@@ -134,5 +140,10 @@ public class MainController {
             settingsMenuLabel.getStyleClass().add("selected");
             selectedLabel = settingsMenuLabel;
         }
+    }
+
+    @FXML
+    private void exitMenuActionPerformed(ActionEvent e) {
+        scenePane.getScene().getWindow().hide();
     }
 }
