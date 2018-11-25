@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>928</x>
-      <y>232</y>
-      <w>160</w>
-      <h>56</h>
+      <x>2090</x>
+      <y>1450</y>
+      <w>200</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>MainApplication
 --
@@ -20,10 +20,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1224</x>
-      <y>168</y>
-      <w>280</w>
-      <h>232</h>
+      <x>2460</x>
+      <y>1370</y>
+      <w>350</w>
+      <h>290</h>
     </coordinates>
     <panel_attributes>Settings
 --
@@ -50,10 +50,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>248</y>
-      <w>160</w>
-      <h>24</h>
+      <x>2280</x>
+      <y>1470</y>
+      <w>200</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
@@ -61,10 +61,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>224</y>
-      <w>168</w>
-      <h>72</h>
+      <x>1720</x>
+      <y>1440</y>
+      <w>210</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>FXMLInflater
 --
@@ -78,10 +78,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>248</y>
-      <w>152</w>
-      <h>24</h>
+      <x>1920</x>
+      <y>1470</y>
+      <w>190</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
@@ -89,10 +89,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>608</x>
-      <y>352</y>
-      <w>240</w>
-      <h>72</h>
+      <x>1690</x>
+      <y>1600</y>
+      <w>300</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>FXMLTuple
 --
@@ -107,10 +107,10 @@ bg=yellow
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
-      <y>288</y>
-      <w>64</w>
-      <h>80</h>
+      <x>1820</x>
+      <y>1520</y>
+      <w>80</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;create&gt;&gt;</panel_attributes>
@@ -119,10 +119,10 @@ bg=yellow
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>280</y>
-      <w>176</w>
-      <h>120</h>
+      <x>1980</x>
+      <y>1510</y>
+      <w>220</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>200.0;10.0;200.0;130.0;10.0;130.0</additional_attributes>
@@ -130,10 +130,10 @@ bg=yellow
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>0</y>
-      <w>336</w>
-      <h>112</h>
+      <x>1620</x>
+      <y>1160</y>
+      <w>420</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>ResourceLocator
 --
@@ -150,10 +150,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
-      <y>104</y>
-      <w>64</w>
-      <h>136</h>
+      <x>1820</x>
+      <y>1290</y>
+      <w>80</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;create&gt;&gt;</panel_attributes>
@@ -162,10 +162,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>928</x>
-      <y>40</y>
-      <w>320</w>
-      <h>48</h>
+      <x>2090</x>
+      <y>1210</y>
+      <w>400</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>SceneFactory
 --
@@ -177,10 +177,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>880</x>
-      <y>56</y>
-      <w>64</w>
-      <h>24</h>
+      <x>2030</x>
+      <y>1230</y>
+      <w>80</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
@@ -188,10 +188,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>992</x>
-      <y>80</y>
-      <w>24</w>
-      <h>168</h>
+      <x>2170</x>
+      <y>1260</y>
+      <w>30</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
@@ -199,13 +199,21 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1264</x>
-      <y>472</y>
-      <w>232</w>
-      <h>152</h>
+      <x>2510</x>
+      <y>1750</y>
+      <w>330</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>SettingsController
 --
+-dateTimeFormatComboBox: ComboBox
+-displayCurrencyComboBox: ComboBox
+-alwaysShowSymbolOnRightCheckBox: CheckBox
+-useAPICheckBox: CheckBox
+-useEnvVarCheckBox: CheckBox
+-apiKeyField: TextField
+-apiErrorLabel: Label
+-submitButton: Button
 _-dateFormats: String[0..*]_
 -changedAPI: boolean
 --
@@ -222,10 +230,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1360</x>
-      <y>392</y>
-      <w>24</w>
-      <h>96</h>
+      <x>2630</x>
+      <y>1650</y>
+      <w>30</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
@@ -233,10 +241,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1224</x>
-      <y>704</y>
-      <w>320</w>
-      <h>152</h>
+      <x>2460</x>
+      <y>2120</y>
+      <w>400</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>CurrencySymbol
 --
@@ -256,23 +264,23 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1368</x>
-      <y>616</y>
-      <w>24</w>
-      <h>104</h>
+      <x>2640</x>
+      <y>2060</y>
+      <w>30</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>368</x>
-      <y>856</y>
-      <w>176</w>
-      <h>104</h>
+      <x>840</x>
+      <y>2490</y>
+      <w>220</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>Entity
+    <panel_attributes>/Entity/
 --
 &lt;&lt;get/set&gt;&gt; -id: int
 &lt;&lt;get/set&gt;&gt; -disabled: boolean
@@ -286,70 +294,70 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>368</x>
-      <y>728</y>
-      <w>176</w>
-      <h>56</h>
+      <x>540</x>
+      <y>2520</y>
+      <w>220</w>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
 IFilterable
 --
 +getWords(): Collection&lt;String&gt;
-bg=yellow</panel_attributes>
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>776</y>
-      <w>24</w>
-      <h>96</h>
+      <x>750</x>
+      <y>2550</y>
+      <w>110</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=.&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>720</y>
-      <w>312</w>
-      <h>72</h>
+      <x>240</x>
+      <y>2320</y>
+      <w>390</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
 IFilter
 --
 +filter(filterables: IFilterable[0..*]): IFilterable[0..*]
 +setFilteredListPredicate(filterables: FilteredList&lt;IFilterable&gt;)
-bg=yellow</panel_attributes>
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>304</x>
-      <y>752</y>
-      <w>80</w>
-      <h>24</h>
+      <x>600</x>
+      <y>2400</y>
+      <w>30</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
-      <y>984</y>
-      <w>144</w>
-      <h>144</h>
+      <x>1780</x>
+      <y>2390</y>
+      <w>210</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>Item
+    <panel_attributes>/Item/
 --
 &lt;&lt;get/set&gt;&gt; -name: String
 &lt;&lt;get/set&gt;&gt; -imageResource: Path
 &lt;&lt;get/set&gt;&gt; -color: Color
-&lt;&lt;get&gt;&gt; -tagIds: imt[0..*]
+&lt;&lt;get&gt;&gt; -tagIds: Integer[0..*]
 --
 +Item(id: int)
 +hashCode(): int
@@ -361,12 +369,12 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
-      <y>1280</y>
-      <w>304</w>
-      <h>112</h>
+      <x>1710</x>
+      <y>2760</y>
+      <w>380</w>
+      <h>140</h>
     </coordinates>
-    <panel_attributes>Recurrence
+    <panel_attributes>/Recurrence/
 --
 &lt;&lt;get/set&gt;&gt; #lastOccurrence: LocalDateTime
 &lt;&lt;get/set&gt;&gt; #everyX: int
@@ -381,34 +389,34 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>1120</y>
-      <w>128</w>
-      <h>176</h>
+      <x>1880</x>
+      <y>2560</y>
+      <w>160</w>
+      <h>220</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 m1=&lt;&lt;get/set&gt;&gt; -recurrence</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>1048</y>
-      <w>424</w>
-      <h>32</h>
+      <x>1980</x>
+      <y>2470</y>
+      <w>530</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 m1=&lt;&lt;get/set&gt;&gt; -money</panel_attributes>
-    <additional_attributes>10.0;10.0;510.0;10.0</additional_attributes>
+    <additional_attributes>510.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1248</x>
-      <y>992</y>
-      <w>248</w>
-      <h>136</h>
+      <x>2490</x>
+      <y>2400</y>
+      <w>310</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Money
 --
@@ -427,12 +435,2091 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1368</x>
-      <y>848</y>
-      <w>24</w>
+      <x>2640</x>
+      <y>2300</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>2510</y>
+      <w>490</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>SatisfyFilter
+--
+-words: String[0..*]
+--
++SatisfyFilter(searchTerm: String)
++filter(filterables: Collection&lt;IFilterable&gt;): Collection&lt;IFilterable&gt;
++setFilteredListPredicate(filterables: FilteredList&lt;IFilterable&gt;)
+-passesFilter(filterable: IFilterable): boolean
+-wordsContain(filterableWords: Collection&lt;String&gt;, word: String): boolean
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>2400</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>2090</y>
+      <w>370</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>/EntityRepository/
+template=T: Entity
+--
+-observableList: ObservableList&lt;T&gt;
+&lt;&lt;get&gt;&gt; -autoIncrement: int
+--
++EntityRepository(container: RepositoryContainer)
++add(entity: T): boolean
++update(entity: T): boolean
++delete(entity: T): boolean
++delete(id: int): boolean
++findById(id: int): T
++serialize(): String
++deserialize(json: String)
+/#deserializeArray(array: JsonArray): T[0..*]/
++iterator(): Iterator&lt;T&gt;
++asObservableList(): ObservableList&lt;T&gt;
++asFilteredList(): FilteredList&lt;T&gt;
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>2370</y>
+      <w>100</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=[key: int]-&gt;&gt;&gt;&gt;
+r2=#entities
+m2=0..*</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1290</x>
+      <y>2160</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>RepositoryContainer
+--
+_-expensesJSONFile: String_
+_-incomesJSONFile: String_
+_-tagsJSONFile: String_
+_-historyJSONFile: String_
+--
++save(): boolean
++load(): boolean
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>1850</y>
+      <w>370</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>IncomeRepository
+--
+--
++IncomeRepository(container: RepositoryContainer)
++filterBySearch(searchTerm: String): IncomeSource[0..*]
++withTag(tagId: int): IncomeSource[0..*]
++isUsedInHistory(item: IncomeSource): boolean
++deserializeArray(array: JsonArray): IncomeSource[0..*]
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>1850</y>
+      <w>360</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>ExpenseRepository
+--
+--
++ExpenseRepository(container: RepositoryContainer)
++filterBySearch(searchTerm: String): ExpenseItem[0..*]
++withTag(tagId: int): ExpenseItem[0..*]
++isUsedInHistory(item: ExpenseItem): boolean
++deserializeArray(array: JsonArray): ExpenseItem[0..*]
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>1850</y>
+      <w>440</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>HistoryRepository
+--
+--
++HistoryRepository(container: RepositoryContainer)
++forDay(date: LocalDate): List&lt;HistoryEntry&gt;
++add(entity: HistoryEntry): boolean
++withTag(tagId: int): List&lt;HistoryEntry&gt;
++swapItemIds(oldItemId: int, newItemId: int, type: HistoryEntry.Type)
++filterBySearch(searchTerm: String): List&lt;HistoryEntry&gt;
++deserializeArray(array: JsonArray): HistoryEntry[0..*]
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>1640</y>
+      <w>320</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>TagRepository
+--
+--
++TagRepository(container: RepositoryContainer)
++filterBySearch(searchTerm: String): Tag[0..*]
++isUsed(tag: Tag): boolean
++removeTagUsage(tag: Tag)
++deserializeArray(array: JsonArray): Tag[0..*]
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1910</y>
+      <w>220</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>1970</y>
+      <w>670</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>650.0;30.0;10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>1700</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>220.0;150.0;220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1710</y>
+      <w>380</w>
       <h>160</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>890</x>
+      <y>1750</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>2250</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=#container</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1390</x>
+      <y>2000</y>
+      <w>80</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=+history</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>1970</y>
+      <w>360</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=+incomes</panel_attributes>
+    <additional_attributes>340.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>1970</y>
+      <w>970</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=+expenses</panel_attributes>
+    <additional_attributes>890.0;190.0;810.0;100.0;120.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>1730</y>
+      <w>700</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=+tags</panel_attributes>
+    <additional_attributes>440.0;480.0;680.0;480.0;680.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1970</y>
+      <w>380</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; ExpenseItem&gt;</panel_attributes>
+    <additional_attributes>360.0;230.0;10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>1970</y>
+      <w>160</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; IncomeSource&gt;</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>2000</y>
+      <w>180</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; HistoryEntry&gt;</panel_attributes>
+    <additional_attributes>10.0;190.0;160.0;190.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>1750</y>
+      <w>100</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; Tag&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1610</x>
+      <y>2260</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>ExpenseItem
+--
+--
++ExpenseItem(id: int)
++clone(): ExpenseItem
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1910</x>
+      <y>2260</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>IncomeSource
+--
+--
++IncomeSource(id: int)
++clone(): IncomeSource
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1810</x>
+      <y>2320</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1880</x>
+      <y>2320</y>
+      <w>60</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>2530</y>
+      <w>750</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;730.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>2690</y>
+      <w>220</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Tag
+--
+&lt;&lt;get/set&gt;&gt; -name: String
+&lt;&lt;get/set&gt;&gt; -color: Color
+--
++Tag(id: int)
++getWords(): String[0..*]
++clone(): Tag
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>2680</y>
+      <w>460</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>HistoryEntry
+--
+&lt;&lt;get/set&gt;&gt; -itemId: int
+&lt;&lt;get/set&gt;&gt; -date: LocalDateTime
+&lt;&lt;get&gt;&gt; -tagIds: Integer[0..*]
+--
++HistoryEntry(id: int, itemId: int, itemType: Type, date: LocalDateTime)
++getItem(): Item
++getWords(): String[0..*]
++clone(): HistoryEntry
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>2940</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+HistoryEntry.Type
+--
+Expense
+Income
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1240</x>
+      <y>2830</y>
+      <w>150</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=&lt;&lt;get/set&gt;&gt; -itemType</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>2610</y>
+      <w>70</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>2610</y>
+      <w>70</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1960</y>
+      <w>280</w>
+      <h>740</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>260.0;720.0;260.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>1970</y>
+      <w>780</w>
+      <h>730</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>760.0;710.0;760.0;450.0;300.0;450.0;220.0;270.0;10.0;270.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1540</x>
+      <y>2980</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>NullRecurrence
+--
+--
++NullRecurrence()
++isOccurrence(date: LocalDate): boolean
++clone(): NullRecurrence
++toString(): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1860</x>
+      <y>2980</y>
+      <w>410</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>DailyRecurrence
+--
+--
++DailyRecurrence(lastOccurrence: LocalDateTime, everyX: int)
++DailyRecurrence(lastOccurrence: LocalDateTime)
++isOccurrence(date: LocalDate): boolean
++clone(): DailyRecurrence
++toString(): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2290</x>
+      <y>2980</y>
+      <w>420</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>WeeklyRecurrence
+--
+--
++WeeklyRecurrence(lastOccurrence: LocalDateTime, everyX: int)
++WeeklyRecurrence(lastOccurrence: LocalDateTime)
++isOccurrence(date: LocalDate): boolean
++clone(): WeeklyRecurrence
++toString(): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2290</x>
+      <y>2770</y>
+      <w>420</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>MonthlyRecurrence
+--
+--
++MonthlyRecurrence(lastOccurrence: LocalDateTime, everyX: int)
++MonthlyRecurrence(lastOccurrence: LocalDateTime)
++isOccurrence(date: LocalDate): boolean
++clone(): MonthlyRecurrence
++toString(): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2080</x>
+      <y>2820</y>
+      <w>230</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2080</x>
+      <y>2870</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0;240.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2060</x>
+      <y>2890</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1780</x>
+      <y>2890</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2920</x>
+      <y>1770</y>
+      <w>430</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>SettingsController.DateTimeFormatItem
+--
+-dateTimeFormatter: DateTimeFormatter
+&lt;&lt;get&gt;&gt; -format: String
+-displayDate: LocalDateTime
+--
++DateTimeFormatItem(format: String, displayDate: LocalDateTime)
++toString(): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2830</x>
+      <y>1830</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2260</x>
+      <y>1180</y>
+      <w>440</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>420.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2680</x>
+      <y>1000</y>
+      <w>460</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>MainController
+--
+-scenePane: Pane
+-historyMenuLabel: Label
+-incomeMenuLabel: Label
+-expenseMenuLabel: Label
+-tagMenuLabel: Label
+-settingsMenuLabel: Label
+-currentScene: Scenes
+-selectedLabel: Label
+--
+-initialize()
++historyMenuClicked(e: MouseEvent)
++incomeMenuClicked(e: MouseEvent)
++expenseMenuClicked(e: MouseEvent)
++tagMenuClicked(e: MouseEvent)
++settingsMenuClicked(e: MouseEvent)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2170</x>
+      <y>880</y>
+      <w>370</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ListController
+--
+-itemContents: ListView
+-filterField: TextField
+--
++initialize()
++setEntityListController(listController: EntityListController)
+-addButtonActionPerformed(e: ActionEvent)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2680</x>
+      <y>690</y>
+      <w>310</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>/EntityListController/
+template=T: Entity
+--
+#currentFilter: String
+--
+/+getFilteredList(): FilteredList&lt;T&gt;/
+/+Callback&lt;ListView, ListCell&gt;()/
+/+Callback&lt;TileListView, ViewHolder&gt;()/
++filterTextChanged(newFilter: String)
+/+newEntity()/
+/+edit(model: T)/
+/+delete(model: T)/
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2140</x>
+      <y>640</y>
+      <w>370</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>TileController
+--
+-itemContents: TilePane
+-filterField: TextField
+--
++initialize()
++setEntityListController(listController: EntityListController)
+-addButtonActionPerformed(e: ActionEvent)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1690</x>
+      <y>610</y>
+      <w>330</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>TileListView
+--
+-contents: TilePane
+&lt;&lt;get/set&gt;&gt; -items: ObservableList
+-listener: ListChangeListener
+-holders: List&lt;ViewHolder&gt;
+&lt;&lt;set&gt;&gt; -factory: Callback&lt;TileListView, ViewHolder&gt;
+--
++TileListView(content: TilePane)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2150</x>
+      <y>410</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/ViewHolder/
+template=T
+--
+--
+/+update(model: T)/
+/+getNode(): Node/
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2390</x>
+      <y>280</y>
+      <w>350</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>TagHolder
+--
+--
++TagHolder(listController: EntityListController&lt;Tag&gt;)
++update(item: Tag)
++getNode(): Node
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2390</x>
+      <y>480</y>
+      <w>350</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ItemHolder
+--
+--
++ItemHolder(listController: EntityListController&lt;Item&gt;)
++update(item: Item)
++getNode(): Node
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2790</x>
+      <y>340</y>
+      <w>400</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>HistoryCell
+--
+--
++HistoryCell(listController: EntityListController&lt;HistoryEntry&gt;)
+#updateItem(item: HistoryEntry, empty: boolean)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3250</x>
+      <y>870</y>
+      <w>300</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>HistoryListController
+--
+-filteredHistory: FilteredList&lt;HistoryEntry&gt;
+--
++HistoryListController()
++getFilteredList(): FilteredList&lt;HistoryEntry&gt;
++Callback&lt;ListView, ListCell&gt;()
++Callback&lt;TileListView, ViewHolder&gt;()
++newEntity()
++edit(model: HistoryEntry)
++delete(model: HistoryEntry)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3370</x>
+      <y>1170</y>
+      <w>260</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>TagListController
+--
+-filteredTags: FilteredList&lt;Tag&gt;
+--
++TagListController()
++getFilteredList(): FilteredList&lt;Tag&gt;
++Callback&lt;ListView, ListCell&gt;()
++Callback&lt;TileListView, ViewHolder&gt;()
++newEntity()
++edit(model: Tag)
++delete(model: Tag)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3540</x>
+      <y>630</y>
+      <w>300</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>IncomeListController
+--
+-filteredItems: FilteredList&lt;IncomeSource&gt;
+--
++IncomeListController()
++getFilteredList(): FilteredList&lt;IncomeSource&gt;
++Callback&lt;ListView, ListCell&gt;()
++Callback&lt;TileListView, ViewHolder&gt;()
++newEntity()
++edit(model: IncomeSource)
++delete(model: IncomeSource)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3620</x>
+      <y>890</y>
+      <w>300</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>ExpenseListController
+--
+-filteredItems: FilteredList&lt;ExpenseItem&gt;
+--
++ExpenseListController()
++getFilteredList(): FilteredList&lt;ExpenseItem&gt;
++Callback&lt;ListView, ListCell&gt;()
++Callback&lt;TileListView, ViewHolder&gt;()
++newEntity()
++edit(model: ExpenseItem)
++delete(model: ExpenseItem)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3350</x>
+      <y>0</y>
+      <w>270</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>TagComboItem
+--
+-imagePane: Pane
+-label: Label
+-hbox: HBox
+--
+#updateItem(item: Tag, empty: boolean)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3640</x>
+      <y>350</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ColorUtils
+--
+--
+_+fromHex(hex: String): Color_
+_+toHex(color: Color): String_
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3320</x>
+      <y>1410</y>
+      <w>430</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>IOUtils
+--
+--
+_+getPathInFolder(folder: Path, file: Path): Path_
+_+getUnusedNumberedPathInFolder(folder: Path, file: Path): Path_
+_+readAllFromURL(urlString: String): String_
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3440</x>
+      <y>1610</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ImageRepository
+--
+_+supportedImageFormats: String[0..*]_
+_+path: Path_
+--
++getImages(): List&lt;Path&gt;
++addImage(image: Path)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3550</x>
+      <y>1500</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2840</x>
+      <y>1530</y>
+      <w>480</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Dialogs
+--
+--
+_+showWarningYesNo(title: String, message: String): Optional&lt;ButtonType&gt;_
+_+showErrorOk(title: String, message: String)_
+_+showWarningOk(title: String, message: String)_
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3220</x>
+      <y>1610</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;220.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2240</x>
+      <y>1510</y>
+      <w>680</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;190.0;660.0;190.0;660.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3880</x>
+      <y>1420</y>
+      <w>430</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>JsonAPI
+--
+#apiUrl: String
+#apiKey: String
+#throttleSeconds: long
+#lastTimestamp: long
+--
++JsonAPI(apiUrl: String, apiKey: String, throttleSeconds: int)
++JsonAPI(apiUrl: String, apiKey: String)
++JsonAPI(apiUrl: String)
+#getRequestURL(): String
++requestString(): String
++requestJsonObject(): JsonObject
++requestIntoFile(file: Path)
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3820</x>
+      <y>1770</y>
+      <w>530</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>FileAssistedJsonAPI
+--
+#assistFile: Path
+--
++FileAssistedJsonAPI(apiUrl: String, apiKey: String, file: Path, throttleSeconds: int)
++FileAssistedJsonAPI(apiUrl: String, apiKey: String, file: Path)
++FileAssistedJsonAPI(apiUrl: String, file: Path)
++requestString(): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4060</x>
+      <y>1630</y>
+      <w>30</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>1450</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2120</x>
+      <y>230</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>DefaultViewHolder
+--
+-label: Label
+--
++update(model: Object)
++getNode(): Node
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2210</x>
+      <y>320</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; Object&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2280</x>
+      <y>360</y>
+      <w>160</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; Tag&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;140.0;100.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2220</x>
+      <y>490</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt;bind&gt;&gt;
+&lt;T -&gt; Item&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;170.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2070</x>
+      <y>70</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>EditableIntegerSpinner
+--
+--
++EditableIntegerSpinner()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2350</x>
+      <y>40</y>
+      <w>390</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>DateTimePicker
+--
+-lastKnownGood: LocalDateTime
+&lt;&lt;get/set&gt;&gt; -dateTimeValue: ObjectProperty&lt;LocalDateTime&gt;
+--
++DateTimePicker()
+-resetLastKnownGood()
++dateTimeValueProperty(): ObjectProperty&lt;LocalDateTime&gt;
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>1430</y>
+      <w>380</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>DI
+--
+_+gson: Gson_
+--
+_+swapRepositories(testRepositories: RepositoryContainer)_
+_+getRepositories(): RepositoryContainer_
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2000</x>
+      <y>1770</y>
+      <w>440</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>RecurrenceLogic
+--
+--
+_+setupTimedRecurrenceChecks()_
+_+checkRecurrencesNow()_
+_+checkRecurrences(lastTime: LocalDateTime, now: LocalDateTime)_
+_-checkRecurrenceOnDay(date: LocalDate)_
+_-checkRecurrenceToday(dateTime: LocalDateTime)_
+_-addToHistory(item: Item, at: LocalDateTime)_
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2200</x>
+      <y>1510</y>
+      <w>30</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2370</x>
+      <y>1650</y>
+      <w>110</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1740</x>
+      <y>1840</y>
+      <w>280</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>260.0;10.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2010</x>
+      <y>1900</y>
+      <w>40</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2060</x>
+      <y>1900</y>
+      <w>150</w>
+      <h>880</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>120.0;10.0;130.0;370.0;10.0;690.0;10.0;860.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1430</x>
+      <y>1880</y>
+      <w>590</w>
+      <h>820</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>570.0;10.0;280.0;10.0;10.0;800.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1490</x>
+      <y>1810</y>
+      <w>530</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>510.0;10.0;10.0;380.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2890</x>
+      <y>2390</y>
+      <w>520</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>CurrencyConverter
+--
+-currencyRates: HashMap&lt;String, BigDecimal&gt;
+-canUse: boolean
+_-currencyRatesFile: String_
+_-apiRequestURL: String_
+--
++setCurrencyRate(currencyCode: String, value: BigDecimal)
++convert(fromCode: String, fromValue: BigDecimal, toCode: String): BigDecimal
++deserializeRates(json: String)
++requestAPI(onlyFile: boolean): boolean
++canUseConverter(): boolean
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3400</x>
+      <y>1890</y>
+      <w>490</w>
+      <h>570</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=_-api_</panel_attributes>
+    <additional_attributes>10.0;550.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4400</x>
+      <y>1500</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>/ValidationRule/
+--
+--
+/+validate(field: String): String/
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4450</x>
+      <y>1640</y>
+      <w>720</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>ValidatedField
+--
+-field: TextField
+-errorLabel: Label
+-validationCallback: Consumer&lt;Boolean&gt;
+-failCallback: Runnable
+--
++ValidatedField(field: TextField, errorLabel: Label, rule: ValidationRule)
++ValidatedField(field: TextField, errorLabel: Label, rule: ValidationRule, validationCallback: Consumer&lt;Boolean&gt;)
++validate(text: String)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4530</x>
+      <y>1550</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=-rule</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4700</x>
+      <y>1500</y>
+      <w>200</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>NonEmptyRule
+--
+--
++validate(field: String): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4670</x>
+      <y>1350</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>ValidationRuleList
+--
+--
++ValidationRuleList(rules: ValidationRule)
++validate(field: String): String
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4590</x>
+      <y>1410</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4600</x>
+      <y>1520</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4490</x>
+      <y>1370</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-rules
+r1=0..*</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4160</x>
+      <y>1090</y>
+      <w>430</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>HistoryItemController
+--
+~mainPanel: Pane
+~backgroundPane: Pane
+~nameLabel: Label
+~priceLabel: Label
+~dateLabel: Label
+~tagBox: Pane
+--
++setListController(listController: EntityListController&lt;HistoryEntry&gt;)
++setModel(model: HistoryEntry)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4170</x>
+      <y>870</y>
+      <w>380</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>ItemController
+--
+~mainPanel: Pane
+~backgroundPane: Pane
+~nameLabel: Label
+~priceLabel: Label
+~recurrenceLabel: Label
+~tagBox: Pane
+--
++setListController(listController: EntityListController&lt;Item&gt;)
++setModel(model: Item)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4610</x>
+      <y>800</y>
+      <w>380</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>TagController
+--
+~mainPanel: Pane
+~nameLabel: Label
+--
++setListController(listController: EntityListController&lt;Tag&gt;)
++setModel(model: Tag)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4170</x>
+      <y>590</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>/EditController/
+template=T: Entity
+--
+&lt;&lt;get/set&gt;&gt; #model: T
+--
+/#updateModel()/
++setStage(stage: EditDialogStage)
++submit()
++cancel(): boolean
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4130</x>
+      <y>360</y>
+      <w>630</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>EditDialogStage
+template=T
+--
+-submitted: boolean
+--
++EditDialogStage(rootNode: Parent, width: double, height: double, controller: EditController&lt;T&gt;)
++gotSubmitted()
++showAndWaitForSubmit(model: T): boolean
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4850</x>
+      <y>440</y>
+      <w>560</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>HistoryEditController
+--
+-itemTypeField: ComboBox
+-incomeField: ComboBox
+-expenseField: ComboBox
+-itemErrorLabel: Label
+-addTagField: ComboBox
+-tagBox: FlowPane
+-submitButton: Button
+--
++initialize()
+-changeItemType(type: String)
++setModel(model: HistoryEntry)
+#updateModel()
+-setupTagBox()
+-addItemActionPerformed(e: ActionEvent)
+-addTagActionPerformed(e: ActionEvent)
+-submitActionPerformed(e: ActionEvent)
+-cancelActionPerformed(e: ActionEvent)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5170</x>
+      <y>850</y>
+      <w>290</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>ItemEditController
+--
+-nameField: TextField
+-nameErrorLabel: Label
+-priceLabel: Label
+-priceField: TextField
+-priceErrorLabel: Label
+-imageField: ComboBox
+-colorField: ColorPicker
+-recurrenceTypeField: ComboBox
+-recurrenceXLabel: Label
+-addTagField: ComboBox
+-tagBox: FlowPane
+-submitButton: Button
+--
++initialize()
+-setupValidation()
++setModel(model: Item)
+#updateModel()
+-setupTagBox()
+-addImageActionPerformed(e: ActionEvent)
+-addTagActionPerformed(e: ActionEvent)
+-submitActionPerformed(e: ActionEvent)
+-cancelActionPerformed(e: ActionEvent)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5400</x>
+      <y>1350</y>
+      <w>270</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>TagEditController
+--
+-nameField: TextField
+-nameErrorLabel: Label
+-colorField: ColorPicker
+-submitButton: Button
+--
++initialize()
+-setupValidation()
++setModel(model: Tag)
+#updateModel()
+-submitActionPerformed(e: ActionEvent)
+-cancelActionPerformed(e: ActionEvent)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2890</x>
+      <y>1320</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+MainController.Scenes
+--
+History
+Income
+Expense
+Tag
+Settings
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2970</x>
+      <y>1250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2790</x>
+      <y>2490</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3920</x>
+      <y>1320</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;exception&gt;&gt;
+JsonAPI.APIKeyNotFoundException
+--
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4070</x>
+      <y>1360</y>
+      <w>90</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;throws&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2780</x>
+      <y>0</y>
+      <w>270</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ImageComboItem
+--
+-imagePane: Pane
+-label: Label
+-hbox: HBox
+--
+#updateItem(item: Path, empty: boolean)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3070</x>
+      <y>0</y>
+      <w>270</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ItemComboItem
+--
+-imagePane: Pane
+-label: Label
+-hbox: HBox
+--
+#updateItem(item: Item, empty: boolean)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>1250</y>
+      <w>310</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+resources_</panel_attributes>
+    <additional_attributes>290.0;10.0;150.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1310</x>
+      <y>1210</y>
+      <w>330</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+layouts_</panel_attributes>
+    <additional_attributes>310.0;10.0;160.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1270</x>
+      <y>1170</y>
+      <w>370</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+styles_</panel_attributes>
+    <additional_attributes>350.0;10.0;180.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>1120</y>
+      <w>110</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+userImages_</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>1080</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;reference&gt;&gt;
+ImageRepository
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1150</x>
+      <y>1510</y>
+      <w>160</w>
+      <h>740</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+repositories_</panel_attributes>
+    <additional_attributes>140.0;710.0;10.0;710.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1100</x>
+      <y>1510</y>
+      <w>210</w>
+      <h>810</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+testRepositories_</panel_attributes>
+    <additional_attributes>190.0;780.0;10.0;780.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>1080</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;reference&gt;&gt;
+CurrencyConverter
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1240</x>
+      <y>1120</y>
+      <w>150</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=_+currencyConverter_</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>1160</y>
+      <w>790</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>LocalDateTimeAdapter
+--
+--
++deserialize(jsonElement: JsonElement, type: Type, jsonDeserializationContext: JsonDeserializationContext): LocalDateTime
++serialize(localDateTime: LocalDateTime, type: Type, jsonSerializationContext: JsonSerializationContext): JsonElement
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>1320</y>
+      <w>790</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>PathAdapter
+--
+--
++deserialize(jsonElement: JsonElement, type: Type, jsonDeserializationContext: JsonDeserializationContext): Path
++serialize(path: Path, type: Type, jsonSerializationContext: JsonSerializationContext): JsonElement
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>1450</y>
+      <w>790</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ColorAdapter
+--
+--
++deserialize(jsonElement: JsonElement, type: Type, jsonDeserializationContext: JsonDeserializationContext): Color
++serialize(color: Color, type: Type, jsonSerializationContext: JsonSerializationContext): JsonElement
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>1460</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>1390</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>1260</y>
+      <w>190</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>1520</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>1020</y>
+      <w>800</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>RecurrenceAdapter
+--
+--
++serialize(recurrence: Recurrence, type: Type, context: JsonSerializationContext): JsonElement
++deserialize(jsonElement: JsonElement, type: Type, context: JsonDeserializationContext): Recurrence
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>1090</y>
+      <w>210</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>1600</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;reference&gt;&gt;
+ColorUtils
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>900</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;reference&gt;&gt;
+/Recurrence/
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>940</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>290</x>
+      <y>510</y>
+      <w>610</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>*Warning*
+
+Due to the mess that this 70+ class class diagram is going to be, I declare a couple custom
+stereotypes and somewhat "rules" to make it managable.
+
+_Custom stereotypes:_
+1. &lt;&lt;get/set&gt;&gt; or just &lt;&lt;get&gt;&gt; or &lt;&lt;set&gt;&gt; streotypes mean that the field has a public getter/setter.
+2. &lt;&lt;reference&gt;&gt; stereotype to refer to an already existing classifier (class/interface/enum)
+3. &lt;&lt;throws&gt;&gt; dependency stereotype for custom exception throw
+4. &lt;&lt;exception&gt;&gt; Class stereotype for custom exceptions
+
+_Dependency "rules":_
+
+Not every dependency is going to be explicitly stated. I try my best but most dependencies will
+still be implicitly inherited from the one they already have.
+
+As an example depending on a class automatically makes that class's field type be depended
+on.
+
+Writing these out would require me to formalize this, which I don't have the bain power to do.
+I'm not going to be the one making UML usable.
+bg=red</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
