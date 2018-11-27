@@ -217,8 +217,8 @@ public class HistoryEditController extends EditController<HistoryEntry> {
             EditDialogStage<Item> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 600, (EditController<Item>) tuple.getController());
             editDialog.setTitle("Add income source");
             IncomeSource item = new IncomeSource(0);
-            editDialog.showAndWaitForSubmit(item);
-            incomeField.setValue(((EditController<Item>) tuple.getController()).getModel());
+            if (editDialog.showAndWaitForSubmit(item))
+                incomeField.setValue(((EditController<Item>) tuple.getController()).getModel());
         }
         else
         {
@@ -226,8 +226,8 @@ public class HistoryEditController extends EditController<HistoryEntry> {
             EditDialogStage<Item> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 600, (EditController<Item>) tuple.getController());
             editDialog.setTitle("Add expense item");
             ExpenseItem item = new ExpenseItem(0);
-            editDialog.showAndWaitForSubmit(item);
-            expenseField.setValue(((EditController<Item>) tuple.getController()).getModel());
+            if (editDialog.showAndWaitForSubmit(item))
+                expenseField.setValue(((EditController<Item>) tuple.getController()).getModel());
         }
     }
 

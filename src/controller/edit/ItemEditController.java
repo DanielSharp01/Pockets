@@ -342,6 +342,7 @@ public class ItemEditController extends EditController<Item> {
                 label.setText(tag.getName());
                 label.setStyle("-fx-background-color: " + ColorUtils.toHex(tag.getColor()) + ";");
                 label.getStyleClass().add("tag-label");
+                label.getStyleClass().add("editable");
                 tagBox.getChildren().add(label);
                 addTagField.getItems().remove(tag);
             }

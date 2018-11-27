@@ -101,15 +101,15 @@ public class CurrencyConverter {
             deserializeRates(api.requestString());
             if (!canUse)
             {
-                Dialogs.showWarningOk("No currency converter data.", "The currency converter can't be used as there" +
-                        "is no currency-rates.json file in the app's folder. Please consider turning on the API once to download" +
+                Dialogs.showWarningOk("No currency converter data.", "The currency converter can't be used as there " +
+                        "is no currency-rates.json file in the app's folder. Please consider turning on the API once to download " +
                         "the data at least once, or provide one manually. See the user documentation for more details.");
             }
             return canUse;
         } catch (IOException e) {
             return false;
         } catch (JsonAPI.APIKeyNotFoundException e) {
-            Dialogs.showWarningOk("API key not found.", "You set to use the Open Exchange Rates API but did not supply a valid API key," +
+            Dialogs.showWarningOk("API key not found.", "You set to use the Open Exchange Rates API but did not supply a valid API key, " +
                     "check the settings or your environment variables. Keep in mind that you must restart this application after setting and environment variable.");
             return false;
         }

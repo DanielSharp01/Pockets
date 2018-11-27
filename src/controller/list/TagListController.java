@@ -50,7 +50,7 @@ public class TagListController extends EntityListController<Tag> {
     @Override
     public void newEntity() {
         FXMLTuple tuple = editDialogInflater.inflate();
-        EditDialogStage<Tag> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 400, (EditController<Tag>) tuple.getController());
+        EditDialogStage<Tag> editDialog = new EditDialogStage<>(tuple.getRoot(), 380, 260, (EditController<Tag>) tuple.getController());
         editDialog.setTitle("Add tag");
         Tag tag = new Tag(0);
         tag.setName(currentFilter);

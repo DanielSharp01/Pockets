@@ -166,6 +166,9 @@ public class SettingsController {
 
         useEnvVarCheckBox.setSelected(Settings.getInstance().areUsingEnvironmentVariableApiKey());
         setUseEnvironmentVariable(Settings.getInstance().areUsingEnvironmentVariableApiKey());
+
+        changedAPI = false;
+        validateAPI();
     }
 
     /**
