@@ -63,6 +63,14 @@ public class ExpenseListController extends EntityListController<ExpenseItem> {
 
     @Override
     public void delete(ExpenseItem model) {
-        DI.getRepositories().expenses.delete(model);
+        if (DI.getRepositories().expenses.isUsedInHistory(model))
+        {
+            model.setDisabled(true);
+            DI.getRepositories().expenses.update(model);
+        }
+        else
+        {
+            DI.getRepositories().expenses.delete(model);
+        }
     }
 }

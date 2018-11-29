@@ -68,5 +68,9 @@ public class IncomeListController extends EntityListController<IncomeSource> {
             model.setDisabled(true);
             DI.getRepositories().incomes.update(model);
         }
+        else
+        {
+            DI.getRepositories().incomes.delete(model);
+        }
     }
 }
